@@ -8,9 +8,9 @@
 <ul>
   <li>导航栏需要包装 <code class="highlighter-rouge">.navbar</code> 并通过<code class="highlighter-rouge">.navbar-expand{-sm|-md|-lg|-xl}</code> 用于响应式折叠和 <a href="#color-schemes">配色方案</a> 类。.</li>
   <li>默认情况下，Navbars及其内容是浮动的。 使用 <a href="#containers">optional containers</a> 限制它们的水平宽度。</li>
-  <li>使用我们的 <a href="/docs/4.1/utilities/spacing/">spacing</a> 和 <a href="/docs/4.1/utilities/flex/">flex</a> 用于控制导航栏中间距和对齐的工具。</li>
+  <li>使用我们的间距和 Flex 工具用于控制导航栏中间距和对齐。</li>
   <li>默认情况下，导航栏会响应，但你可以轻松修改它们以更改它。 响应行为取决于我们的Collapse JavaScript插件。</li>
-  <li>打印时默认隐藏导航栏。 强制他们通过添加打印 <code class="highlighter-rouge">.d-print</code> 在 <code class="highlighter-rouge">navbar</code>上。 查看<a href="/docs/4.1/utilities/display/">display</a> 工具类</li>
+  <li>打印时默认隐藏导航栏。 强制他们通过添加打印 <code class="highlighter-rouge">.d-print</code> 在 <code class="highlighter-rouge">navbar</code>上。 查看 工具->显示 了解更多。</li>
   <li>使用 <code class="highlighter-rouge">&lt;nav&gt;</code> 元素确保亲和性，或者如果使用更通用的元素，如  <code class="highlighter-rouge">&lt;div&gt;</code>，在导览列中添加一个  <code class="highlighter-rouge">role="navigation"</code>  ，为使用者的辅助技术明确标识为导览区域。</li>
 </ul>
 
@@ -104,7 +104,7 @@
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/nav&gt;</span></code></pre></figure>
 
-<p>本范例使用<a href="/docs/4.1/utilities/colors/">color</a> (<code class="highlighter-rouge">bg-light</code>) and <a href="/docs/4.1/utilities/spacing/">spacing</a> (<code class="highlighter-rouge">my-2</code>, <code class="highlighter-rouge">my-lg-0</code>, <code class="highlighter-rouge">mr-sm-0</code>, <code class="highlighter-rouge">my-sm-0</code>) 工具。</p>
+<p>本范例使用 工具->颜色 (<code class="highlighter-rouge">bg-light</code>) 和 工具->间距 (<code class="highlighter-rouge">my-2</code>, <code class="highlighter-rouge">my-lg-0</code>, <code class="highlighter-rouge">mr-sm-0</code>, <code class="highlighter-rouge">my-sm-0</code>) 。</p>
 
 <h3 id="brand">品牌</h3>
 
@@ -598,7 +598,7 @@
 
 <p>使用定位通用类别将导览列放置在非静态位置。从固定在顶部、固定在底部或 黏(stickied) 在顶部中选择。 <strong>請注意，<code class="highlighter-rouge">position: sticky</code>用於<code class="highlighter-rouge">.sticky-top</code> <a href="https://caniuse.com/#feat=css-sticky">这并非在每个流览器都完全支持</a></strong></p>
 
-<p>使用我們的 <a href="/docs/4.1/utilities/position/">定位通用类别</a> 将导览列放置在非静态位置。选择固定到顶部、固定到底部、或粘贴到顶部（当页面滚动至物件位置时，会固定在顶部并停留在那裡）。 固定的导览列使用<code class="highlighter-rouge">position：fixed'，这意味著从 DOM 的正常定位中被拉出，并且可能需要自定义CSS（例如 </code>&lt;body&gt;<code class="highlighter-rouge"> 上的 </code>padding-top`），以防止与其他元素重叠。</p>
+<p>使用我們的 工具->定位 将导览列放置在非静态位置。选择固定到顶部、固定到底部、或粘贴到顶部（当页面滚动至物件位置时，会固定在顶部并停留在那裡）。 固定的导览列使用<code class="highlighter-rouge">position：fixed'，这意味著从 DOM 的正常定位中被拉出，并且可能需要自定义CSS（例如 </code>&lt;body&gt;<code class="highlighter-rouge"> 上的 </code>padding-top`），以防止与其他元素重叠。</p>
 
 <p>还要注意 <strong><code class="highlighter-rouge">.sticky-top</code> 使用 <code class="highlighter-rouge">position：sticky</code>，在每个浏览器中都<a href="https://caniuse.com/#feat=css-sticky">不完全支持</a></strong>。</p>
 
