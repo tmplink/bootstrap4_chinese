@@ -1,0 +1,407 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">轮播</h1>
+          <p class="bd-lead">用于图片元素、幻灯片或包含文本的轮播元件。</p>
+
+          <h2 id="how-it-works">如何运作</h2>
+
+<p>轮播是一个幻灯片，是使用 CSS 3D 的变形转换和一些 JavaScript 构建一系列内容产生的轮回播放。它适用于一系列图像、文本或自定义标记。它还包括对上一个 / 下一个控制项和指示器的支持。</p>
+
+<p>在支持页面可见性 API 的浏览器中，当网页对用户不可见时，轮播将避免滑动（例如浏览器分页不是启动状态或浏览器视窗最小化等）。</p>
+
+<p>请注意，不支持嵌套轮播，而轮播通常不符合无障碍标准。</p>
+
+<p>最后，如果你要自行编译 JS，记得 requires <code class="highlighter-rouge">util.js</code>。</p>
+
+<h2 id="example">实例</h2>
+
+<p>轮播不会自动使幻灯片尺寸标准化。因此，你可能需要使用其它通用类别或自定义样式来调整成适当内容大小。虽然轮播支持上一个/下一个控制项和指示器，但是它们不是必备项目。可根据你的需要添加和自定义。</p>
+
+<p><strong>需要将 <code class="highlighter-rouge">.active</code> 添加到其中一个轮播元素上</strong> 否则轮播将不可见。另外一定要在 <code class="highlighter-rouge">.carousel</code> 上为控制项组件设置一个唯一的 id，特别是如果你在一个页面上使用多个轮播。控制项和指示器元素必须具有与 <code class="highlighter-rouge">.carousel</code> 元素的 <code class="highlighter-rouge">data-target</code> 须与 id 的属性匹配(或者是有链接的  <code class="highlighter-rouge">href</code>)</p>
+
+<h3 id="slides-only">只有幻灯片</h3>
+
+<p>这是一个只有幻灯片的轮播。 请注意在轮播图像上存在 <code class="highlighter-rouge">.d-block</code> 和 <code class="highlighter-rouge">.w-100</code> 属性以修正浏览器预设的图像对齐。</p>
+
+<div class="bd-example">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide" />
+    </div>
+  </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleSlidesOnly"</span> <span class="na">class=</span><span class="s">"carousel slide"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide"</span> <span class="na">alt=</span><span class="s">"First slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"</span> <span class="na">alt=</span><span class="s">"Second slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"</span> <span class="na">alt=</span><span class="s">"Third slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h3 id="with-controls">包含控制项</h3>
+
+<p>加入向前及向后的控制项：</p>
+
+<div class="bd-example">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide" />
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleControls"</span> <span class="na">class=</span><span class="s">"carousel slide"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide"</span> <span class="na">alt=</span><span class="s">"First slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"</span> <span class="na">alt=</span><span class="s">"Second slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"</span> <span class="na">alt=</span><span class="s">"Third slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-prev"</span> <span class="na">href=</span><span class="s">"#carouselExampleControls"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-prev-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-next"</span> <span class="na">href=</span><span class="s">"#carouselExampleControls"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-next-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h3 id="with-indicators">包含指示器</h3>
+
+<p>你还可以将指示器与控制项一起添加到轮播中。</p>
+
+<div class="bd-example">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide" />
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleIndicators"</span> <span class="na">class=</span><span class="s">"carousel slide"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"carousel-indicators"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">data-slide-to=</span><span class="s">"0"</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">data-slide-to=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">data-slide-to=</span><span class="s">"2"</span><span class="nt">&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide"</span> <span class="na">alt=</span><span class="s">"First slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"</span> <span class="na">alt=</span><span class="s">"Second slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"</span> <span class="na">alt=</span><span class="s">"Third slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-prev"</span> <span class="na">href=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-prev-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-next"</span> <span class="na">href=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-next-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h3 id="with-captions">包含字幕</h3>
+
+<p>在<code class="highlighter-rouge">.carousel-item</code> 中使用 <code class="highlighter-rouge">.carousel-caption</code> 添加字幕到你的幻灯片。 它们会隐藏在较小的 viewport 上，如下所示，可用的显示工具。 我们最初用<code class="highlighter-rouge">.d-none</code> 隐藏它们，并将它们显示在中型的设置上 （使用 <code class="highlighter-rouge">.d-md-block</code>）。</p>
+
+<div class="bd-example">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption d-none d-md-block"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5&gt;</span>...<span class="nt">&lt;/h5&gt;</span>
+    <span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h3 id="crossfade">交叉淡入淡出</h3>
+
+<p>将 <code class="highlighter-rouge">.carousel-fade</code> 加到轮播中，以使用淡入淡出的取代滑动的动画效果。</p>
+
+<div class="bd-example">
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide" />
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleFade"</span> <span class="na">class=</span><span class="s">"carousel slide carousel-fade"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide"</span> <span class="na">alt=</span><span class="s">"First slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"</span> <span class="na">alt=</span><span class="s">"Second slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"</span> <span class="na">alt=</span><span class="s">"Third slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-prev"</span> <span class="na">href=</span><span class="s">"#carouselExampleFade"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-prev-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-next"</span> <span class="na">href=</span><span class="s">"#carouselExampleFade"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-next-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="usage">用法</h2>
+
+<h3 id="via-data-attributes">通过 data 属性</h3>
+
+<p>使用 data 属性可以轻松控制轮播的位置。 <code class="highlighter-rouge">data-slide</code> 接受 <code class="highlighter-rouge">prev</code> 或 <code class="highlighter-rouge">next</code> 的关键字， 它们相对于当前位置进而改变幻灯片位置。或者，使用 <code class="highlighter-rouge">data-slide-to</code> 将原始幻灯片索引转换到 <code class="highlighter-rouge">data-slide-to="2"</code>，将幻灯片位置移动到以 0 开头的特定索引。</p>
+
+<p>The <code class="highlighter-rouge">data-ride="carousel"</code> attribute is used to mark a carousel as animating starting at page load. <strong>It cannot be used in combination with (redundant and unnecessary) explicit JavaScript initialization of the same carousel.</strong></p>
+
+<h3 id="via-javascript">通过 JavaScript</h3>
+
+<p>通过以下方法使用轮播：</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.carousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">()</span></code></pre></figure>
+
+<h3 id="options">选项</h3>
+
+<p>可以通过 data 属性或 JavaScript 调整选项。对于 data 属性，将选项名称附加到 <code class="highlighter-rouge">data-</code>，如 <code class="highlighter-rouge">data-interval=""</code>。</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th style="width: 100px;">名称</th>
+      <th style="width: 50px;">类别</th>
+      <th style="width: 50px;">默认</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>interval</td>
+      <td>number</td>
+      <td>5000</td>
+      <td>一个项目自动轮回之间延迟的时间。 如果为 false ，轮播不会自动重播。</td>
+    </tr>
+    <tr>
+      <td>数值</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>轮播是否对于键盘事件有反应。</td>
+    </tr>
+    <tr>
+      <td>pause</td>
+      <td>string | boolean</td>
+      <td>"hover"</td>
+      <td><p>如果设置为 <code>"hover"</code>, 轮播会因为 <code>mouseenter</code> 而暂停并在 <code>mouseleave</code> 时再度执行。如果设置 <code>false</code>，滑入时将不会停止轮播。</p>
+      <p>在触控装置上  <code>"hover"</code>。在重播恢复之前，轮播将停止于 <code>touchend</code> (直到用户与轮播的互动) 两次之间的期间。注意，这是除了滑鼠行为以外。</p></td>
+    </tr>
+    <tr>
+      <td>ride</td>
+      <td>string</td>
+      <td>false</td>
+      <td>用户手动播放第一个后自动轮播。如果是 "carousel" 在轮播载入后自动播放。</td>
+    </tr>
+    <tr>
+      <td>wrap</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>轮播是否应该连续循环或停止。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="methods">方法</h3>
+
+<div class="bd-callout bd-callout-danger">
+<h4 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h4>
+
+<p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They return to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
+
+<p><a href="/docs/4.1/getting-started/javascript/">See our JavaScript documentation for more information.</a></p>
+</div>
+
+<h4 id="carouseloptions"><code class="highlighter-rouge">.carousel(options)</code></h4>
+
+<p>初始化通过 <code class="highlighter-rouge">object</code> 设定并开始执行轮播。.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.carousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">({</span>
+  <span class="na">interval</span><span class="p">:</span> <span class="mi">2000</span>
+<span class="p">})</span></code></pre></figure>
+
+<h4 id="carouselcycle"><code class="highlighter-rouge">.carousel('cycle')</code></h4>
+
+<p>从左到右循环播放。</p>
+
+<h4 id="carouselpause"><code class="highlighter-rouge">.carousel('pause')</code></h4>
+
+<p>将物件的循环从轮播中停止</p>
+
+<h4 id="carouselnumber"><code class="highlighter-rouge">.carousel(number)</code></h4>
+
+<p>将轮播指向到特定的影格（基于 0，类似于阵列）。 <strong> 在目标项目被显示之前回传给调用者</strong> (在发生 <code class="highlighter-rouge">slid.bs.carousel</code> 事件之前)。</p>
+
+<h4 id="carouselprev"><code class="highlighter-rouge">.carousel('prev')</code></h4>
+
+<p>将轮播指向前一个物件。 <strong>在前一个物件显示前回传给调用者</strong> (在发生 <code class="highlighter-rouge">slid.bs.carousel</code> 事件之前)。</p>
+
+<h4 id="carouselnext"><code class="highlighter-rouge">.carousel('next')</code></h4>
+
+<p>将轮播指向下一个物件。 <strong>在前一个物件显示前回传给调用者</strong> (在发生 <code class="highlighter-rouge">slid.bs.carousel</code> 事件之前)。</p>
+
+<h4 id="carouseldispose"><code class="highlighter-rouge">.carousel('dispose')</code></h4>
+
+<p>销毁一个元素的轮播</p>
+
+<h3 id="events">事件</h3>
+
+<p>Bootstrap 提供了两个事件给予轮播使用。 两个事件都具有以下附加属性：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">direction</code>: 轮播滑动的方向 ( <code class="highlighter-rouge">"left"</code> 或 <code class="highlighter-rouge">"right"</code>)。</li>
+  <li><code class="highlighter-rouge">relatedTarget</code>： 被作为启用的物件滑动到指定 DOM 元素。</li>
+  <li><code class="highlighter-rouge">from</code>：当前物件的索引</li>
+  <li><code class="highlighter-rouge">to</code>：下一个物件的索引</li>
+</ul>
+
+<p>所有轮播事件都在轮播本身（即 <code class="highlighter-rouge">&lt;div class="carousel"&gt;</code>）下被触发。</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th style="width: 150px;">事件类型</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>slide.bs.carousel</td>
+      <td>当调用 <code>slide</code> 方法时，此事件会立即触发。</td>
+    </tr>
+    <tr>
+      <td>slid.bs.carousel</td>
+      <td>轮播完成切换后，此事件就被触发。</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCarousel'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'slide.bs.carousel'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span></code></pre></figure>
+
+<h3 id="change-transition-duration">改变转换速率</h3>
+
+<p>如果你使用自行编译的 CSS，则可以调整 <code class="highlighter-rouge">$carousel-transition</code>Sass 变数来改变转换的速率。如果使用多个转换效果，请确保 transform 的效果是优先定义的 (例如： <code class="highlighter-rouge">transition: transform 2s ease, opacity .5s ease-out</code>).</p>
+</div>

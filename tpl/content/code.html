@@ -1,0 +1,54 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">代码</h1>
+          <p class="bd-lead">这里教你如何使用 bootstrap 来展示多行代码</p>
+
+          <h2 id="inline-code">行内代码</h2>
+
+<p>在 <code class="highlighter-rouge">&lt;code&gt;</code> 里编写行内代码，请务必转义HTML的尖括号。</p>
+
+<div class="bd-example">
+For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">For example, <span class="nt">&lt;code&gt;</span><span class="ni">&amp;lt;</span>section<span class="ni">&amp;gt;</span><span class="nt">&lt;/code&gt;</span> should be wrapped as inline.</code></pre></figure>
+
+<h2 id="code-blocks">大段引用</h2>
+<p>在 <code class="highlighter-rouge">&lt;pre&gt;</code> 里编写多行代码。 再次确保在代码中转义任何尖括号以进行正确渲染。 你可以选择添加 <code class="highlighter-rouge">.pre-scrollable</code> 类，它将设置最大高度为340px并提供y轴滚动条。</p>
+
+<div class="bd-example">
+<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;p&gt;And another line of sample text here...&lt;/p&gt;
+</code></pre>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Sample text here...<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>And another line of sample text here...<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="nt">&lt;/code&gt;&lt;/pre&gt;</span></code></pre></figure>
+
+<h2 id="variables">变量</h2>
+
+<p>使用 <code class="highlighter-rouge">&lt;var&gt;</code> 标记变量。 </p>
+
+<div class="bd-example">
+<var>y</var> = <var>m</var><var>x</var> + <var>b</var>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;var&gt;</span>y<span class="nt">&lt;/var&gt;</span> = <span class="nt">&lt;var&gt;</span>m<span class="nt">&lt;/var&gt;&lt;var&gt;</span>x<span class="nt">&lt;/var&gt;</span> + <span class="nt">&lt;var&gt;</span>b<span class="nt">&lt;/var&gt;</span></code></pre></figure>
+
+<h2 id="user-input">按钮</h2>
+
+<p>你可以使用 <code class="highlighter-rouge">&lt;kbd&gt;</code> 来标记键盘上的按钮，这看起来很生动。</p>
+
+<div class="bd-example">
+To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br />
+To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">To switch directories, type <span class="nt">&lt;kbd&gt;</span>cd<span class="nt">&lt;/kbd&gt;</span> followed by the name of the directory.<span class="nt">&lt;br&gt;</span>
+To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span class="nt">&lt;/kbd&gt;</span> + <span class="nt">&lt;kbd&gt;</span>,<span class="nt">&lt;/kbd&gt;&lt;/kbd&gt;</span></code></pre></figure>
+
+<h2 id="sample-output">输出</h2>
+
+<p>使用 <code class="highlighter-rouge">&lt;samp&gt;</code> 标签来展示可能的输出结果</p>
+
+<div class="bd-example">
+<samp>This text is meant to be treated as sample output from a computer program.</samp>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;samp&gt;</span>This text is meant to be treated as sample output from a computer program.<span class="nt">&lt;/samp&gt;</span></code></pre></figure>
+</div>

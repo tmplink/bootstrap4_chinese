@@ -1,0 +1,211 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">媒体对象</h1>
+          <p class="bd-lead">构建高度重复的组件，如博客评论，推文等。</p>
+
+          <h2 id="example">例子</h2>
+
+<p>媒体对象有助于构建复杂且重复的组件，其中一些媒体与不包围所述媒体的内容并置。 此外，由于 flexbox，它只需要两个必需的类。</p>
+
+<p>以下是单个媒体对象的示例。 只需要两个类 - 包裹 <code class="highlighter-rouge">.media</code> 和 <code class="highlighter-rouge">.media-body</code> 围绕你的内容。 可选的填充和边距可以通过 spacing 工具来控制。</p>
+
+<div class="bd-example">
+<div class="media">
+  <img class="mr-3" data-src="holder.js/64x64" alt="Generic placeholder image" />
+  <div class="media-body">
+    <h5 class="mt-0">标题</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"mr-3"</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0"</span><span class="nt">&gt;</span>标题<span class="nt">&lt;/h5&gt;</span>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="flexbug-12-inline-elements-arent-treated-as-flex-items">Flexbug #12: 内联元素不被视为弹性项</h5>
+
+<p>Internet Explorer 10-11不会将内联元素（如链接或图像（或 :: before 和 :: after 伪元素））渲染为弹性项目。 唯一的解决方法是设置非内联显示值（例如，块，内联块或 flex ）。 我们建议使用我们的显示工具之一 .d-flex 作为一个简单的修复程序。</p>
+
+<p><strong>信息来源</strong> <a href="https://github.com/philipwalton/flexbugs#flexbug-12">Flexbugs on GitHub</a></p>
+</div>
+
+<h2 id="nesting">嵌套</h2>
+
+<p>媒体对象可以无限嵌套，但我们建议你在某个时候停止。 将嵌套的 <code class="highlighter-rouge">.media</code> 放在父媒体对象的 <code class="highlighter-rouge">.media-body</code> 中。</p>
+
+<div class="bd-example">
+<div class="media">
+  <img class="mr-3" data-src="holder.js/64x64" alt="Generic placeholder image" />
+  <div class="media-body">
+    <h5 class="mt-0">标题</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+    <div class="media mt-3">
+      <a class="pr-3" href="#">
+        <img data-src="holder.js/64x64" alt="Generic placeholder image" />
+      </a>
+      <div class="media-body">
+        <h5 class="mt-0">标题</h5>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"mr-3"</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0"</span><span class="nt">&gt;</span>标题<span class="nt">&lt;/h5&gt;</span>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media mt-3"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"pr-3"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0"</span><span class="nt">&gt;</span>标题<span class="nt">&lt;/h5&gt;</span>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="alignment">对齐</h2>
+
+<p>媒体对象中的媒体可以与flexbox工具对齐到 <code class="highlighter-rouge">.media-body</code> 内容的顶部（默认），中间或末尾。</p>
+
+<div class="bd-example">
+<div class="media">
+  <img class="align-self-start mr-3" data-src="holder.js/64x64" alt="Generic placeholder image" />
+  <div class="media-body">
+    <h5 class="mt-0">顶部对齐</h5>
+    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+    <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+  </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"align-self-start mr-3"</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0"</span><span class="nt">&gt;</span>顶部对齐<span class="nt">&lt;/h5&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<div class="bd-example">
+<div class="media">
+  <img class="align-self-center mr-3" data-src="holder.js/64x64" alt="Generic placeholder image" />
+  <div class="media-body">
+    <h5 class="mt-0">中间对齐</h5>
+    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+    <p class="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+  </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"align-self-center mr-3"</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0"</span><span class="nt">&gt;</span>中间对齐<span class="nt">&lt;/h5&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<div class="bd-example">
+<div class="media">
+  <img class="align-self-end mr-3" data-src="holder.js/64x64" alt="Generic placeholder image" />
+  <div class="media-body">
+    <h5 class="mt-0">底部对齐</h5>
+    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+    <p class="mb-0">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+  </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"align-self-end mr-3"</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0"</span><span class="nt">&gt;</span>底部对齐<span class="nt">&lt;/h5&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="order">顺序</h2>
+
+<p>通过修改 HTML 本身或通过添加一些自定义 Flexbox CSS 来设置 <code class="highlighter-rouge">order</code> 属性（更改为你选择的值）来更改媒体对象中的内容顺序。</p>
+
+<div class="bd-example">
+<div class="media">
+  <div class="media-body">
+    <h5 class="mt-0 mb-1">Media object</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+  <img class="ml-3" data-src="holder.js/64x64" alt="Generic placeholder image" />
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0 mb-1"</span><span class="nt">&gt;</span>Media object<span class="nt">&lt;/h5&gt;</span>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"ml-3"</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="media-list">列表</h2>
+
+<p>由于媒体对象具有如此少的结构要求，因此你还可以在列表 HTML 元素上使用这些类。 在 <code class="highlighter-rouge">&lt;ul&gt;</code> 或 <code class="highlighter-rouge">&lt;ol&gt;</code> 上，添加 <code class="highlighter-rouge">.list-unstyled</code> 以删除任何浏览器默认列表样式，然后将 <code class="highlighter-rouge">.media</code> 应用于 <code class="highlighter-rouge">&lt;li&gt;</code>。 与往常一样，在需要微调的地方使用 spacing 工具。 </p>
+
+<div class="bd-example">
+<ul class="list-unstyled">
+  <li class="media">
+    <img class="mr-3" data-src="holder.js/64x64" alt="Generic placeholder image" />
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">List-based media object</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </li>
+  <li class="media my-4">
+    <img class="mr-3" data-src="holder.js/64x64" alt="Generic placeholder image" />
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">List-based media object</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </li>
+  <li class="media">
+    <img class="mr-3" data-src="holder.js/64x64" alt="Generic placeholder image" />
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">List-based media object</h5>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </li>
+</ul>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-unstyled"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"mr-3"</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0 mb-1"</span><span class="nt">&gt;</span>List-based media object<span class="nt">&lt;/h5&gt;</span>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"media my-4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"mr-3"</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0 mb-1"</span><span class="nt">&gt;</span>List-based media object<span class="nt">&lt;/h5&gt;</span>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"mr-3"</span> <span class="na">src=</span><span class="s">".../64x64"</span> <span class="na">alt=</span><span class="s">"Generic placeholder image"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mt-0 mb-1"</span><span class="nt">&gt;</span>List-based media object<span class="nt">&lt;/h5&gt;</span>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+</div>

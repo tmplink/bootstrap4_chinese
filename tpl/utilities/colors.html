@@ -1,0 +1,125 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">颜色</h1>
+          <p class="bd-lead">借助一些颜色工具让颜色的表达更具有意义。同时也支持有 hover 状态的链接样式。</p>
+          <h2 id="color">Color</h2>
+
+<div class="bd-example">
+
+<p class="text-primary">.text-primary</p>
+<p class="text-secondary">.text-secondary</p>
+<p class="text-success">.text-success</p>
+<p class="text-danger">.text-danger</p>
+<p class="text-warning">.text-warning</p>
+<p class="text-info">.text-info</p>
+<p class="text-light bg-dark">.text-light</p>
+<p class="text-dark">.text-dark</p>
+<p class="text-body">.text-body</p>
+<p class="text-muted">.text-muted</p>
+<p class="text-white bg-dark">.text-white</p>
+<p class="text-black-50">.text-black-50</p>
+<p class="text-white-50 bg-dark">.text-white-50</p>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-primary"</span><span class="nt">&gt;</span>.text-primary<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-secondary"</span><span class="nt">&gt;</span>.text-secondary<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-success"</span><span class="nt">&gt;</span>.text-success<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-danger"</span><span class="nt">&gt;</span>.text-danger<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-warning"</span><span class="nt">&gt;</span>.text-warning<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-info"</span><span class="nt">&gt;</span>.text-info<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-light bg-dark"</span><span class="nt">&gt;</span>.text-light<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-dark"</span><span class="nt">&gt;</span>.text-dark<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-body"</span><span class="nt">&gt;</span>.text-body<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-muted"</span><span class="nt">&gt;</span>.text-muted<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-white bg-dark"</span><span class="nt">&gt;</span>.text-white<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-black-50"</span><span class="nt">&gt;</span>.text-black-50<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-white-50 bg-dark"</span><span class="nt">&gt;</span>.text-white-50<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<p>上下文文本也提供 hover 和 focus 状态，对于链接类型也同时能顺利运行<strong>注意 <code class="highlighter-rouge">.text-white</code> and <code class="highlighter-rouge">.text-muted</code> 类没有链接样式。</strong></p>
+
+<div class="bd-example">
+
+<p><a href="#" class="text-primary">Primary link</a></p>
+<p><a href="#" class="text-secondary">Secondary link</a></p>
+<p><a href="#" class="text-success">Success link</a></p>
+<p><a href="#" class="text-danger">Danger link</a></p>
+<p><a href="#" class="text-warning">Warning link</a></p>
+<p><a href="#" class="text-info">Info link</a></p>
+<p><a href="#" class="text-light bg-dark">Light link</a></p>
+<p><a href="#" class="text-dark">Dark link</a></p>
+<p><a href="#" class="text-muted">Muted link</a></p>
+<p><a href="#" class="text-white bg-dark">White link</a></p>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-primary"</span><span class="nt">&gt;</span>Primary link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-secondary"</span><span class="nt">&gt;</span>Secondary link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-success"</span><span class="nt">&gt;</span>Success link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-danger"</span><span class="nt">&gt;</span>Danger link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-warning"</span><span class="nt">&gt;</span>Warning link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-info"</span><span class="nt">&gt;</span>Info link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-light bg-dark"</span><span class="nt">&gt;</span>Light link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-dark"</span><span class="nt">&gt;</span>Dark link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-muted"</span><span class="nt">&gt;</span>Muted link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"text-white bg-dark"</span><span class="nt">&gt;</span>White link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span></code></pre></figure>
+
+<h2 id="background-color">背景颜色</h2>
+
+<p>与上下文文本颜色类相似，可轻易将背景颜色加到元素中。链接元素将会在 hover 上变暗，就像文字类型一样。背景色 <strong>不要设置 <code class="highlighter-rouge">color</code></strong> 样式，应尽可能使用 <code class="highlighter-rouge">.text-*</code> 工具。</p>
+
+<div class="bd-example">
+
+<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+<div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+<div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+<div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+<div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+<div class="p-3 mb-2 bg-info text-white">.bg-info</div>
+<div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+<div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+<div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+<div class="p-3 mb-2 bg-transparent text-dark">.bg-transparent</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-primary text-white"</span><span class="nt">&gt;</span>.bg-primary<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-secondary text-white"</span><span class="nt">&gt;</span>.bg-secondary<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-success text-white"</span><span class="nt">&gt;</span>.bg-success<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-danger text-white"</span><span class="nt">&gt;</span>.bg-danger<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-warning text-dark"</span><span class="nt">&gt;</span>.bg-warning<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-info text-white"</span><span class="nt">&gt;</span>.bg-info<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-light text-dark"</span><span class="nt">&gt;</span>.bg-light<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-dark text-white"</span><span class="nt">&gt;</span>.bg-dark<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-white text-dark"</span><span class="nt">&gt;</span>.bg-white<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-transparent text-dark"</span><span class="nt">&gt;</span>.bg-transparent<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="background-gradient">背景渐变</h2>
+
+<p>当 <code class="highlighter-rouge">$enable-gradients</code> 设置为true时，你将可以使用 <code class="highlighter-rouge">.bg-gradient-</code> 的工具。默认情况下， <strong>By default, <code class="highlighter-rouge">$enable-gradients</code> 是停用的，下面的例子是故意显示错误的。这是为了在你开始使用 Bootstrap 时更容易进行自定义。了解我们的 Sass 选项启用这些 Class 和更多。</p>
+
+<div class="bd-example">
+
+<div class="p-3 mb-2 bg-gradient-primary text-white">.bg-gradient-primary</div>
+<div class="p-3 mb-2 bg-gradient-secondary text-white">.bg-gradient-secondary</div>
+<div class="p-3 mb-2 bg-gradient-success text-white">.bg-gradient-success</div>
+<div class="p-3 mb-2 bg-gradient-danger text-white">.bg-gradient-danger</div>
+<div class="p-3 mb-2 bg-gradient-warning text-dark">.bg-gradient-warning</div>
+<div class="p-3 mb-2 bg-gradient-info text-white">.bg-gradient-info</div>
+<div class="p-3 mb-2 bg-gradient-light text-dark">.bg-gradient-light</div>
+<div class="p-3 mb-2 bg-gradient-dark text-white">.bg-gradient-dark</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-gradient-primary text-white"</span><span class="nt">&gt;</span>.bg-gradient-primary<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-gradient-secondary text-white"</span><span class="nt">&gt;</span>.bg-gradient-secondary<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-gradient-success text-white"</span><span class="nt">&gt;</span>.bg-gradient-success<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-gradient-danger text-white"</span><span class="nt">&gt;</span>.bg-gradient-danger<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-gradient-warning text-dark"</span><span class="nt">&gt;</span>.bg-gradient-warning<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-gradient-info text-white"</span><span class="nt">&gt;</span>.bg-gradient-info<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-gradient-light text-dark"</span><span class="nt">&gt;</span>.bg-gradient-light<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"p-3 mb-2 bg-gradient-dark text-white"</span><span class="nt">&gt;</span>.bg-gradient-dark<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<div class="bd-callout bd-callout-info">
+<h4 id="dealing-with-specificity">处理例外情况</h4>
+
+<p>有时候上下文文本并无法应用在其他的选取器，解决方案是元素的外层补上一个<code class="highlighter-rouge">&lt;div&gt;</code> 在应用该类。</p>
+</div>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="conveying-meaning-to-assistive-technologies">传达辅助技术的意义</h5>
+
+<p>使用颜色添加含义仅提供视觉指示，这些指示不会传达给辅助技术的用户 - 例如屏幕阅读器。 确保颜色表示的信息从内容本身（例如可见文本）中显而易见，或者通过其他方式包含，例如隐藏在其中的附加文本 <code class="highlighter-rouge">.sr-only</code> 类。</p>
+</div>
+</div>

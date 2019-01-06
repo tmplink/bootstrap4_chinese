@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>Bootstrap4 - 中文文档 - 工具</title>
+        <meta name="description" content="Bootstrap 4 中文文档，运用 bootstrap 工具轻松解决各种需求。" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/domloader.js"></script>
+        <link href="../css/domloader.css" rel="stylesheet"/>
+        <script>
+            domloader.init();
+            domloader.preload('../config/init.html');
+            domloader.preload('../config/pre.html');
+            domloader.html('#tpl_borders', 'tpl/utilities/borders.html');
+            domloader.html('#tpl_clearfix', 'tpl/utilities/clearfix.html');
+            domloader.html('#tpl_close_icon', 'tpl/utilities/close_icon.html');
+            domloader.html('#tpl_colors', 'tpl/utilities/colors.html');
+            domloader.html('#tpl_display', 'tpl/utilities/display.html');
+            domloader.html('#tpl_embeds', 'tpl/utilities/embeds.html');
+            domloader.html('#tpl_flex', 'tpl/utilities/flex.html');
+            domloader.html('#tpl_float', 'tpl/utilities/float.html');
+            domloader.html('#tpl_image_replacement', 'tpl/utilities/image_replacement.html');
+            domloader.html('#tpl_overflow', 'tpl/utilities/overflow.html');
+            domloader.html('#tpl_position', 'tpl/utilities/position.html');
+            domloader.html('#tpl_screenreaders', 'tpl/utilities/screenreaders.html');
+            domloader.html('#tpl_shadows', 'tpl/utilities/shadows.html');
+            domloader.html('#tpl_sizing', 'tpl/utilities/sizing.html');
+            domloader.html('#tpl_spacing', 'tpl/utilities/spacing.html');
+            domloader.html('#tpl_text', 'tpl/utilities/text.html');
+            domloader.html('#tpl_vertical_alignment', 'tpl/utilities/vertical_alignment.html');
+            domloader.html('#tpl_visibility', 'tpl/utilities/visibility.html');
+            domloader.onload(function () {
+                $('#nav_utilities').addClass('active');
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="container">
+                <div id="tpl_header"></div>
+                <div class="row">
+                    <div class="col-12 d-block d-lg-none">
+                        <div class="nav nav-pills d-flex justify-content-center" role="tablist">
+                            <a class="nav-link active show" href="#tab_borders"  role="tab" data-toggle="pill">边框</a>
+                            <a class="nav-link" href="#tab_clearfix"  role="tab" data-toggle="pill">清除浮动</a>
+                            <a class="nav-link" href="#tab_close_icon"  role="tab" data-toggle="pill">关闭图标</a>
+                            <a class="nav-link" href="#tab_colors"  role="tab" data-toggle="pill">颜色</a>
+                            <a class="nav-link" href="#tab_display"  role="tab" data-toggle="pill">显示</a>
+                            <a class="nav-link" href="#tab_embeds"  role="tab" data-toggle="pill">嵌入</a>
+                            <a class="nav-link" href="#tab_flex"  role="tab" data-toggle="pill">flex</a>
+                            <a class="nav-link" href="#tab_float"  role="tab" data-toggle="pill">浮动</a>
+                            <a class="nav-link" href="#tab_image_replacement"  role="tab" data-toggle="pill">图片替换</a>
+                            <a class="nav-link" href="#tab_overflow"  role="tab" data-toggle="pill">内容溢出</a>
+                            <a class="nav-link" href="#tab_position"  role="tab" data-toggle="pill">定位</a>
+                            <a class="nav-link" href="#tab_screenreaders"  role="tab" data-toggle="pill">屏幕阅读器</a>
+                            <a class="nav-link" href="#tab_shadows"  role="tab" data-toggle="pill">阴影</a>
+                            <a class="nav-link" href="#tab_sizing"  role="tab" data-toggle="pill">尺寸</a>
+                            <a class="nav-link" href="#tab_spacing"  role="tab" data-toggle="pill">间距</a>
+                            <a class="nav-link" href="#tab_text"  role="tab" data-toggle="pill">文本</a>
+                            <a class="nav-link" href="#tab_vertical_alignment"  role="tab" data-toggle="pill">垂直对齐</a>
+                            <a class="nav-link" href="#tab_visibility"  role="tab" data-toggle="pill">可见性</a>
+                        </div>
+                    </div>
+                    <div class="col-2 d-lg-block d-none">
+                        <div class="nav nav-pills flex-column" role="tablist">
+                            <a class="nav-link active show" href="#tab_borders"  role="tab" data-toggle="pill">边框</a>
+                            <a class="nav-link" href="#tab_clearfix"  role="tab" data-toggle="pill">清除浮动</a>
+                            <a class="nav-link" href="#tab_close_icon"  role="tab" data-toggle="pill">关闭图标</a>
+                            <a class="nav-link" href="#tab_colors"  role="tab" data-toggle="pill">颜色</a>
+                            <a class="nav-link" href="#tab_display"  role="tab" data-toggle="pill">显示</a>
+                            <a class="nav-link" href="#tab_embeds"  role="tab" data-toggle="pill">嵌入</a>
+                            <a class="nav-link" href="#tab_flex"  role="tab" data-toggle="pill">flex</a>
+                            <a class="nav-link" href="#tab_float"  role="tab" data-toggle="pill">浮动</a>
+                            <a class="nav-link" href="#tab_image_replacement"  role="tab" data-toggle="pill">图片替换</a>
+                            <a class="nav-link" href="#tab_overflow"  role="tab" data-toggle="pill">内容溢出</a>
+                            <a class="nav-link" href="#tab_position"  role="tab" data-toggle="pill">定位</a>
+                            <a class="nav-link" href="#tab_screenreaders"  role="tab" data-toggle="pill">屏幕阅读器</a>
+                            <a class="nav-link" href="#tab_shadows"  role="tab" data-toggle="pill">阴影</a>
+                            <a class="nav-link" href="#tab_sizing"  role="tab" data-toggle="pill">尺寸</a>
+                            <a class="nav-link" href="#tab_spacing"  role="tab" data-toggle="pill">间距</a>
+                            <a class="nav-link" href="#tab_text"  role="tab" data-toggle="pill">文本</a>
+                            <a class="nav-link" href="#tab_vertical_alignment"  role="tab" data-toggle="pill">垂直对齐</a>
+                            <a class="nav-link" href="#tab_visibility"  role="tab" data-toggle="pill">可见性</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="tab-content" role="tabpanel">
+                            <div role="tabpanel" class="tab-pane  active" id="tab_borders"><div id="tpl_borders"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_clearfix"><div id="tpl_clearfix"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_close_icon"><div id="tpl_close_icon"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_colors"><div id="tpl_colors"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_display"><div id="tpl_display"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_embeds"><div id="tpl_embeds"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_flex"><div id="tpl_flex"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_float"><div id="tpl_float"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_image_replacement"><div id="tpl_image_replacement"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_overflow"><div id="tpl_overflow"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_position"><div id="tpl_position"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_screenreaders"><div id="tpl_screenreaders"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_shadows"><div id="tpl_shadows"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_sizing"><div id="tpl_sizing"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_spacing"><div id="tpl_spacing"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_text"><div id="tpl_text"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_vertical_alignment"><div id="tpl_vertical_alignment"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_visibility"><div id="tpl_visibility"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tpl_footer"></div>
+        </div>
+    </body>
+</html>
+

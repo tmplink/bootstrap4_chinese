@@ -1,0 +1,164 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">简介</h1>
+          <p class="bd-lead">布置 Bootstrap 项目的组件和设置，包括包装容器，强大的栅格系统，灵活的媒体对象和响应式工具。</p>
+
+          <h2 id="containers">容器</h2>
+
+<p>容器（Containers）是 Bootstrap 中最基本的布局基础。特别是，如果要使用栅格系统来进行布局时。容器会根据屏幕大小来选择合适的宽度，这是全自动的。</p>
+
+<p>虽然容器可以嵌套，但大多数布局不需要嵌套容器。</p>
+
+<div class="bd-example">
+  <div class="bd-example-container">
+    <div class="bd-example-container-header"></div>
+    <div class="bd-example-container-sidebar"></div>
+    <div class="bd-example-container-body"></div>
+  </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Content here --&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<p>对于全宽容器，使用 <code class="highlighter-rouge">.container-fluid</code> ，跨越 viewport 的整个宽度。</p>
+
+<div class="bd-example">
+  <div class="bd-example-container bd-example-container-fluid">
+    <div class="bd-example-container-header"></div>
+    <div class="bd-example-container-sidebar"></div>
+    <div class="bd-example-container-body"></div>
+  </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="responsive-breakpoints">响应式断点</h2>
+
+<p>Bootstrap 是基于移动设备优先的理念设计的。因此我们使用少量媒体查询为我们的布局和界面创建合理的断点。 这些断点主要基于最小 viewport 宽度，并允许我们在 viewport 更改时放大元素。</p>
+
+<p>Bootstrap 主要在我们的布局，栅格系统和组件的源 Sass 文件中使用以下媒体查询范围或断点。</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Extra small devices (portrait phones, less than 576px)</span>
+<span class="c1">// No media query for `xs` since this is the default in Bootstrap</span>
+
+<span class="c1">// Small devices (landscape phones, 576px and up)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">576px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Medium devices (tablets, 768px and up)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">768px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Large devices (desktops, 992px and up)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">992px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Extra large devices (large desktops, 1200px and up)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">1200px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span></code></pre></figure>
+
+<p>由于我们在 Sass 中编写源 CSS，因此我们所有的媒体查询都可以通过 Sass mixins 获得：</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">md</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">lg</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">xl</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Example: Hide starting at `min-width: 0`, and then show at the `sm` breakpoint</span>
+<span class="nc">.custom-class</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.custom-class</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>我们偶尔会使用向另一个方向（给定屏幕尺寸或更小）的媒体查询：</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Extra small devices (portrait phones, less than 576px)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="m">575</span><span class="mi">.98px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Small devices (landscape phones, less than 768px)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="m">767</span><span class="mi">.98px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Medium devices (tablets, less than 992px)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="m">991</span><span class="mi">.98px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Large devices (desktops, less than 1200px)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="m">1199</span><span class="mi">.98px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Extra large devices (large desktops)</span>
+<span class="c1">// No media query since the extra-large breakpoint has no upper bound on its width</span></code></pre></figure>
+
+<div class="bd-callout bd-callout-info">
+<p>请注意，由于浏览器当前不支持范围上下文查询，因此我们通过使用更高的值来解决具有小数宽度的 min- 和 max- 前缀 和 viewport 的限制（例如，在高dpi设备的某些条件下可能会出现这种情况） 这些比较的精确度。</p>
+</div>
+
+<p>再次，这些媒体查询也可以通过 Sass mixins 获得：</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@include</span> <span class="nd">media-breakpoint-down</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-down</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-down</span><span class="p">(</span><span class="n">md</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-down</span><span class="p">(</span><span class="n">lg</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="c1">// No media query necessary for xl breakpoint as it has no upper bound on its width</span>
+
+<span class="c1">// Example: Style from medium breakpoint and down</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-down</span><span class="p">(</span><span class="n">md</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.custom-class</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>还有媒体查询和mixin，用于使用最小和最大断点宽度来定位单个屏幕尺寸。</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Extra small devices (portrait phones, less than 576px)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="m">575</span><span class="mi">.98px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Small devices (landscape phones, 576px and up)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">576px</span><span class="p">)</span> <span class="nf">and</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="m">767</span><span class="mi">.98px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Medium devices (tablets, 768px and up)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">768px</span><span class="p">)</span> <span class="nf">and</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="m">991</span><span class="mi">.98px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Large devices (desktops, 992px and up)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">992px</span><span class="p">)</span> <span class="nf">and</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="m">1199</span><span class="mi">.98px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="c1">// Extra large devices (large desktops, 1200px and up)</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">1200px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span></code></pre></figure>
+
+<p>这些媒体查询也可以通过Sass mixins获得：</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@include</span> <span class="nd">media-breakpoint-only</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-only</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-only</span><span class="p">(</span><span class="n">md</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-only</span><span class="p">(</span><span class="n">lg</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@include</span> <span class="nd">media-breakpoint-only</span><span class="p">(</span><span class="n">xl</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span></code></pre></figure>
+
+<p>同样，媒体查询可能跨越多个断点宽度：</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Example</span>
+<span class="c1">// Apply styles starting from medium devices and up to extra large devices</span>
+<span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">768px</span><span class="p">)</span> <span class="nf">and</span> <span class="p">(</span><span class="n">max-width</span><span class="o">:</span> <span class="m">1199</span><span class="mi">.98px</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span></code></pre></figure>
+
+<p>针对相同屏幕尺寸范围的 Sass mixin 将是：</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@include</span> <span class="nd">media-breakpoint-between</span><span class="p">(</span><span class="n">md</span><span class="o">,</span> <span class="n">xl</span><span class="p">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span></code></pre></figure>
+
+<h2 id="z-index">Z-index</h2>
+
+<p>几个 Bootstrap 组件使用 z-index，CSS 属性通过提供z轴来排列内容来帮助控制布局。 我们在 Bootstrap 中使用默认的 z-index 值，该值旨在正确地分层导航，工具提示和弹出窗口，模态等。</p>
+
+<p>这些较高的值从任意数字开始，高且具体到足以理想地避免冲突。 我们需要在我们的分层组件中使用这些标准集 - 工具提示，弹出窗口，导航栏，下拉菜单，模态 - 因此我们可以在行为中合理地保持一致。 我们使用100+或500+。</p>
+
+<p>我们不鼓励定制这些值; 如果你换一个，你可能需要修改很多地方。</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$zindex-dropdown</span><span class="p">:</span>          <span class="m">1000</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$zindex-sticky</span><span class="p">:</span>            <span class="m">1020</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$zindex-fixed</span><span class="p">:</span>             <span class="m">1030</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$zindex-modal-backdrop</span><span class="p">:</span>    <span class="m">1040</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$zindex-modal</span><span class="p">:</span>             <span class="m">1050</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$zindex-popover</span><span class="p">:</span>           <span class="m">1060</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$zindex-tooltip</span><span class="p">:</span>           <span class="m">1070</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span></code></pre></figure>
+
+<p>为了处理组件内的重叠边界（例如，输入组中的按钮和输入），我们使用1,2和3的低单位数z-index值作为默认，悬停和活动状态。 在悬停/焦点/活动时，我们将一个特定元素带到最前面，使用更高的z-index值来显示它们在兄弟元素上的边界。</p>
+</div>

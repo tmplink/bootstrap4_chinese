@@ -1,0 +1,52 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">无障碍访问</h1>
+          <p class="bd-lead">简要介绍 Bootstrap 创建可访问内容的功能和限制。</p>
+
+          <p>Bootstrap提供了一个易于使用的现成样式，布局工具和交互式组件框架，允许开发人员创建具有视觉吸引力，功能丰富且开箱即用的网站和应用程序。</p>
+
+<h2 id="overview-and-limitations">概述和限制</h2>
+
+<p>使用 Bootstrap 构建的任何项目的整体可访问性在很大程度上取决于作者的标记，其他样式以及它们包含的脚本。 但是，如果这些已经正确实现，那么使用 Bootstrap 创建满足<a href="https://www.w3.org/TR/WCAG20/"> <abbr title="网页内容无障碍指南"> WCAG </abbr> 2.0 </a>（A / AA / AAA）的网站和应用程序应该是完全可能的。 <a href="https://www.section508.gov/">第508条</a>及类似的辅助功能 标准和要求。</p>
+
+<h3 id="structural-markup">结构标记</h3>
+
+<p>Bootstrap 的样式和布局可以应用于各种标记结构。 本文档旨在为开发人员提供最佳实践示例，以演示 Bootstrap 本身的使用，并说明适当的语义标记，包括可以解决潜在可访问性问题的方法。</p>
+
+<h3 id="interactive-components">交互组件</h3>
+
+<p>Bootstrap 的交互式组件 - 例如模态对话框，下拉菜单和自定义工具提示 - 旨在用于触摸，鼠标和键盘用户。 通过使用相关的<a href="https://www.w3.org/WAI/intro/aria"> <abbr title="Web Accessibility Initiative"> WAI </abbr>  -  <abbr title="Accessible Rich Internet Applications"> ARIA </abbr> </a>角色和属性，这些组件也应该是可理解的，并且可以使用辅助技术（例如屏幕阅读器）进行操作。</p>
+
+<p>由于 Bootstrap 的组件是专门设计为相当通用的，因此作者可能需要包含更多ARIA角色和属性以及 JavaScript 行为，以更准确地传达其组件的精确性质和功能。 这通常在文档中注明。</p>
+
+<h3 id="color-contrast">颜色对比度</h3>
+
+<p>目前构成 Bootstrap 默认调色板的大多数颜色 - 在整个框架中用于按钮变化，警报变化，表单验证指示符 - 导致<em> </em>颜色对比度不足（低于推荐的<a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"> WCAG 2.0颜色对比度为4.5：1 </a>）用于浅色背景时。 作者需要手动修改/扩展这些默认颜色以确保足够的颜色对比度。</p>
+
+<h3 id="visually-hidden-content">视觉隐藏的内容</h3>
+
+<p>应该在视觉上隐藏但仍可供屏幕阅读器等辅助技术访问的内容可以使用 <code class="highlighter-rouge">.sr-only</code> 类进行样式设置。 这在其他视觉信息或提示（例如通过使用颜色表示的含义）也需要传达给非视觉用户的情况下非常有用。</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-danger"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Danger: <span class="nt">&lt;/span&gt;</span>
+  This action is not reversible
+<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+<p>对于视觉上隐藏的交互式控件，例如传统的“skip”链接， <code class="highlighter-rouge">.sr-only</code> 可以与 <code class="highlighter-rouge">.sr-only-focusable</code> 类。 这将确保控制在聚焦后变得可见（对于有视力的键盘用户）。</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"sr-only sr-only-focusable"</span> <span class="na">href=</span><span class="s">"#content"</span><span class="nt">&gt;</span>Skip to main content<span class="nt">&lt;/a&gt;</span></code></pre></figure>
+
+<h3 id="reduced-motion">减少过场效果</h3>
+
+<p>Bootstrap 包含对减少过场效果的支持。 在允许用户指定减少过场效果的浏览器/环境中，Bootstrap 中的大多数CSS过渡效果（例如，打开或关闭模式对话框时）将被禁用（感觉可以让设备更省电）。 目前，支持仅限于macOS和iOS上的Safari。</p>
+
+<h2 id="additional-resources">额外的资源，有兴趣可以看看：</h2>
+
+<ul>
+  <li><a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) 2.0</a></li>
+  <li><a href="https://a11yproject.com/">The A11Y Project</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">MDN accessibility documentation</a></li>
+  <li><a href="https://tenon.io/">Tenon.io Accessibility Checker</a></li>
+  <li><a href="https://developer.paciellogroup.com/resources/contrastanalyser/">Colour Contrast Analyser (CCA)</a></li>
+  <li><a href="https://github.com/squizlabs/HTML_CodeSniffer">“HTML Codesniffer” bookmarklet for identifying accessibility issues</a></li>
+</ul>
+</div>

@@ -1,0 +1,68 @@
+<div class="bd-content">
+    <h1 class="bd-title" id="content">面包屑导航</h1>
+    <p class="bd-lead">在导航结构中通过 CSS 自动添加分隔符号来指示当前页面的位置。</p>
+
+    <h2 id="example">实例</h2>
+
+    <div class="bd-example">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+            </ol>
+        </nav>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">aria-label=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"breadcrumb-item active"</span> <span class="na">aria-current=</span><span class="s">"page"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+
+<span class="nt">&lt;nav</span> <span class="na">aria-label=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"breadcrumb-item"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"breadcrumb-item active"</span> <span class="na">aria-current=</span><span class="s">"page"</span><span class="nt">&gt;</span>Library<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+
+<span class="nt">&lt;nav</span> <span class="na">aria-label=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"breadcrumb-item"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"breadcrumb-item"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Library<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"breadcrumb-item active"</span> <span class="na">aria-current=</span><span class="s">"page"</span><span class="nt">&gt;</span>Data<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+<span class="nt">&lt;/nav&gt;</span></code></pre></figure>
+
+    <h2 id="changing-the-separator">更改分隔符</h2>
+    <p>通过 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before"><code class="highlighter-rouge">::before</code></a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content"><code class="highlighter-rouge">content</code></a> 自动在CSS中添加分隔符。 可以更改 <code class="highlighter-rouge">$breadcrumb-divider</code> 来调整它们的行为。 需要引用函数来生成字符串周围的引号，因此如果您想要 <code class="highlighter-rouge">&gt;</code> 作为分隔符，你可以使用：</p>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-divider</span><span class="p">:</span> <span class="nf">quote</span><span class="p">(</span><span class="s2">"&gt;"</span><span class="p">);</span>
+</code></pre></div></div>
+
+    <p>也可以使用 base64 嵌入式 SVG 图标:</p>
+
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-divider</span><span class="p">:</span> <span class="sx">url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0yLjUgMEwxIDEuNSAzLjUgNCAxIDYuNSAyLjUgOGw0LTQtNC00eiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+)</span><span class="p">;</span>
+</code></pre></div></div>
+    <p>可以通过将 <code class="highlighter-rouge">$breadcrumb-divider</code> 设置为 <code class="highlighter-rouge">none</code> 来删除分隔符：</p>
+    <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-divider</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+</code></pre></div></div>
+
+    <h2 id="accessibility">网页可见性</h2>
+
+    <p>由于面包屑提供了导航功能，所以增加一个有意义的标签， <code class="highlighter-rouge">aria-label="breadcrumb"</code> 來描述 <code class="highlighter-rouge">&lt;nav&gt;</code>  元素的导航说明，以及应用 <code class="highlighter-rouge">aria-current="page"</code> 到此群组的最后一个项目，表示这是当前页面。</p>
+
+    <p>有关更多信息，请参阅面包屑模式的WAI-ARIA创作实践。</p>
+</div>

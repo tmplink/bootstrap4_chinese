@@ -1,0 +1,185 @@
+<div class="bd-content">
+    <h1 class="bd-title" id="content">浏览器与设备</h1>
+    <p class="bd-lead">了解 Bootstrap4 在各个浏览器和设备上的表现，这包含一些已知的奇怪问题。</p>
+
+    <h2 id="supported-browsers">浏览器</h2>
+
+    <p>Bootstrap 支持所有主流浏览器和平台的<strong>最新，稳定版本</strong>。 在 Windows 上，<strong>支持 Internet Explorer 10-11 / Microsoft Edge </strong>。</p>
+
+    <p>由于浏览器日新月异，大部分最新版本浏览器的内核可能无法确定提供一致的表现。不过 Boostrap 应该不会让你失望。</p>
+
+    <p>你可以在 <a href="https://github.com/twbs/bootstrap/blob/v4-dev/package.json"><code class="highlighter-rouge">package.json</code></a> 找到我们支持的浏览器及其版本</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"browserslist"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"last 1 major version"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"&gt;= 1%"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Chrome &gt;= 45"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Firefox &gt;= 38"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Edge &gt;= 12"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Explorer &gt;= 10"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"iOS &gt;= 9"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Safari &gt;= 9"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Android &gt;= 4.4"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Opera &gt;= 30"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+    <p>我们使用 Autoprefixer 通过 CSS 前缀处理预期的浏览器支持，CSS 前缀使用浏览器列表来管理这些浏览器版本。 有关如何将这些工具集成到项目中的信息，请参阅其文档。</p>
+
+    <h3 id="mobile-devices">移动设备</h3>
+
+    <p>一般来说，Bootstrap 支持每个主要平台的默认浏览器的最新版本。 请注意，不支持代理浏览器（如 Opera Mini，Opera Mobile 的 Turbo 模式，UC Browser Mini，Amazon Silk）。</p>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td></td>
+                <th>Chrome</th>
+                <th>Firefox</th>
+                <th>Safari</th>
+                <th>Android Browser &amp; WebView</th>
+                <th>Microsoft Edge</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Android</th>
+                <td class="text-success">支持</td>
+                <td class="text-success">支持</td>
+                <td class="text-muted">不存在</td>
+                <td class="text-success">Android v5.0+ 支持</td>
+                <td class="text-success">支持</td>
+            </tr>
+            <tr>
+                <th scope="row">iOS</th>
+                <td class="text-success">支持</td>
+                <td class="text-success">支持</td>
+                <td class="text-success">支持</td>
+                <td class="text-muted">不存在</td>
+                <td class="text-success">支持</td>
+            </tr>
+            <tr>
+                <th scope="row">Windows 10 Mobile</th>
+                <td class="text-muted">不存在</td>
+                <td class="text-muted">不存在</td>
+                <td class="text-muted">不存在</td>
+                <td class="text-muted">不存在</td>
+                <td class="text-success">支持</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 id="desktop-browsers">桌面浏览器</h3>
+
+    <p>同样，支持大多数桌面浏览器的最新版本。</p>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td></td>
+                <th>Chrome</th>
+                <th>Firefox</th>
+                <th>Internet Explorer</th>
+                <th>Microsoft Edge</th>
+                <th>Opera</th>
+                <th>Safari</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Mac</th>
+                <td class="text-success">支持</td>
+                <td class="text-success">支持</td>
+                <td class="text-muted">不存在</td>
+                <td class="text-muted">不存在</td>
+                <td class="text-success">支持</td>
+                <td class="text-success">支持</td>
+            </tr>
+            <tr>
+                <th scope="row">Windows</th>
+                <td class="text-success">支持</td>
+                <td class="text-success">支持</td>
+                <td class="text-success">支持, IE10+</td>
+                <td class="text-success">支持</td>
+                <td class="text-success">支持</td>
+                <td class="text-danger">不支持</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>对于Firefox，除了最新的正常稳定版本，我们还支持最新的<a href="https://www.mozilla.org/en-US/firefox/organizations/#faq">扩展支持版本（ESR） </a> Firefox版本。</p>
+
+    <p>非正式地，Bootstrap 应该在 Chromium 和 Chrome for Linux，Firefox for Linux 和Internet Explorer 9中看起来和表现得足够好，尽管它们不受官方支持。</p>
+
+    <p>有关 Bootstrap 必须解决的一些浏览器错误的列表，请参阅我们的<a href="/docs/4.1/browser-bugs/">浏览器问题列表</a>。</p>
+
+    <h2 id="internet-explorer">Internet Explorer</h2>
+
+    <p>支持Internet Explorer 10+; IE9及更老版本不受支持（这意味如果你强行使用可能不会有很好的效果）。 请注意，IE10中不完全支持某些CSS3属性和HTML5元素，或者需要前缀属性才能获得完整功能。 访问<a href="https://caniuse.com/"> 这个网站 </a>，了解有关CSS3和HTML5功能的浏览器支持的详细信息。</p>
+
+    <p><strong>如果你需要IE8-9支持，请使用 Bootstrap 3. </strong>这是我们代码中最稳定的版本，Bootstrap 的团队仍然支持关键错误修正和文档更改。 但是，不会添加任何新功能。</p>
+
+    <h2 id="modals-and-dropdowns-on-mobile">移动设备上的模态（Modal）和下拉菜单</h2>
+
+    <h3 id="overflow-and-scrolling">内容溢出(overflow)和滚动(scrolling)</h3>
+
+    <p>在 iOS 和 Android 中，对<code class="highlighter-rouge">&lt; body&gt; </code>元素的<code class="highlighter-rouge"> overflow：hidden; </code>的支持非常有限。 为此，当你在这些设备的浏览器中滚动浏览模式的顶部或底部时，<code class="highlighter-rouge">&lt; body&gt; </code>内容将开始滚动。 请参阅<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=175502"> Chrome错误＃175502 </a>（已在Chrome v40中修复）和<a href ="https://bugs.webkit.org/show_bug.cgi?id=153852"> WebKit bug＃153852 </a>。</p>
+
+    <h3 id="ios-text-fields-and-scrolling">iOS 文本字段和滚动</h3>
+
+    <p>从iOS 9.2开始，当模态(Modal)打开时，如果滚动手势的初始触摸位于文本<code class="highlighter-rouge">&lt; input&gt; </code>或<code class="highlighter-rouge">&lt; textarea&gt; </code>，模式下面的<code class="highlighter-rouge">&lt; body&gt; </code>内容将被滚动而不是模态本身。 请参阅<a href="https://bugs.webkit.org/show_bug.cgi?id=153856"> WebKit错误＃153856 </a>。</p>
+
+    <h3 id="navbar-dropdowns">导航条下来菜单</h3>
+
+    <p>由于z-indexing的复杂性，导航中的iOS上未使用<code class="highlighter-rouge"> .dropdown-backdrop </code>元素。 因此，要关闭导航栏中的下拉列表，你必须直接单击下拉元素（或<a href="https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile">任何其他元素 这将触发iOS中的点击事件</a>）。</p>
+
+    <h2 id="browser-zooming">浏览器缩放</h2>
+
+    <p>页面缩放不可避免地在 Bootstrap 和 Web 的其他部分中呈现某些组件中的渲染工件。 根据问题，我们可以修复它（首先搜索，然后在需要时打开问题）。 但是，我们倾向于忽略这些，因为除了变通方法之外，它们通常没有直接的解决方案。</p>
+
+    <h2 id="sticky-hoverfocus-on-ios">iOS 上的 Sticky <code class="highlighter-rouge">:hover</code>/<code class="highlighter-rouge">:focus</code></h2>
+
+    <p>虽然在大多数触摸设备上都无法使用<code class="highlighter-rouge"> :hover </code>，但iOS会模仿此行为，导致“粘性”悬停样式在点击一个元素后仍然存在。 只有当用户点击其他元素时，才会删除这些悬停样式。 这种行为在很大程度上被认为是不受欢迎的，在Android或Windows设备上似乎不是问题。</p>
+
+    <p>在我们的v4 alpha和beta版本中，我们包含了用于选择媒体查询填充程序的不完整和注释掉的代码，该代码将禁用模拟悬停的触摸设备浏览器中的悬停样式。 这项工作从未完全完成或启用，但为了避免完全以外情况，我们选择弃用<a href="https://github.com/twbs/mq4-hover-shim">这部分</a>和 将mixins保留为伪类的快捷方式。</p>
+
+    <h2 id="printing">打印</h2>
+
+    <p>即使在一些现代浏览器中，打印也可能很古怪。</p>
+
+    <p>从Safari v8.0开始，使用固定宽度的<code class="highlighter-rouge"> .container </code>类会导致Safari在打印时使用非常小的字体大小。 请参阅<a href="https://github.com/twbs/bootstrap/issues/14868">bug＃14868 </a>和<a href="https://bugs.webkit.org/show_bug.cgi?id=138192"> WebKit bug＃138192 </a>了解更多详情。 一个可能的解决方法是以下CSS：</p>
+
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="n">print</span> <span class="p">{</span>
+  <span class="nc">.container</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+    <h2 id="android-stock-browser">Android 内置浏览器</h2>
+
+    <p>Android 4.1（显然是一些较新的版本）内置了浏览器，作为默认的Web浏览器（与Chrome相反）。 不幸的是，这些内置的浏览器通常有很多错误和CSS的不一致表现。</p>
+
+    <h4 id="select-menu">选择菜单</h4>
+
+    <p>在 select 元素上，如果应用了 border-radius 或 border，Android 内置浏览器将不会显示侧边控件。使用下面的代码片段删除有问题的CSS并将 select 呈现为 Android 内置浏览器上的无样式元素。 用户代理嗅探可避免干扰 Chrome，Safari 和 Mozilla 浏览器。</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">nua</span> <span class="o">=</span> <span class="nb">navigator</span><span class="p">.</span><span class="nx">userAgent</span>
+  <span class="kd">var</span> <span class="nx">isAndroid</span> <span class="o">=</span> <span class="p">(</span><span class="nx">nua</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'Mozilla/5.0'</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">nua</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'Android '</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">nua</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'AppleWebKit'</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">nua</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'Chrome'</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isAndroid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'select.form-control'</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'form-control'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'width'</span><span class="p">,</span> <span class="s1">'100%'</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></figure>
+
+    <p>想看看例子? <a href="http://jsbin.com/OyaqoDO/2">点击这里.</a></p>
+
+    <h2 id="validators">验证器</h2>
+
+    <p>为了向旧的和错误的浏览器提供最佳体验，Bootstrap 在几个地方使用 <a href="http://browserhacks.com/"> CSS browser hacks </a> 将特定CSS定位到某些浏览器版本中解决浏览器本身的错误。在一些地方，我们还使用尚未完全标准化的前沿 CSS 功能，但这些功能仅用于渐进增强。</p>
+
+    <p>这些验证警告在实践中无关紧要，因为我们 CSS 的非hacky部分确实完全验证并且hacky部分不会干扰非hacky部分的正常运行，因此我们故意忽略这些特定警告。</p>
+
+    <p>由于我们包含针对某个Firefox错误的变通方法，因此我们的HTML文档同样具有一些微不足道且无关紧要的HTML验证警告。</p>
+</div>

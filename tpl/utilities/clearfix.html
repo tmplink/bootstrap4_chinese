@@ -1,0 +1,35 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">Clearfix</h1>
+          <p class="bd-lead">通过添加clearfix工具，可以快速轻松地清除容器中的浮动内容。</p>
+
+          <p>通过对父元素增加 <code class="highlighter-rouge">.clearfix</code>）（清除浮动）以方便的清除 <code class="highlighter-rouge">float</code> （浮动）。也可以做为 Sass mixin 使用。</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Mixin itself</span>
+<span class="k">@mixin</span> <span class="nf">clearfix</span><span class="p">()</span> <span class="p">{</span>
+  <span class="err">&amp;</span><span class="p">:</span><span class="o">:</span><span class="n">after</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage as a mixin</span>
+<span class="nc">.element</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">clearfix</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>以下示例显示了如何使用clearfix。 不使用clearfix，外层div将不会包裹按钮而导致布局损坏。</p>
+
+<div class="bd-example">
+<div class="bg-info clearfix">
+  <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+  <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bg-info clearfix"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary float-left"</span><span class="nt">&gt;</span>Example Button floated left<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary float-right"</span><span class="nt">&gt;</span>Example Button floated right<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>

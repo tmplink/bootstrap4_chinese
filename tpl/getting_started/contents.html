@@ -1,0 +1,128 @@
+<h1 class="bd-title" id="content">内容</h1>
+          <p class="bd-lead">了解 Bootstrap 中包含的内容，包括我们的预编译和源代码风格。 请记住， Bootstrap 的 JavaScript 插件需要 jQuery。</p>
+
+          <h2 id="precompiled-bootstrap">预编译的 Bootstrap</h2>
+
+<p>下载后，解压缩，你会看到这些文件:</p>
+
+
+<figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">bootstrap/
+├── css/
+│   ├── bootstrap-grid.css
+│   ├── bootstrap-grid.css.map
+│   ├── bootstrap-grid.min.css
+│   ├── bootstrap-grid.min.css.map
+│   ├── bootstrap-reboot.css
+│   ├── bootstrap-reboot.css.map
+│   ├── bootstrap-reboot.min.css
+│   ├── bootstrap-reboot.min.css.map
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   ├── bootstrap.min.css
+│   └── bootstrap.min.css.map
+└── js/
+    ├── bootstrap.bundle.js
+    ├── bootstrap.bundle.js.map
+    ├── bootstrap.bundle.min.js
+    ├── bootstrap.bundle.min.js.map
+    ├── bootstrap.js
+    ├── bootstrap.js.map
+    ├── bootstrap.min.js
+    └── bootstrap.min.js.map</code></pre></figure>
+
+<p>这是 Bootstrap 最基本的形式：预编译文件，几乎可以在任何 Web 项目中快速使用。 我们提供编译的 CSS 和 JS（bootstrap.*），以及编译和缩小的 CSS 和 JS（bootstrap.min.*）。 源映射（bootstrap.* .map）可用于某些浏览器的开发人员工具。 捆绑的 JS 文件（ bootstrap.bundle.js 和 minified bootstrap.bundle.min.js）包括 Popper，但不包括 jQuery。</p>
+
+<h2 id="css-files">CSS</h2>
+
+<p>Bootstrap 包含一些选项，用于包含部分或全部编译的 CSS。</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">CSS 文件</th>
+      <th scope="col">布局</th>
+      <th scope="col">内容</th>
+      <th scope="col">组件</th>
+      <th scope="col">工具</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">
+        <div><code class="font-weight-normal text-nowrap">bootstrap.css</code></div>
+        <div><code class="font-weight-normal text-nowrap">bootstrap.min.css</code></div>
+      </th>
+      <td class="text-success">包含</td>
+      <td class="text-success">包含</td>
+      <td class="text-success">包含</td>
+      <td class="text-success">包含</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <div><code class="font-weight-normal text-nowrap">bootstrap-grid.css</code></div>
+        <div><code class="font-weight-normal text-nowrap">bootstrap-grid.min.css</code></div>
+      </th>
+      <td><a class="text-warning" href="/docs/4.1/layout/grid/">只在栅格系统</a></td>
+      <td class="bg-light text-muted">不包含</td>
+      <td class="bg-light text-muted">不包含</td>
+      <td><a class="text-warning" href="/docs/4.1/utilities/flex/">只在工具</a></td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <div><code class="font-weight-normal text-nowrap">bootstrap-reboot.css</code></div>
+        <div><code class="font-weight-normal text-nowrap">bootstrap-reboot.min.css</code></div>
+      </th>
+      <td class="bg-light text-muted">不包含</td>
+      <td><a class="text-warning" href="/docs/4.1/content/reboot/">只在重置(reboot)</a></td>
+      <td class="bg-light text-muted">不包含</td>
+      <td class="bg-light text-muted">不包含</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="js-files">JS</h2>
+
+<p>同样，我们可以选择包含部分或全部编译的 JavaScript。</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">JS</th>
+      <th scope="col">Popper</th>
+      <th scope="col">jQuery</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">
+        <div><code class="font-weight-normal text-nowrap">bootstrap.bundle.js</code></div>
+        <div><code class="font-weight-normal text-nowrap">bootstrap.bundle.min.js</code></div>
+      </th>
+      <td class="text-success">包含</td>
+      <td class="bg-light text-muted">不包含</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <div><code class="font-weight-normal text-nowrap">bootstrap.js</code></div>
+        <div><code class="font-weight-normal text-nowrap">bootstrap.min.js</code></div>
+      </th>
+      <td class="bg-light text-muted">不包含</td>
+      <td class="bg-light text-muted">不包含</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="bootstrap-source-code">Bootstrap 源代码</h2>
+
+<p>Bootstrap 源代码包括预编译的 CSS 和 JavaScript ，以及 Sass源代码，JavaScript源代码和文档。 更具体地说，它包括以下内容:</p>
+
+<figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">bootstrap/
+├── dist/
+│   ├── css/
+│   └── js/
+├── docs/
+│   └── examples/
+├── js/
+└── scss/</code></pre></figure>
+
+<p><code class="highlighter-rouge">scss/</code> 和 <code class="highlighter-rouge">js/</code> 是我们的CSS和JavaScript的源代码。 <code class="highlighter-rouge">dist/</code> 文件夹包含上面预编译下载部分中列出的所有内容。 <code class="highlighter-rouge">docs/</code> 文件夹包含我们文档的源代码和 Bootstrap 用法示例。 除此之外，任何其他包含的文件都提供对包，许可证信息和开发的支持。</p>

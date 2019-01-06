@@ -1,0 +1,367 @@
+<div class="bd-content">
+    <h1 class="bd-title" id="content">重置</h1>
+    <p class="bd-lead">针对 HTML 的特定元素重置样式，以便 Bootstrap 能在各种浏览器下表现一致。</p>
+
+    <h2 id="approach">方式</h2>
+
+    <p>Bootstrap 重置了大部分基本的HTML元素的视觉效果，不过这只能通过调用特定的 class 来实现，比如 <code class="highlighter-rouge">&lt;table&gt;</code> 的样式，需要使用 <code class="highlighter-rouge">.table</code>, <code class="highlighter-rouge">.table-bordered</code> 类来实现其重置后统一的视觉效果。</p>
+
+    <p>以下是为什么我们要重置的原因:</p>
+
+    <ul>
+        <li>更新部分浏览器的预设值，在可变动的文字间距上使用 rem 替代 em。</li>
+        <li>避免 margin-top。垂直边缘可能会发生重叠，产生无法预料的错误。更重要的是 margin 应该是单向、简单的思维。</li>
+        <li>为了在设备之间之间轻松缩放，block 元素应当在 margin 上采用 rem。</li>
+        <li>尽可能使用继承将字体相关属性的声明保持在最低限度。</li>
+    </ul>
+
+    <h2 id="page-defaults">默认的效果</h2>
+
+    <p><code class="highlighter-rouge"><span class="nt">&lt;html&gt;</span></code> 和 <code class="highlighter-rouge">&lt;body&gt;</code> 已被重置为一些预设的值. 具体有这些改变:</p>
+
+    <ul>
+        <li>每个地方都设置了 <code class="highlighter-rouge">box-sizing</code> ， 以及在  <code class="highlighter-rouge">border-box</code> 设置 <code class="highlighter-rouge">*::before</code>  <code class="highlighter-rouge">*::after</code>。 这可确保由于填充或边框而不会超出声明的宽度。
+            <ul>
+                <li><code class="highlighter-rouge"><span class="nt">&lt;html&gt;</span></code>上没有声明基本字体大小，但假定为16px（浏览器默认值）。 <code class="highlighter-rouge">font-size</code> 应用于 <code class="highlighter-rouge">&lt;body&gt;</code> ，以便通过媒体查询轻松响应类型扩展，同时尊重用户偏好并确保更易于访问的方法。</li>
+            </ul>
+        </li>
+        <li><code class="highlighter-rouge">&lt;body&gt;</code> 还设置全局字体系列，行高和文本对齐。 稍后由某些表单元素继承，以防止字体不一致。</li>
+        <li>为安全起见，<code class="highlighter-rouge">&lt;body&gt;</code> 具有声明的背景颜色，默认为#fff。</li>
+    </ul>
+
+    <h2 id="native-font-stack">浏览器字体</h2>
+
+    <p>目前放弃了针对浏览器字体的覆盖，因为不同系统的可用字体不一样，因此由浏览器的默认设置来决定应该能获得最佳的显示效果。</p>
+
+    <figure class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nv">$font-family-sans-serif</span><span class="p">:</span>
+  <span class="c1">// Safari for OS X and iOS (San Francisco)</span>
+  <span class="nt">-apple-system</span><span class="o">,</span>
+  <span class="c1">// Chrome &lt; 56 for OS X (San Francisco)</span>
+  <span class="nt">BlinkMacSystemFont</span><span class="o">,</span>
+  <span class="c1">// Windows</span>
+  <span class="s2">"Segoe UI"</span><span class="o">,</span>
+  <span class="c1">// Android</span>
+  <span class="s2">"Roboto"</span><span class="o">,</span>
+  <span class="c1">// Basic web fallback</span>
+  <span class="s2">"Helvetica Neue"</span><span class="o">,</span> <span class="nt">Arial</span><span class="o">,</span> <span class="nt">sans-serif</span><span class="o">,</span>
+  <span class="c1">// Emoji fonts</span>
+  <span class="s2">"Apple Color Emoji"</span><span class="o">,</span> <span class="s2">"Segoe UI Emoji"</span><span class="o">,</span> <span class="s2">"Segoe UI Symbol"</span> <span class="o">!</span><span class="nt">default</span><span class="o">;</span></code></pre></figure>
+    <p>此<code class="highlighter-rouge">font-family</code> 应用于 <code class="highlighter-rouge">&lt;body&gt;</code>，并在 Bootstrap 中自动继承。 要切换全局 <code class="highlighter-rouge">font-family</code> ，请更新 <code class="highlighter-rouge">$font-family-base</code> 并重新编译Bootstrap。</p>
+
+    <h2 id="headings-and-paragraphs">标题和段落</h2>
+    <p>重置所有标题元素 - 例如，<code class="highlighter-rouge">&lt;h1&gt;</code>  - 和 <code class="highlighter-rouge">&lt;p&gt;</code> 以删除其边距顶部。 标题添加了 <code class="highlighter-rouge">margin-bottom: .5rem</code> ，段落则是添加了 <code class="highlighter-rouge">margin-bottom: 1rem</code>。这样看起来更有美感。</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Heading</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h1&gt;&lt;/h1&gt;</code></p>
+
+                </td>
+                <td><span class="h1">h1. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h2&gt;&lt;/h2&gt;</code></p>
+
+                </td>
+                <td><span class="h2">h2. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h3&gt;&lt;/h3&gt;</code></p>
+
+                </td>
+                <td><span class="h3">h3. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h4&gt;&lt;/h4&gt;</code></p>
+
+                </td>
+                <td><span class="h4">h4. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h5&gt;&lt;/h5&gt;</code></p>
+
+                </td>
+                <td><span class="h5">h5. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h6&gt;&lt;/h6&gt;</code></p>
+
+                </td>
+                <td><span class="h6">h6. Bootstrap heading</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="lists">列表</h2>
+
+    <p>刪除全部列表 <code class="highlighter-rouge">&lt;ul&gt;</code>、<code class="highlighter-rouge">&lt;ol&gt;</code> 和 <code class="highlighter-rouge">&lt;dl&gt;</code> 中的 <code class="highlighter-rouge">margin-top</code>，並设置为 <code class="highlighter-rouge">margin-bottom: 1rem</code>。嵌套列表沒有 <code class="highlighter-rouge">margin-bottom</code>。</p>
+
+    <div class="bd-example">
+
+
+        <ul>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+            <li>Nulla volutpat aliquam velit
+                <ul>
+                    <li>Phasellus iaculis neque</li>
+                    <li>Purus sodales ultricies</li>
+                    <li>Vestibulum laoreet porttitor sem</li>
+                    <li>Ac tristique libero volutpat at</li>
+                </ul>
+            </li>
+            <li>Faucibus porta lacus fringilla vel</li>
+            <li>Aenean sit amet erat nunc</li>
+            <li>Eget porttitor lorem</li>
+        </ul>
+
+        <ol>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+            <li>Nulla volutpat aliquam velit</li>
+            <li>Faucibus porta lacus fringilla vel</li>
+            <li>Aenean sit amet erat nunc</li>
+            <li>Eget porttitor lorem</li>
+        </ol>
+
+    </div>
+
+    <p>为了更简单的样式，清晰的层次结构和更好的间距，描述列表重置了边距。 <code class="highlighter-rouge">&lt;dd&gt;</code> 将<code class="highlighter-rouge">margin-left</code>重置为0并添加 <code class="highlighter-rouge">margin-bottom: .5rem</code>。 <code class="highlighter-rouge">&lt;dt&gt;</code> 是粗体。</p>
+
+    <div class="bd-example">
+        <dl>
+            <dt>Description lists</dt>
+            <dd>A description list is perfect for defining terms.</dd>
+            <dt>Euismod</dt>
+            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem.</dd>
+            <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+            <dt>Malesuada porta</dt>
+            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+        </dl>
+    </div>
+
+    <h2 id="preformatted-text">预先格式化的文字</h2>
+    <p>重置 <code class="highlighter-rouge">&lt;pre&gt;</code> 元素以移除其 <code class="highlighter-rouge">margin-top</code> 并使用 rem 单位作为其 <code class="highlighter-rouge">margin-bottom</code>。</p>
+    <div class="bd-example">
+        <pre>
+.example-element {
+  margin-bottom: 1rem;
+}
+        </pre>
+    </div>
+
+    <h2 id="tables">表格</h2>
+    <p>表格略微调整为样式<code class="highlighter-rouge">&lt;caption&gt;</code>，折叠边框，并确保始终保持一致的文本对齐。 <code class="highlighter-rouge">text-align</code> 类附带的边框，填充等更改。</p>
+
+    <div class="bd-example">
+        <table>
+            <caption>
+                This is an example table, and this is its caption to describe the contents.
+            </caption>
+            <thead>
+                <tr>
+                    <th>Table heading</th>
+                    <th>Table heading</th>
+                    <th>Table heading</th>
+                    <th>Table heading</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                </tr>
+                <tr>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                </tr>
+                <tr>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                    <td>Table cell</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 id="forms">表单</h2>
+
+    <p>已重置动各种表单元素以实现更简单的基本样式。 以下是一些最显着的变化:</p>
+
+    <ul>
+        <li><code class="highlighter-rouge">&lt;fieldset&gt;</code> 没有边框，填充或边距以便包覆独立输入和成组输入。</li>
+        <li><code class="highlighter-rouge">&lt;legend&gt;</code> 和fieldsets一样，<code class="highlighter-rouge">&lt;legend&gt;</code> 已经被重新定义样式以便显示为类型的标题。</li>
+        <li><code class="highlighter-rouge">&lt;label&gt;</code> 设定被为 <code class="highlighter-rouge">display: inline-block</code> 以便让 <code class="highlighter-rouge">margin</code> 应用。</li>
+        <li>透过Normalize于<code class="highlighter-rouge">&lt;input&gt;</code> ，<code class="highlighter-rouge">&lt;select&gt;</code> ，<code class="highlighter-rouge">&lt;textarea&gt;</code>s，和<code class="highlighter-rouge">&lt;button&gt;</code> ，重置删除了他们的 <code class="highlighter-rouge">margin</code> 并同样设定<code class="highlighter-rouge">line-height: inherit</code>。</li>
+        <li>将<code class="highlighter-rouge">&lt;textarea&gt;</code> 修改为仅可调整垂直尺寸，因为调整水平宽度通常“破坏”了页面配置。</li>
+    </ul>
+
+    <p>下面将说明这些变化以及更多变化。</p>
+
+    <form class="bd-example">
+        <fieldset>
+            <legend>Example legend</legend>
+
+            <p>
+                <label for="input">Example input</label>
+                <input type="text" id="input" placeholder="Example input" />
+            </p>
+
+            <p>
+                <label for="select">Example select</label>
+                <select id="select">
+                    <option value="">Choose...</option>
+                    <optgroup label="Option group 1">
+                        <option value="">Option 1</option>
+                        <option value="">Option 2</option>
+                        <option value="">Option 3</option>
+                    </optgroup>
+                    <optgroup label="Option group 2">
+                        <option value="">Option 4</option>
+                        <option value="">Option 5</option>
+                        <option value="">Option 6</option>
+                    </optgroup>
+                </select>
+            </p>
+
+            <p>
+                <label>
+                    <input type="checkbox" value="" />
+                    Check this checkbox
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" />
+                    Option one is this and that
+                </label>
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                    Option two is something else that's also super long to demonstrate the wrapping of these fancy form controls.
+                </label>
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled="" />
+                    Option three is disabled
+                </label>
+            </p>
+
+            <p>
+                <label for="textarea">Example textarea</label>
+                <textarea id="textarea" rows="3"></textarea>
+            </p>
+
+            <p>
+                <label for="date">Example date</label>
+                <input type="date" id="date" />
+            </p>
+
+            <p>
+                <label for="time">Example time</label>
+                <input type="time" id="time" />
+            </p>
+
+            <p>
+                <label for="output">Example output</label>
+                <output name="result" id="output">100</output>
+            </p>
+
+            <p>
+                <button type="submit">Button submit</button>
+                <input type="submit" value="Input submit button" />
+                <input type="button" value="Input button" />
+            </p>
+
+            <p>
+                <button type="submit" disabled="">Button submit</button>
+                <input type="submit" value="Input submit button" disabled="" />
+                <input type="button" value="Input button" disabled="" />
+            </p>
+        </fieldset>
+    </form>
+
+    <h2 id="misc-elements">其他调整的HTML元素</h2>
+
+    <h3 id="address">Address</h3>
+
+    <p>更新<code class="highlighter-rouge">&lt;address&gt;</code>元素以将浏览器默认字体样式从斜体重置为正常。 <code class="highlighter-rouge">line-height</code> 现在也被继承，并且 <code class="highlighter-rouge">margin-bottom: 1rem</code> 已被添加。 <code class="highlighter-rouge">&lt;address&gt;</code> 用于显示联系信息。 通过使用 <code class="highlighter-rouge">&lt;br&gt;</code> 结束行来保留格式。</p>
+    <div class="bd-example">
+        <address>
+            <strong>Twitter, Inc.</strong><br />
+            1355 Market St, Suite 900<br />
+            San Francisco, CA 94103<br />
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+        </address>
+
+        <address>
+            <strong>Full Name</strong><br />
+            <a href="mailto:#">first.last@example.com</a>
+        </address>
+    </div>
+
+    <h3 id="blockquote">引用段落</h3>
+    <p>Blockquotes的预设<code class="highlighter-rouge">margin</code>为<code class="highlighter-rouge">1em 40px</code>，因此我们将其重新设定为<code class="highlighter-rouge">0 0 1rem</code>以便更符合其他元素的设定。</p>
+
+    <div class="bd-example">
+        <blockquote class="blockquote">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+    </div>
+
+    <h3 id="inline-elements">内联元素</h3>
+    <p>该 <code class="highlighter-rouge">&lt;abbr&gt;</code> 元素接收基本样式，使其在段落文本中脱颖而出。</p>
+
+    <div class="bd-example">
+        Nulla <abbr title="attribute">attr</abbr> vitae elit libero, a pharetra augue.
+    </div>
+
+    <h3 id="summary">摘要</h3>
+    <p><code class="highlighter-rouge">cursor</code> 摘要上的默认值是<code class="highlighter-rouge">text</code>，因此我们将其重置为<code class="highlighter-rouge">pointer</code>通过单击来传达元素可以与之交互。</p>
+
+    <div class="bd-example">
+        <details>
+            <summary>Some details</summary>
+            <p>More info about the details.</p>
+        </details>
+
+        <details open="">
+            <summary>Even more details</summary>
+            <p>Here are even more details about the details.</p>
+        </details>
+    </div>
+
+    <h2 id="html5-hidden-attribute">HTML5 <code class="highlighter-rouge">[hidden]</code> 属性</h2>
+    <p>HTML5添加了<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden">一个名为 <code class="highlighter-rouge">[hidden]</code> 的新全局属性</a>，<code class="highlighter-rouge">display: none</code>默认情况下将其设置为样式。借用<a href="https://purecss.io/">PureCSS的</a>一个想法，我们通过<code class="highlighter-rouge">[hidden] { display: none !important; }</code>帮助防止<code class="highlighter-rouge">display</code>被意外覆盖来改进这个默认值。虽然<code class="highlighter-rouge">[hidden]</code>在IE10本身不支持，但CSS中的显式声明可以解决这个问题。</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">hidden</span><span class="nt">&gt;</span></code></pre></figure>
+
+    <div class="bd-callout bd-callout-warning">
+        <h5 id="jquery-incompatibility">jQuery的不兼容问题</h5>
+        <p><code class="highlighter-rouge">[hidden]</code>与jQuery <code class="highlighter-rouge">$(...).hide()</code>和<code class="highlighter-rouge">$(...).show()</code>方法不兼容。因此，我们目前并不特别支持<code class="highlighter-rouge">[hidden]</code>管理<code class="highlighter-rouge">display</code>。</p>
+        <p><code class="highlighter-rouge">[hidden]</code> is not compatible with jQuery’s <code class="highlighter-rouge">$(...).hide()</code> and <code class="highlighter-rouge">$(...).show()</code> methods. Therefore, we don’t currently especially endorse <code class="highlighter-rouge">[hidden]</code> over other techniques for managing the <code class="highlighter-rouge">display</code> of elements.</p>
+    </div>
+
+    <p>仅仅切换元素的可见性，这意味着其 display 不被修改和元素还会影响文档的流程，请使用的 .invisible 类来代替。</p>    
+</div>

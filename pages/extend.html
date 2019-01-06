@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>Bootstrap4 - 中文文档 - 扩展</title>
+        <meta name="description" content="Bootstrap 4 中文文档，详细了解如何扩展 bootstrap 的功能。" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/domloader.js"></script>
+        <link href="../css/domloader.css" rel="stylesheet"/>
+        <link href="../css/domloader.css" rel="stylesheet"/>
+        <script>
+            domloader.init();
+            domloader.preload('../config/init.html');
+            domloader.preload('../config/pre.html');
+            domloader.html('#tpl_approach', 'tpl/extend/approach.html');
+            domloader.html('#tpl_icons', 'tpl/extend/icons.html');
+            domloader.onload(function () {
+                $('#nav_extends').addClass('active');
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="container">
+                <div id="tpl_header"></div>
+                <div class="row">
+                    <div class="col-12 d-block d-lg-none">
+                        <div class="nav nav-pills d-flex justify-content-center" role="tablist">
+                            <a class="nav-link active show" href="#tab_approach"  role="tab" data-toggle="pill">途径</a>
+                            <a class="nav-link" href="#tab_icons"  role="tab" data-toggle="pill">图标</a>
+                        </div>
+                    </div>
+                    <div class="col-2 d-lg-block d-none">
+                        <div class="nav nav-pills flex-column" role="tablist">
+                            <a class="nav-link active show" href="#tab_approach"  role="tab" data-toggle="pill">途径</a>
+                            <a class="nav-link" href="#tab_icons"  role="tab" data-toggle="pill">图标</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="tab-content" role="tabpanel">
+                            <div role="tabpanel" class="tab-pane  active" id="tab_approach"><div id="tpl_approach"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_icons"><div id="tpl_icons"></div></div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div id="tpl_footer"></div>
+        </div>
+
+    </body>
+</html>

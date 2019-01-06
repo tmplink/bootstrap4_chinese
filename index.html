@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>Bootstrap4 中文文档</title>
+        <meta name="description" content="Bootstrap 4 中文文档，最详尽最全面的 Bootstrap 4 中文文档。" />
+        <meta charset="UTF-8">
+        <meta name="google-site-verification" content="3Fa_UkjxDcwXjGjkTfvo54R1Jv5kOFYL30C-5g5aS5g" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/domloader.js"></script>
+        <script>
+            domloader.init();
+            domloader.preload('config/init.html');
+            domloader.preload('config/pre.html');
+            domloader.html('#tpl_content', 'tpl/index.html');
+        </script>
+        <link href="css/domloader.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div id="container">
+            <div class="container">
+                <div id="tpl_header"></div>
+                <div id="tpl_content"></div>
+            </div>
+            <div id="tpl_footer"></div>
+        </div>
+    </body>
+</html>

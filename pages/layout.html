@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>Bootstrap4 - 中文文档 - 布局</title>
+        <meta name="description" content="Bootstrap 4 中文文档，使用 bootstrap 轻松完成页面布局。" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/domloader.js"></script>
+        <link href="../css/domloader.css" rel="stylesheet"/>
+        <script>
+            domloader.init();
+            domloader.preload('../config/init.html');
+            domloader.preload('../config/pre.html');
+            domloader.html('#tpl_overview', 'tpl/layout/overview.html');
+            domloader.html('#tpl_grid', 'tpl/layout/grid.html');
+            domloader.html('#tpl_media_object', 'tpl/layout/media_object.html');
+            domloader.html('#tpl_utilitie', 'tpl/layout/utilities.html');
+            domloader.onload(function () {
+                $('#nav_layout').addClass('active');
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="container">
+                <div id="tpl_header"></div>
+                <div class="row">
+                    <div class="col-12 d-block d-lg-none">
+                        <div class="nav nav-pills d-flex justify-content-center" role="tablist">
+                            <a class="nav-link active show" href="#tab_overview"  role="tab" data-toggle="pill">概览</a>
+                            <a class="nav-link" href="#tab_grid"  role="tab" data-toggle="pill">栅格系统</a>
+                            <a class="nav-link" href="#tab_media_object"  role="tab" data-toggle="pill">媒体对象</a>
+                            <a class="nav-link" href="#tab_utilities"  role="tab" data-toggle="pill">布局工具</a>
+                        </div>
+                    </div>
+                    <div class="col-2 d-lg-block d-none">
+                        <div class="nav nav-pills flex-column" role="tablist">
+                            <a class="nav-link active show" href="#tab_overview"  role="tab" data-toggle="pill">概览</a>
+                            <a class="nav-link" href="#tab_grid"  role="tab" data-toggle="pill">栅格系统</a>
+                            <a class="nav-link" href="#tab_media_object"  role="tab" data-toggle="pill">媒体对象</a>
+                            <a class="nav-link" href="#tab_utilities"  role="tab" data-toggle="pill">布局工具</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="tab-content" role="tabpanel">
+                            <div role="tabpanel" class="tab-pane  active" id="tab_overview"><div id="tpl_overview"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_grid"><div id="tpl_grid"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_media_object"><div id="tpl_media_object"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_utilities"><div id="tpl_utilitie"></div></div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div id="tpl_footer"></div>
+        </div>
+    </body>
+</html>

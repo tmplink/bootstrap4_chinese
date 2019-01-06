@@ -1,0 +1,151 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">Display 属性</h1>
+          <p class="bd-lead">Display 工具可快速且包含响应式的切换元件的显示与否，我们的 Display 工具包含许多常用的值，另外在打印时也能使用。</p>
+          <h2 id="how-it-works">如何运作</h2>
+
+<p>使用 display 的工具类来改变 display 属性，我们故意只支持 <code class="highlighter-rouge">display</code> 所有可能的一个子集，可以依据需求将这些 Class 调整出各种效果。</p>
+
+<h2 id="notation">符号</h2>
+
+<p>Display 工具可以应用在所有中断点，从  <code class="highlighter-rouge">xs</code> 到 <code class="highlighter-rouge">xl</code>，都在其中，而这些是从最小宽度 <code class="highlighter-rouge">min-width: 0;</code> 开始运用，因此预设不受 media query 限制，然而其余的断点都包含缩写。</p>
+
+<p>因此，这些 Class 使用以下格式来命名：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">.d-{value}</code> for <code class="highlighter-rouge">xs</code></li>
+  <li><code class="highlighter-rouge">.d-{breakpoint}-{value}</code> for <code class="highlighter-rouge">sm</code>, <code class="highlighter-rouge">md</code>, <code class="highlighter-rouge">lg</code>, and <code class="highlighter-rouge">xl</code>.</li>
+</ul>
+
+<p>值可以替換成以下：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">none</code></li>
+  <li><code class="highlighter-rouge">inline</code></li>
+  <li><code class="highlighter-rouge">inline-block</code></li>
+  <li><code class="highlighter-rouge">block</code></li>
+  <li><code class="highlighter-rouge">table</code></li>
+  <li><code class="highlighter-rouge">table-cell</code></li>
+  <li><code class="highlighter-rouge">table-row</code></li>
+  <li><code class="highlighter-rouge">flex</code></li>
+  <li><code class="highlighter-rouge">inline-flex</code></li>
+</ul>
+
+<p>这些 media queries 会设置大于中断点，举例来说： <code class="highlighter-rouge">.d-lg-none</code> 在 <code class="highlighter-rouge">lg</code> 和 <code class="highlighter-rouge">xl</code> 屏幕上設置<code class="highlighter-rouge">.d-lg-none</code>。</p>
+
+<h2 id="examples">实例</h2>
+
+<div class="bd-example">
+<div class="d-inline p-2 bg-primary text-white">d-inline</div>
+<div class="d-inline p-2 bg-dark text-white">d-inline</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-inline p-2 bg-primary text-white"</span><span class="nt">&gt;</span>d-inline<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-inline p-2 bg-dark text-white"</span><span class="nt">&gt;</span>d-inline<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<div class="bd-example">
+<span class="d-block p-2 bg-primary text-white">d-block</span>
+<span class="d-block p-2 bg-dark text-white">d-block</span>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"d-block p-2 bg-primary text-white"</span><span class="nt">&gt;</span>d-block<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"d-block p-2 bg-dark text-white"</span><span class="nt">&gt;</span>d-block<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<h2 id="hiding-elements">隐藏元素</h2>
+
+<p>为了更快地进行移动设备开发，请使用响应式显示类来按设备显示和隐藏元素。 避免创建相同站点的完全不同版本，而是相应地为每个屏幕大小隐藏元素</p>
+
+<p>隐藏元素只需使用 <code class="highlighter-rouge">.d-none</code> 类或者其中一个 <code class="highlighter-rouge">.d-{sm,md,lg,xl}-none</code> 任何响应式屏幕变化的类。</p>
+
+<p>要仅在给定的屏幕尺寸间隔上显示元素，你可以组合一个<code class="highlighter-rouge">.d-*-none</code> 类和一个 <code class="highlighter-rouge">.d-*-*</code> class，例如 <code class="highlighter-rouge">.d-none .d-md-block .d-xl-none</code> 将隐藏所有屏幕尺寸的元素，中型和大型设备除外。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Screen Size</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hidden on all</td>
+      <td><code class="highlighter-rouge">.d-none</code></td>
+    </tr>
+    <tr>
+      <td>Hidden only on xs</td>
+      <td><code class="highlighter-rouge">.d-none .d-sm-block</code></td>
+    </tr>
+    <tr>
+      <td>Hidden only on sm</td>
+      <td><code class="highlighter-rouge">.d-sm-none .d-md-block</code></td>
+    </tr>
+    <tr>
+      <td>Hidden only on md</td>
+      <td><code class="highlighter-rouge">.d-md-none .d-lg-block</code></td>
+    </tr>
+    <tr>
+      <td>Hidden only on lg</td>
+      <td><code class="highlighter-rouge">.d-lg-none .d-xl-block</code></td>
+    </tr>
+    <tr>
+      <td>Hidden only on xl</td>
+      <td><code class="highlighter-rouge">.d-xl-none</code></td>
+    </tr>
+    <tr>
+      <td>Visible on all</td>
+      <td><code class="highlighter-rouge">.d-block</code></td>
+    </tr>
+    <tr>
+      <td>Visible only on xs</td>
+      <td><code class="highlighter-rouge">.d-block .d-sm-none</code></td>
+    </tr>
+    <tr>
+      <td>Visible only on sm</td>
+      <td><code class="highlighter-rouge">.d-none .d-sm-block .d-md-none</code></td>
+    </tr>
+    <tr>
+      <td>Visible only on md</td>
+      <td><code class="highlighter-rouge">.d-none .d-md-block .d-lg-none</code></td>
+    </tr>
+    <tr>
+      <td>Visible only on lg</td>
+      <td><code class="highlighter-rouge">.d-none .d-lg-block .d-xl-none</code></td>
+    </tr>
+    <tr>
+      <td>Visible only on xl</td>
+      <td><code class="highlighter-rouge">.d-none .d-xl-block</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="bd-example">
+<div class="d-lg-none">hide on screens wider than lg</div>
+<div class="d-none d-lg-block">hide on screens smaller than lg</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-lg-none"</span><span class="nt">&gt;</span>hide on screens wider than lg<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-none d-lg-block"</span><span class="nt">&gt;</span>hide on screens smaller than lg<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="display-in-print">显示在打印中</h2>
+
+<p>可以在打印时通过 <code class="highlighter-rouge">display</code> 工具改变 <code class="highlighter-rouge">display</code> 的值。一样包含 <code class="highlighter-rouge">display</code> 的各种<code class="highlighter-rouge">.d-*</code>工具。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">.d-print-none</code></li>
+  <li><code class="highlighter-rouge">.d-print-inline</code></li>
+  <li><code class="highlighter-rouge">.d-print-inline-block</code></li>
+  <li><code class="highlighter-rouge">.d-print-block</code></li>
+  <li><code class="highlighter-rouge">.d-print-table</code></li>
+  <li><code class="highlighter-rouge">.d-print-table-row</code></li>
+  <li><code class="highlighter-rouge">.d-print-table-cell</code></li>
+  <li><code class="highlighter-rouge">.d-print-flex</code></li>
+  <li><code class="highlighter-rouge">.d-print-inline-flex</code></li>
+</ul>
+
+<p>可以组合打印和显示类。</p>
+
+<div class="bd-example">
+<div class="d-print-none">Screen Only (Hide on print only)</div>
+<div class="d-none d-print-block">Print Only (Hide on screen only)</div>
+<div class="d-none d-lg-block d-print-block">Hide up to large on screen, but always show on print</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-print-none"</span><span class="nt">&gt;</span>Screen Only (Hide on print only)<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-none d-print-block"</span><span class="nt">&gt;</span>Print Only (Hide on screen only)<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-none d-lg-block d-print-block"</span><span class="nt">&gt;</span>Hide up to large on screen, but always show on print<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>

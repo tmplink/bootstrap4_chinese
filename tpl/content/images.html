@@ -1,0 +1,66 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">图片</h1>
+          <p class="bd-lead">添加响应式设计的图片，这很简单，只需要给图片加上一些类就可以了。</p>
+          <h2 id="responsive-images">响应式图片</h2>
+
+<p>Bootstrap 中，给图片添加 <code class="highlighter-rouge">.img-fluid</code> 类，这样它就变成了一张响应式设计的图片。另外添加 <code class="highlighter-rouge">max-width: 100%;</code> 和 <code class="highlighter-rouge">height: auto;</code> 可以让图片根据父元素的大小进行等比例缩放。</p>
+
+<div class="bd-example">
+  <img data-src="holder.js/100px250" class="img-fluid" alt="Generic responsive image" />
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-fluid"</span> <span class="na">alt=</span><span class="s">"Responsive image"</span><span class="nt">&gt;</span></code></pre></figure>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="svg-images-and-ie-10">SVG 在 IE 10 上的表现</h5>
+
+<p>在Internet Explorer 10中，具有 <code class="highlighter-rouge">.img-fluid</code> 的SVG图像的大小不成比例。 要解决此问题，请添加 <code class="highlighter-rouge">width: 100% \9;</code> 。 由于此调整不能正确地调整其他图像格式的大小，因此Bootstrap不会自动应用它。</p>
+</div>
+
+<h2 id="image-thumbnails">缩略图</h2>
+
+<p>除了使用 border-radius 工具, 你还可以使用 <code class="highlighter-rouge">.img-thumbnail</code> 类来设置一个1像素宽度的边框。</p>
+
+<div class="bd-example bd-example-images">
+  <img data-src="holder.js/200x200" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera" />
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-thumbnail"</span><span class="nt">&gt;</span></code></pre></figure>
+
+<h2 id="aligning-images">对齐</h2>
+
+<p>给图像设置浮动类进行对齐。 块级图像可以使用 <code class="highlighter-rouge">.mx-auto</code> margin 工具居中。</p>
+
+<div class="bd-example bd-example-images">
+  <img data-src="holder.js/200x200" class="rounded float-left" alt="A generic square placeholder image with rounded corners" />
+  <img data-src="holder.js/200x200" class="rounded float-right" alt="A generic square placeholder image with rounded corners" />
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"rounded float-left"</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"rounded float-right"</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span></code></pre></figure>
+
+<div class="bd-example bd-example-images">
+  <img data-src="holder.js/200x200" class="rounded mx-auto d-block" alt="A generic square placeholder image with rounded corners" />
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"rounded mx-auto d-block"</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span></code></pre></figure>
+
+<div class="bd-example bd-example-images">
+  <div class="text-center">
+    <img data-src="holder.js/200x200" class="rounded" alt="A generic square placeholder image with rounded corners" />
+  </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"rounded"</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h2 id="picture">Picture 标签</h2>
+
+<p>如果使用 <code class="highlighter-rouge">&lt;picture&gt;</code> 元素为特定的 <code class="highlighter-rouge">&lt;img&gt;</code> 指定多个<code class="highlighter-rouge">&lt;source&gt;</code>元素，请确保将 <code class="highlighter-rouge">&lt;img&gt;</code> 类添加到 <code class="highlighter-rouge">&lt;img&gt;</code> 而不是 <code class="highlighter-rouge">&lt;picture&gt;</code> 标记。</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">​<span class="nt">&lt;picture&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">srcset=</span><span class="s">"..."</span> <span class="na">type=</span><span class="s">"image/svg+xml"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-fluid img-thumbnail"</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/picture&gt;</span></code></pre></figure>
+</div>

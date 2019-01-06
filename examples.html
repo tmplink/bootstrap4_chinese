@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>Bootstrap4 中文文档 - 模板</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/domloader.js"></script>
+        <link href="css/domloader.css" rel="stylesheet"/>
+        <script>
+            domloader.init();
+            domloader.preload('config/init.html');
+            domloader.preload('config/pre.html');
+            domloader.html('#tpl_content', 'tpl/examples.html');
+            domloader.onload(function () {
+                $('#nav_examples').addClass('active');
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="container">
+                <div id="tpl_header"></div>
+                <div id="tpl_content"></div>  
+            </div>
+            <div id="tpl_footer"></div>
+        </div>
+    </body>
+</html>

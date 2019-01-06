@@ -1,0 +1,75 @@
+<div class="bd-content">
+    <h1 class="bd-title" id="content">途径</h1>
+    <p class="bd-lead">了解用于构建和维护 Bootstrap 的指导原则，策略和技术，以便你可以更轻松地自定义和扩展它。</p>
+    <p>虽然入门页面介绍了如何扩展 Bootstrap ，但本文档重点介绍了我们为什么要做这些事情。 </p>
+
+    <h2 id="summary">摘要</h2>
+
+    <p>我们将在整个过程中深入研究这些问题，不过总的来说，扩展开发需要遵循以下规则：</p>
+
+    <ul>
+        <li>组件必须是对移动设备友好的响应式设计</li>
+        <li>组件应使用基类构建，并通过修饰符类进行扩展。</li>
+        <li>组件状态应遵循常见的 z-index 尺度。</li>
+        <li>尽量使用 HTML 和 CSS 实现效果，而不是使用 Javascript。</li>
+        <li>尽量使用工具而不是自定义的 CSS 去实现效果。</li>
+        <li>尽量避免强制执行严格的 HTML 要求（子选择器）</li>
+    </ul>
+
+    <h2 id="responsive">响应式设计</h2>
+
+    <p>Bootstrap 的响应式样式是为了响应而构建的，这种方法通常被称为移动优先。 我们在文档中使用这个术语并且在很大程度上赞同这种说法，但有时它可能过于宽泛。 虽然并非每个组件都必须在 Bootstrap 中完全响应，但这种响应方法是通过推动你在 viewport 变大时添加样式来减少 CSS 覆盖。</p>
+
+    <p>在 Bootstrap 中，你将在我们的媒体查询中看到最清楚的规则。 在大多数情况下，我们使用 <code class="highlighter-rouge">min-width</code> 开始应用于特定断点并通过更高断点进行查询规则。 例如  <code class="highlighter-rouge">.d-none</code> 适用于 <code class="highlighter-rouge">min-width: 0</code> 到无限大。 另一方面， <code class="highlighter-rouge">.d-md-none</code> 适用于中等屏幕大小的断点及以上。</p>
+
+    <p>有时我们会使用 <code class="highlighter-rouge">max-width</code> ，当组件比较复杂时需要它来实现功能。 我们努力限制这种方法，但会不时使用它。</p>
+
+    <h2 id="classes">类</h2>
+
+    <p>除了重置(Reboot)，还有一个跨浏览器规范化样式表，我们所有的样式都旨在使用类作为选择器。 这意味着避开类型选择器（例如， <code class="highlighter-rouge">input[type="text"]</code>）和无关的父类（例如， <code class="highlighter-rouge">.parent .child</code>)， 这些类使得样式太具体而不能轻易覆盖。</p>
+
+    <p>因此，组件应该使用基类来构建，该基类包含常见的，不被重写的属性。 例如，<code class="highlighter-rouge">.btn</code> 和 <code class="highlighter-rouge">.btn-primary</code>. 我们使用 <code class="highlighter-rouge">.btn</code> 来给予一个基本的效果框架，如 <code class="highlighter-rouge">display</code>, <code class="highlighter-rouge">padding</code>, 和 <code class="highlighter-rouge">border-width</code>。 然后我们使用像这样的修饰符 <code class="highlighter-rouge">.btn-primary</code> 添加颜色，背景颜色，边框颜色等。</p>
+
+    <p>仅当要在多个变体中更改多个属性或值时，才应使用修饰符类。 修饰符并不总是必需的，因此防止不必要的覆盖。 修饰符的好例子是我们的主题颜色类和大小变体。</p>
+
+    <h2 id="z-index-scales">z-index 尺度</h2>
+
+    <p>组件和覆盖组件中的Bootstrap元素中有两个 <code class="highlighter-rouge">z-index</code> 尺度。</p>
+
+    <h3 id="component-elements">组件元素</h3>
+
+    <ul>
+        <li>Bootstrap 中的一些组件使用重叠元素构建，以防止双边框而不修改 <code class="highlighter-rouge">border</code> 属性。 例如，按钮组，输入组和分页。</li>
+        <li>这些组件共享一个标准 <code class="highlighter-rouge">z-index</code> 尺度 <code class="highlighter-rouge">0</code> 到 <code class="highlighter-rouge">3</code>.</li>
+        <li><code class="highlighter-rouge">0</code> 是默认的尺度, <code class="highlighter-rouge">1</code> 是 <code class="highlighter-rouge">:hover</code>时的尺度， <code class="highlighter-rouge">2</code> 是 <code class="highlighter-rouge">:active</code>/<code class="highlighter-rouge">.active</code> 时的尺度， <code class="highlighter-rouge">3</code> 是 <code class="highlighter-rouge">:focus</code> 时的尺度。</li>
+        <li>这种方法符合我们对最高用户优先级的期望。 如果一个元素被聚焦，那么它就在视野中并引起用户的注意。 活动元素排名第二，因为它们表示状态。 悬停是第三高，因为它表示用户意图，但几乎任何东西都可以悬停。</li>
+    </ul>
+
+    <h3 id="overlay-components">叠加组件</h3>
+
+    <p>Bootstrap 包含几个作为某种覆盖的组件。 这包括，按最高顺序排列 <code class="highlighter-rouge">z-index</code> 下拉列表，固定和粘性导航栏，模态，工具提示和弹出窗口。 这些组件都有自己的 <code class="highlighter-rouge">z-index</code> 从...开始的规模 <code class="highlighter-rouge">1000</code>. 这个起始编号是随机的，可以作为 bootstrap 的样式和项目的自定义样式之间的小缓冲区。</p>
+
+    <p>每个叠加组件都会增加它 <code class="highlighter-rouge">z-index</code> 以这样的方式稍微改变价值，即常见的UI原则允许用户聚焦或悬停的元素始终保持在视图中。 例如，模态是文档阻塞（例如，你不能采取任何其他操作保存模式的操作），因此我们将其放在我们的导航栏上方。</p>
+
+    <p>在我们的 z-index 布局页面中了解更多相关信息。</p>
+
+    <h2 id="html-and-css-over-js">通过 HTML 和 CSS 来调用 Javascript</h2>
+
+    <p>只要有可能，我们会让 Javascript 实现的功能通过 HTML 或 CSS 来调用。因为相对于 Javascript，HTML 或 CSS 更加广为人知（很多切图型纯前端可能完全不知道 Javascript 如何使用）。浏览器中的 HTML 和 CSS 的优先级也比 JavaScript 高。</p>
+
+    <p>这个原则是基于我们统一的 JavaScript API <code class="highlighter-rouge">data</code> 属性。 你几乎不需要编写任何 JavaScript 来使用我们的 JavaScript 插件。</p>
+
+    <p>最后，我们的风格建立在常见Web元素的基本行为之上。 只要有可能，我们更愿意使用浏览器提供的内容。 例如，你可以放一个 <code class="highlighter-rouge">.btn</code> 几乎任何元素上的类，但大多数元素不提供任何语义值或浏览器功能。 相反，我们使用 <code class="highlighter-rouge">&lt;button&gt;</code> 的 <code class="highlighter-rouge">&lt;a&gt;</code>。</p>
+
+    <p>对于更复杂的组件也是如此。 虽然我们可以编写自己的表单验证插件，根据输入的状态将类添加到父元素，从而允许我们将文本样式设置为红色。我们更喜欢使用浏览器提供的为元素，比如 <code class="highlighter-rouge">:valid</code>/<code class="highlighter-rouge">:invalid</code> 。</p>
+
+    <h2 id="utilities">工具</h2>
+
+    <p>工具 - 以前在 Bootstrap 3 中的助手 - 是控制 CSS 复杂化和糟糕页面性能的强大伙伴。 工具通常是表示为类的单个不可变 [属性 - 值]（例如，<code class="highlighter-rouge">.d-block</code> represents <code class="highlighter-rouge">display: block;</code>）。 使用工具的好处就在于这些可复用的工具可以提高项目开发的速度，而不是你一个一个地研究如何实现其效果。</p>
+
+    <p>特别是自定义CSS，工具可以通过将最常重复的 [属性 - 值] 减少到单个类来帮助对抗增加的文件大小。 这可能会对你的项目产生巨大影响。</p>
+
+    <h2 id="flexible-html">Flexible HTML</h2>
+
+    <p>虽然并非总是可行，但我们努力避免在组件的HTML要求中过于教条。 因此，我们专注于CSS选择器中的单个类，并尝试避免直接的子选择器。 这为你的实现提供了更大的灵活性，并有助于保持CSS更简单，更不具体。</p>
+</div>

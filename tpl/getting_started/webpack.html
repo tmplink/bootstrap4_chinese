@@ -1,0 +1,77 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">Webpack</h1>
+<p class="bd-lead">了解如何使用 Webpack 3在项目中加入 Bootstrap。</p>
+
+<h2 id="installing-bootstrap">安装 Bootstrap</h2>
+
+<p>请转至下载章节查阅如何使用 np m安装 bootstrap</p>
+
+<h2 id="importing-javascript">导入 JavaScript</h2>
+
+<p>通过将此行添加到应用程序的入口点（通常是index.js或app.js）来导入Bootstrap的JavaScript：</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">import</span> <span class="s1">'bootstrap'</span><span class="p">;</span></code></pre></figure>
+
+<p>或者，你可以根据需要单独导入插件：</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">import</span> <span class="s1">'bootstrap/js/dist/util'</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">'bootstrap/js/dist/alert'</span><span class="p">;</span>
+<span class="p">...</span></code></pre></figure>
+
+<p>Bootstrap 依赖于 jQuery 和 Popper，它们被定义为 peerDependencies，这意味着你必须确保使用 npm install --save jquery popper.js 将它们添加到 package.json中。</p>
+
+<h2 id="importing-styles">导入样式</h2>
+
+<h3 id="importing-precompiled-sass">导入预编译的Sass</h3>
+
+<p>要充分发挥Bootstrap的潜力并根据需要进行自定义，请将源文件用作项目捆绑过程的一部分。</p>
+
+<p>首先，创建自己的 _custom.scss 并使用它来覆盖内置的自定义变量。 然后，使用主 Sass 文件导入自定义变量，然后使用 Bootstrap：</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s2">"custom"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"~bootstrap/scss/bootstrap"</span><span class="p">;</span></code></pre></figure>
+
+<p>要编译 Bootstrap，请确保安装并使用所需的加载器：sass-loader，带有 Autoprefixer 的 postcss-loader。 使用最少的设置，你的 webpack 配置应包括此规则或类似规则：</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="p">...</span>
+  <span class="p">{</span>
+    <span class="nl">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">scss</span><span class="se">)</span><span class="sr">$/</span><span class="p">,</span>
+    <span class="nx">use</span><span class="p">:</span> <span class="p">[{</span>
+      <span class="na">loader</span><span class="p">:</span> <span class="s1">'style-loader'</span><span class="p">,</span> <span class="c1">// inject CSS to page</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="na">loader</span><span class="p">:</span> <span class="s1">'css-loader'</span><span class="p">,</span> <span class="c1">// translates CSS into CommonJS modules</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="na">loader</span><span class="p">:</span> <span class="s1">'postcss-loader'</span><span class="p">,</span> <span class="c1">// Run post css actions</span>
+      <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">plugins</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// post css plugins, can be exported to postcss.config.js</span>
+          <span class="k">return</span> <span class="p">[</span>
+            <span class="nx">require</span><span class="p">(</span><span class="s1">'precss'</span><span class="p">),</span>
+            <span class="nx">require</span><span class="p">(</span><span class="s1">'autoprefixer'</span><span class="p">)</span>
+          <span class="p">];</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="na">loader</span><span class="p">:</span> <span class="s1">'sass-loader'</span> <span class="c1">// compiles Sass to CSS</span>
+    <span class="p">}]</span>
+  <span class="p">},</span>
+  <span class="p">...</span></code></pre></figure>
+
+<h3 id="importing-compiled-css">导入已编译的CSS</h3>
+
+<p>或者，你可以通过简单地将此行添加到项目的入口点来使用 Bootstrap 的 CSS：</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">import</span> <span class="s1">'bootstrap/dist/css/bootstrap.min.css'</span><span class="p">;</span></code></pre></figure>
+
+<p>在这种情况下，你可以使用现有的 css 规则，而无需对 webpack 配置进行任何特殊修改，除非你不需要 sass-loader 只是 style-loader 和 css-loader。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js">  <span class="p">...</span>
+  <span class="nx">module</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">rules</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">css$/</span><span class="p">,</span>
+        <span class="na">use</span><span class="p">:</span> <span class="p">[</span><span class="s1">'style-loader'</span><span class="p">,</span> <span class="s1">'css-loader'</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+  <span class="p">...</span></code></pre></figure>
+  </div>

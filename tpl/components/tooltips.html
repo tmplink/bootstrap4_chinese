@@ -1,0 +1,345 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">提示框</h1>
+          <p class="bd-lead">当您想要描述一个链接的时候，提示工具（Tooltip）就显得非常有用。提示工具（Tooltip）插件是受 Jason Frame 写的 jQuery.tipsy 的启发。提示工具（Tooltip）插件做了很多改进，例如不需要依赖图像，而是改用 CSS 实现动画效果，用 data 属性存储标题信息。</p>
+          <h2 id="overview">概览</h2>
+
+<p>使用提示框插件时应了解的事情如下：</p>
+
+<ul>
+  <li>提示框依靠第三方函数庫 Popper.js 进行定位。 在 Bootstrap 提示框工作之前，你必须包含 popper.min.js，或者使用  <code class="highlighter-rouge">bootstrap.bundle.min.js</code> / <code class="highlighter-rouge">bootstrap.bundle.js</code> ，这已经包含 Popper.js 可以直接运作。</li>
+  <li>如果自行编译 JS，记得 requires util.js。</li>
+  <li>提示框因为性能原因所以是选择加入，所以 <strong>你必须自己将他们初始化。</strong></li>
+  <li>Tooltips 不会显示具有零长度标题的提示框。</li>
+  <li>指定 <code class="highlighter-rouge">container: 'body'</code> 以避免在更复杂的元件（如我们的输入群组，按钮组等）中出现问题。</li>
+  <li>隐藏元素上的触发提示框将不起作用。</li>
+  <li> <code class="highlighter-rouge">.disabled</code> 或 <code class="highlighter-rouge">disabled</code> 元素提示框的触发必须在外层元素上。</li>
+  <li>当从跨越多行的超链接触发时，提示框将被居中。在你的 <code class="highlighter-rouge">white-space: nowrap;</code> 上使用 <code class="highlighter-rouge">&lt;a&gt;</code>来避免这种行为</li>
+  <li>必须先隐藏提示框，然后才能从 DOM 中删除相应的元素。</li>
+</ul>
+
+<p>都明白了？太好了，让我们通过一些例子看他们是如何运作的。</p>
+
+<h2 id="example-enable-tooltips-everywhere">实例：在任何地方添加提示框</h2>
+
+<p>在页面上初始化所有提示框的一种方法是通过它们的 <code class="highlighter-rouge">data-toggle</code> 属性来选择它们：</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'[data-toggle="tooltip"]'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">()</span>
+<span class="p">})</span></code></pre></figure>
+
+<h2 id="examples">实例</h2>
+
+<p>滑动 hover 到链接上查看提示框</p>
+
+<div class="bd-example tooltip-demo">
+  <p class="muted">Tight pants next level keffiyeh <a href="#" data-toggle="tooltip" title="Default tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" data-toggle="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" data-toggle="tooltip" title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" data-toggle="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+  </p>
+</div>
+
+<p>将鼠标悬停在下方按钮上可查看四个提示框方向：顶部，右侧，底部和左侧.</p>
+
+<div class="bd-example tooltip-demo">
+  <div class="bd-example-tooltips">
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="&lt;em&gt;Tooltip&lt;/em&gt; &lt;u&gt;with&lt;/u&gt; &lt;b&gt;HTML&lt;/b&gt;">Tooltip with HTML</button>
+  </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"top"</span> <span class="na">title=</span><span class="s">"Tooltip on top"</span><span class="nt">&gt;</span>
+  Tooltip on top
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"right"</span> <span class="na">title=</span><span class="s">"Tooltip on right"</span><span class="nt">&gt;</span>
+  Tooltip on right
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"bottom"</span> <span class="na">title=</span><span class="s">"Tooltip on bottom"</span><span class="nt">&gt;</span>
+  Tooltip on bottom
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"left"</span> <span class="na">title=</span><span class="s">"Tooltip on left"</span><span class="nt">&gt;</span>
+  Tooltip on left
+<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<p>添加自定义的 HTML：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-html=</span><span class="s">"true"</span> <span class="na">title=</span><span class="s">"&lt;em&gt;Tooltip&lt;/em&gt; &lt;u&gt;with&lt;/u&gt; &lt;b&gt;HTML&lt;/b&gt;"</span><span class="nt">&gt;</span>
+  Tooltip with HTML
+<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<h2 id="usage">用法</h2>
+
+<p>提示框插件会根据需要生成内容和标记，默认情况下是把提示工具（tooltip）放在它们的触发元素后面。</p>
+
+<p>通过JavaScript触发提示框：</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span></code></pre></figure>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="overflow-auto-and-scroll">Overflow <code class="highlighter-rouge">auto</code> and <code class="highlighter-rouge">scroll</code></h5>
+
+<p>Tooltip position attempts to automatically change when a parent container has <code class="highlighter-rouge">overflow: auto</code> or <code class="highlighter-rouge">overflow: scroll</code> like our <code class="highlighter-rouge">.table-responsive</code>, but still keeps the original placement’s positioning. To resolve, set the <code class="highlighter-rouge">boundary</code> option to anything other than default value, <code class="highlighter-rouge">'scrollParent'</code>, such as <code class="highlighter-rouge">'window'</code>:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">({</span> <span class="na">boundary</span><span class="p">:</span> <span class="s1">'window'</span> <span class="p">})</span></code></pre></figure>
+
+</div>
+
+<h3 id="markup">标记</h3>
+
+<p>提示框所需的标记只是一个 <code class="highlighter-rouge">data</code> 属性和 <code class="highlighter-rouge">title</code> 在你希望获得提示框的HTML元素上。 生成的提示框标记相当简单，但它确实需要一个位置 （默认情况下，设置为 <code class="highlighter-rouge">top</code> 通过插件）。</p>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="making-tooltips-work-for-keyboard-and-assistive-technology-users">使提示框适用于键盘和辅助技术用户</h5>
+
+<p>你只应为传统上键盘 focus 和互动式（如链接或表单控制元件）的 HTML 元素添加提示框。虽然任意的 HTML 元素（如 <code class="highlighter-rouge">&lt;span&gt;</code>）可以通过添加 <code class="highlighter-rouge">tabindex="0"</code> 属性来调整 focus ，但这会为键盘使用者的非互动式元素增加可能造成困惑的定位点。此外，大多数辅助技术目前还没有加入这种情况下的提示框。</p>
+
+<p>此外，不要单纯依赖 <code class="highlighter-rouge">hover</code> 作为提示框作为触发器，因为这将使用你的提示框无法被键盘触发。</p>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- HTML to write --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">title=</span><span class="s">"Some tooltip text!"</span><span class="nt">&gt;</span>Hover over me<span class="nt">&lt;/a&gt;</span>
+
+<span class="c">&lt;!-- Generated markup by the plugin --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tooltip bs-tooltip-top"</span> <span class="na">role=</span><span class="s">"tooltip"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"arrow"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tooltip-inner"</span><span class="nt">&gt;</span>
+    Some tooltip text!
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h3 id="disabled-elements">禁用的元素</h3>
+
+<p>具有 <code class="highlighter-rouge">disabled</code> 的元素是不能产生互动的，这意味用户不能使用 hover 及点击触发弹出(或提示框)，如果想要启用，可使用 <code class="highlighter-rouge">&lt;div&gt;</code> 或 <code class="highlighter-rouge">&lt;span&gt;</code>,包裹，且調整 <code class="highlighter-rouge">tabindex="0"</code>，让键盘能够切换，并覆盖 <code class="highlighter-rouge">pointer-events</code> 在禁用的属性上。</p>
+
+<div class="tooltip-demo">
+
+<div class="bd-example">
+<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Disabled tooltip">
+  <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled="">Disabled button</button>
+</span>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"d-inline-block"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">title=</span><span class="s">"Disabled tooltip"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">style=</span><span class="s">"pointer-events: none;"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled</span><span class="nt">&gt;</span>Disabled button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+</div>
+
+<h3 id="options">选项</h3>
+
+<p>可以通过data属性或 JavaScript 传递选项。对于data属性，将选项名称附加到 <code class="highlighter-rouge">data-</code>, as in <code class="highlighter-rouge">data-animation=""</code>.</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th style="width: 100px;">名称</th>
+      <th style="width: 100px;">类型</th>
+      <th style="width: 50px;">默认值</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>animation</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>将CSS淡入淡出过渡应用于提示框</td>
+    </tr>
+    <tr>
+      <td>container</td>
+      <td>string | element | false</td>
+      <td>false</td>
+      <td>
+        <p>将提示框附加到特定元素。 例：<code>container: 'body'</code>。此选项特别有用，它允许你将提示框放置在触发元素附近的文档流中 - 这将防止提示框在窗口大小调整期间从触发元素浮动。</p>
+      </td>
+    </tr>
+    <tr>
+      <td>delay</td>
+      <td>number | object</td>
+      <td>0</td>
+      <td>
+        <p>显示和隐藏弹出提示框的延迟（ms） - 不适用于手动触发类型</p>
+        <p>如果提供了一个数字，则将延迟应用于隐藏/显示</p>
+        <p>对象结构是： <code>delay: { "show": 500, "hide": 100 }</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>html</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>
+        <p>在提示框中允许 HTML。</p>
+        <p>如果为 true，提示框的 <code>title</code> 中的 HTML 标签将在提示框中呈现。如果为 false，则将使用 jQuery的 <code>text</code> 方法将内容插入到 DOM 中。如果你担心 XSS 攻击，请使用文字。</p>
+        <p>如果你担心XSS攻击，请使用文本。</p>
+      </td>
+    </tr>
+    <tr>
+      <td>placement</td>
+      <td>string | function</td>
+      <td>'top'</td>
+      <td>
+        <p>如何定位提示框 - auto | top | bottom | left | right。<br />When <code>auto</code> 时，将动态重新定位提示框。</p>
+        <p>当函数用于确定位置时，将使用提示框 DOM 节点作为其第一个参数并将触发元素 DOM 节点作为其第二个参数来调用。 <code>this</code> 将被设为弹出提示框实例</p>
+      </td>
+    </tr>
+    <tr>
+      <td>selector</td>
+      <td>string | false</td>
+      <td>false</td>
+      <td>如果提供了选择器，提示框将被委派给指定的目标。实际上，这用于动态 HTML 来扩增提示框事件。</td>
+    </tr>
+    <tr>
+      <td>template</td>
+      <td>string</td>
+      <td><code>'&lt;div class="tooltip" role="tooltip"&gt;&lt;div class="arrow"&gt;&lt;/div&gt;&lt;div class="tooltip-inner"&gt;&lt;/div&gt;&lt;/div&gt;'</code></td>
+      <td>
+        <p>创建提示框时使用的基本 HTML</p>
+        <p>提示框的 <code>title</code> 将被注入到 <code>.tooltip-inner</code>中。</p>
+        <p><code>.arrow</code> 将成为提示框的箭头。</p>
+        <p>最外层的包装元素应该有 <code>.tooltip</code> 及<code>role="tooltip"</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>string | element | function</td>
+      <td>''</td>
+      <td>
+        <p>如果 <code>title</code>属性不存在，则为默认标题值。</p>
+        <p>如果给出一个函数，它将被调用，其 <code>this</code> 引用设置为提示框附加到的元素</p>
+      </td>
+    </tr>
+    <tr>
+      <td>trigger</td>
+      <td>string</td>
+      <td>'hover focus'</td>
+      <td>
+        <p>如何触发提示框 - 单击| 悬停| 焦点| 手册。 你可以传递多个触发器; 用空格隔开它们。</p>
+        <p><code>'manual'</code> 表示提示框将通过 <code>.tooltip('show')</code>, <code>.tooltip('hide')</code> 和 <code>.tooltip('toggle')</code> 的方法触发，这个值不能与其它的触发器做组合。</p>
+        <p><code>'hover'</code> 将导致键盘无法触发提示框，只能做为使用键盘用户传递讯息的替代方法。</p>
+      </td>
+    </tr>
+    <tr>
+      <td>offset</td>
+      <td>number | string</td>
+      <td>0</td>
+      <td>提示框相对于其目标的偏移量。 有关更多信息，请参阅Popper.js的偏移文档</td>
+    </tr>
+    <tr>
+      <td>fallbackPlacement</td>
+      <td>string | array</td>
+      <td>'flip'</td>
+      <td>允许指定Popper将在后备中使用的位置。 有关更多信息，请参阅Popper.js的行为文档</td>
+    </tr>
+    <tr>
+      <td>boundary</td>
+      <td>string | element</td>
+      <td>'scrollParent'</td>
+      <td>Overflow constraint boundary of the tooltip. Accepts the values of <code>'viewport'</code>, <code>'window'</code>, <code>'scrollParent'</code>, or an HTMLElement reference (JavaScript only). For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.boundariesElement">preventOverflow docs</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="bd-callout bd-callout-info">
+<h4 id="data-attributes-for-individual-tooltips">各个提示框的数据属性</h4>
+
+<p>如上所述，可以通过使用数据属性来指定单个提示框的选项。</p>
+</div>
+
+<h3 id="methods">方法</h3>
+
+<div class="bd-callout bd-callout-danger">
+<h4 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h4>
+
+<p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They return to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
+
+<p><a href="/docs/4.1/getting-started/javascript/">See our JavaScript documentation for more information.</a></p>
+</div>
+
+<h4 id="tooltipoptions"><code class="highlighter-rouge">$().tooltip(options)</code></h4>
+
+<p>将提示框处理程序附加到元素集合。</p>
+
+<h4 id="tooltipshow"><code class="highlighter-rouge">.tooltip('show')</code></h4>
+
+<p>显示元素的提示框. <strong>在实际显示提示框之前返回调用者</strong> (即在 <code class="highlighter-rouge">shown.bs.tooltip</code> 之前）。 这被认为是提示框的“手动”触发。 永远不会显示具有零长度标题的提示框。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="tooltiphide"><code class="highlighter-rouge">.tooltip('hide')</code></h4>
+
+<p>隐藏元素的提示框。 <strong>在实际隐藏提示框之前返回调用者</strong> （即在 <code class="highlighter-rouge">hidden.bs.tooltip</code> 之前）。 这被认为是提示框的“手动”触发。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'hide'</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="tooltiptoggle"><code class="highlighter-rouge">.tooltip('toggle')</code></h4>
+
+<p>切换元素的提示框。 <strong>在实际显示或隐藏提示框之前返回调用者</strong> (即在 <code class="highlighter-rouge">shown.bs.tooltip</code> 或 <code class="highlighter-rouge">hidden.bs.tooltip</code> 之前）。这被认为是提示框的“手动”触发。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="tooltipdispose"><code class="highlighter-rouge">.tooltip('dispose')</code></h4>
+
+<p>隐藏和销毁元素的提示框。 使用委托的提示框（使用 <a href="#options">the <code class="highlighter-rouge">selector</code> option</a>) 不能在后代触发元素上单独销毁。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'dispose'</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="tooltipenable"><code class="highlighter-rouge">.tooltip('enable')</code></h4>
+
+<p>为元素的提示框提供显示的能力。 <strong>默认情况下启用提示框。</strong></p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'enable'</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="tooltipdisable"><code class="highlighter-rouge">.tooltip('disable')</code></h4>
+
+<p>删除元素提示框的显示功能。 只有重新启用提示框才能显示。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'disable'</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="tooltiptoggleenabled"><code class="highlighter-rouge">.tooltip('toggleEnabled')</code></h4>
+
+<p>切换显示或隐藏元素提示框的功能。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'toggleEnabled'</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="tooltipupdate"><code class="highlighter-rouge">.tooltip('update')</code></h4>
+
+<p>更新元素提示框的位置。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'update'</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="events">事件</h3>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th style="width: 150px;">事件类型</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>show.bs.tooltip</td>
+      <td>当调用 <code>show</code> 实例方法时，此事件会立即触发。</td>
+    </tr>
+    <tr>
+      <td>shown.bs.tooltip</td>
+      <td>当提示框显示后，会触发此事件（待CSS转换完成）​​。</td>
+    </tr>
+    <tr>
+      <td>hide.bs.tooltip</td>
+      <td>当调用 <code>hide</code> 实例方法时，会立即触发此事件。</td>
+    </tr>
+    <tr>
+      <td>hidden.bs.tooltip</td>
+      <td>当提示框对隐藏后，会触发此事件（待CSS转换完成）​​。.</td>
+    </tr>
+    <tr>
+      <td>inserted.bs.tooltip</td>
+      <td>将提示框范本加到 DOM 后，会在 <code>show.bs.tooltip</code> 事件后触发此事件。</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myTooltip'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'hidden.bs.tooltip'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span></code></pre></figure>
+</div>

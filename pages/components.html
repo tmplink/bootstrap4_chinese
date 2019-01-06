@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>Bootstrap4 - 中文文档 - 组件</title>
+        <meta name="description" content="Bootstrap 4 中文文档，运用 bootstrap 组件快速构建网站功能。" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/domloader.js"></script>
+        <link href="../css/domloader.css" rel="stylesheet"/>
+        <script>
+            domloader.init();
+            domloader.preload('../config/init.html');
+            domloader.preload('../config/pre.html');
+            domloader.html('#tpl_alert', 'tpl/components/alert.html');
+            domloader.html('#tpl_badge', 'tpl/components/badge.html');
+            domloader.html('#tpl_breadcrumb', 'tpl/components/breadcrumb.html');
+            domloader.html('#tpl_buttons', 'tpl/components/buttons.html');
+            domloader.html('#tpl_buttons_group', 'tpl/components/buttons_group.html');
+            domloader.html('#tpl_card', 'tpl/components/card.html');
+            domloader.html('#tpl_carousel', 'tpl/components/carousel.html');
+            domloader.html('#tpl_collapse', 'tpl/components/collapse.html');
+            domloader.html('#tpl_dropdowns', 'tpl/components/dropdowns.html');
+            domloader.html('#tpl_forms', 'tpl/components/forms.html');
+            domloader.html('#tpl_input_group', 'tpl/components/input_group.html');
+            domloader.html('#tpl_jumbotron', 'tpl/components/jumbotron.html');
+            domloader.html('#tpl_list_group', 'tpl/components/list_group.html');
+            domloader.html('#tpl_modal', 'tpl/components/modal.html');
+            domloader.html('#tpl_navs', 'tpl/components/navs.html');
+            domloader.html('#tpl_navbar', 'tpl/components/navbar.html');
+            domloader.html('#tpl_pagination', 'tpl/components/pagination.html');
+            domloader.html('#tpl_popovers', 'tpl/components/popovers.html');
+            domloader.html('#tpl_progress', 'tpl/components/progress.html');
+            domloader.html('#tpl_scrollspy', 'tpl/components/scrollspy.html');
+            domloader.html('#tpl_tooltips', 'tpl/components/tooltips.html');
+            domloader.onload(function () {
+                $('#nav_components').addClass('active');
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="container">
+                <div id="tpl_header"></div>
+                <div class="row">
+                    <div class="col-12 d-block d-lg-none">
+                        <div class="nav nav-pills d-flex justify-content-center" role="tablist">
+                            <a class="nav-link active show" href="#tab_alert"  role="tab" data-toggle="pill">警告框</a>
+                            <a class="nav-link" href="#tab_badge"  role="tab" data-toggle="pill">徽章</a>
+                            <a class="nav-link" href="#tab_breadcrumb"  role="tab" data-toggle="pill">面包屑导航</a>
+                            <a class="nav-link" href="#tab_buttons"  role="tab" data-toggle="pill">按钮</a>
+                            <a class="nav-link" href="#tab_buttons_group"  role="tab" data-toggle="pill">按钮组</a>
+                            <a class="nav-link" href="#tab_card"  role="tab" data-toggle="pill">卡片</a>
+                            <a class="nav-link" href="#tab_carousel"  role="tab" data-toggle="pill">轮播</a>
+                            <a class="nav-link" href="#tab_collapse"  role="tab" data-toggle="pill">折叠</a>
+                            <a class="nav-link" href="#tab_dropdowns"  role="tab" data-toggle="pill">下拉菜单</a>
+                            <a class="nav-link" href="#tab_forms"  role="tab" data-toggle="pill">表单</a>
+                            <a class="nav-link" href="#tab_input_group"  role="tab" data-toggle="pill">输入框组</a>
+                            <a class="nav-link" href="#tab_jumbotron"  role="tab" data-toggle="pill">霸屏</a>
+                            <a class="nav-link" href="#tab_list_group"  role="tab" data-toggle="pill">列表组</a>
+                            <a class="nav-link" href="#tab_modal"  role="tab" data-toggle="pill">模态框</a>
+                            <a class="nav-link" href="#tab_navs"  role="tab" data-toggle="pill">导航</a>
+                            <a class="nav-link" href="#tab_navbar"  role="tab" data-toggle="pill">导航栏</a>
+                            <a class="nav-link" href="#tab_pagination"  role="tab" data-toggle="pill">分页</a>
+                            <a class="nav-link" href="#tab_popovers"  role="tab" data-toggle="pill">弹出框</a>
+                            <a class="nav-link" href="#tab_progress"  role="tab" data-toggle="pill">进度条</a>
+                            <a class="nav-link" href="#tab_scrollspy"  role="tab" data-toggle="pill">滚动条</a>
+                            <a class="nav-link" href="#tab_tooltips"  role="tab" data-toggle="pill">提示框</a>
+                        </div>
+                    </div>
+                    <div class="col-2 d-lg-block d-none">
+                        <div class="nav nav-pills flex-column" role="tablist">
+                            <a class="nav-link active show" href="#tab_alert"  role="tab" data-toggle="pill">警告框</a>
+                            <a class="nav-link" href="#tab_badge"  role="tab" data-toggle="pill">徽章</a>
+                            <a class="nav-link" href="#tab_breadcrumb"  role="tab" data-toggle="pill">面包屑导航</a>
+                            <a class="nav-link" href="#tab_buttons"  role="tab" data-toggle="pill">按钮</a>
+                            <a class="nav-link" href="#tab_buttons_group"  role="tab" data-toggle="pill">按钮组</a>
+                            <a class="nav-link" href="#tab_card"  role="tab" data-toggle="pill">卡片</a>
+                            <a class="nav-link" href="#tab_carousel"  role="tab" data-toggle="pill">轮播</a>
+                            <a class="nav-link" href="#tab_collapse"  role="tab" data-toggle="pill">折叠</a>
+                            <a class="nav-link" href="#tab_dropdowns"  role="tab" data-toggle="pill">下拉菜单</a>
+                            <a class="nav-link" href="#tab_forms"  role="tab" data-toggle="pill">表单</a>
+                            <a class="nav-link" href="#tab_input_group"  role="tab" data-toggle="pill">输入框组</a>
+                            <a class="nav-link" href="#tab_jumbotron"  role="tab" data-toggle="pill">霸屏</a>
+                            <a class="nav-link" href="#tab_list_group"  role="tab" data-toggle="pill">列表组</a>
+                            <a class="nav-link" href="#tab_modal"  role="tab" data-toggle="pill">模态框</a>
+                            <a class="nav-link" href="#tab_navs"  role="tab" data-toggle="pill">导航</a>
+                            <a class="nav-link" href="#tab_navbar"  role="tab" data-toggle="pill">导航栏</a>
+                            <a class="nav-link" href="#tab_pagination"  role="tab" data-toggle="pill">分页</a>
+                            <a class="nav-link" href="#tab_popovers"  role="tab" data-toggle="pill">弹出框</a>
+                            <a class="nav-link" href="#tab_progress"  role="tab" data-toggle="pill">进度条</a>
+                            <a class="nav-link" href="#tab_scrollspy"  role="tab" data-toggle="pill">滚动条</a>
+                            <a class="nav-link" href="#tab_tooltips"  role="tab" data-toggle="pill">提示框</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="tab-content" role="tabpanel">
+                            <div role="tabpanel" class="tab-pane  active" id="tab_alert"><div id="tpl_alert"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_badge"><div id="tpl_badge"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_breadcrumb"><div id="tpl_breadcrumb"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_buttons"><div id="tpl_buttons"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_buttons_group"><div id="tpl_buttons_group"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_card"><div id="tpl_card"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_carousel"><div id="tpl_carousel"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_collapse"><div id="tpl_collapse"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_dropdowns"><div id="tpl_dropdowns"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_forms"><div id="tpl_forms"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_input_group"><div id="tpl_input_group"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_jumbotron"><div id="tpl_jumbotron"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_list_group"><div id="tpl_list_group"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_modal"><div id="tpl_modal"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_navs"><div id="tpl_navs"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_navbar"><div id="tpl_navbar"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_pagination"><div id="tpl_pagination"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_popovers"><div id="tpl_popovers"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_progress"><div id="tpl_progress"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_scrollspy"><div id="tpl_scrollspy"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_tooltips"><div id="tpl_tooltips"></div></div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div id="tpl_footer"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>Bootstrap4 - 中文文档 - 内容</title>
+        <meta name="description" content="Bootstrap 4 中文文档，运用 bootstrap 内容模块轻松组织网站内容。" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/domloader.js"></script>
+        <link href="../css/domloader.css" rel="stylesheet"/>
+        <script>
+            domloader.init();
+            domloader.preload('../config/init.html');
+            domloader.preload('../config/pre.html');
+            domloader.html('#tpl_reboot', 'tpl/content/reboot.html');
+            domloader.html('#tpl_typography', 'tpl/content/typography.html');
+            domloader.html('#tpl_code', 'tpl/content/code.html');
+            domloader.html('#tpl_images', 'tpl/content/images.html');
+            domloader.html('#tpl_tables', 'tpl/content/tables.html');
+            domloader.html('#tpl_figures', 'tpl/content/figures.html');
+            domloader.onload(function () {
+                $('#nav_content').addClass('active');
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="container">
+                <div id="tpl_header"></div>
+                <div class="row">
+                    <div class="col-12 d-block d-lg-none">
+                        <div class="nav nav-pills d-flex justify-content-center" role="tablist">
+                            <a class="nav-link active show" href="#tab_reboot"  role="tab" data-toggle="pill">重置</a>
+                            <a class="nav-link" href="#tab_typography"  role="tab" data-toggle="pill">排版</a>
+                            <a class="nav-link" href="#tab_code"  role="tab" data-toggle="pill">代码</a>
+                            <a class="nav-link" href="#tab_images"  role="tab" data-toggle="pill">图片</a>
+                            <a class="nav-link" href="#tab_tables"  role="tab" data-toggle="pill">表格</a>
+                            <a class="nav-link" href="#tab_figures"  role="tab" data-toggle="pill">图文区</a>
+                        </div>
+                    </div>
+                    <div class="col-2 d-lg-block d-none">
+                        <div class="nav nav-pills flex-column" role="tablist">
+                            <a class="nav-link active show" href="#tab_reboot"  role="tab" data-toggle="pill">重置</a>
+                            <a class="nav-link" href="#tab_typography"  role="tab" data-toggle="pill">排版</a>
+                            <a class="nav-link" href="#tab_code"  role="tab" data-toggle="pill">代码</a>
+                            <a class="nav-link" href="#tab_images"  role="tab" data-toggle="pill">图片</a>
+                            <a class="nav-link" href="#tab_tables"  role="tab" data-toggle="pill">表格</a>
+                            <a class="nav-link" href="#tab_figures"  role="tab" data-toggle="pill">图文区</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="tab-content" role="tabpanel">
+                            <div role="tabpanel" class="tab-pane  active" id="tab_reboot"><div id="tpl_reboot"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_typography"><div id="tpl_typography"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_code"><div id="tpl_code"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_images"><div id="tpl_images"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_tables"><div id="tpl_tables"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_figures"><div id="tpl_figures"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tpl_footer"></div>
+        </div>
+    </body>
+</html>

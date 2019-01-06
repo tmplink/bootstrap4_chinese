@@ -1,0 +1,128 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">徽章</h1>
+          <p class="bd-lead">徽章的文档与实例，包含小号及元件.</p>
+
+          <h2 id="example">实例</h2>
+
+<p>徽章通过使用相对字体大小和 <code class="highlighter-rouge">em</code> 单位来缩放以匹配直接父元素的大小</p>
+
+<div class="bd-example">
+<div class="h1">Example heading <span class="badge badge-secondary">New</span></div>
+<div class="h2">Example heading <span class="badge badge-secondary">New</span></div>
+<div class="h3">Example heading <span class="badge badge-secondary">New</span></div>
+<div class="h4">Example heading <span class="badge badge-secondary">New</span></div>
+<div class="h5">Example heading <span class="badge badge-secondary">New</span></div>
+<div class="h6">Example heading <span class="badge badge-secondary">New</span></div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>Example heading <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-secondary"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Example heading <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-secondary"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Example heading <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-secondary"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>Example heading <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-secondary"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>Example heading <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-secondary"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;&lt;/h5&gt;</span>
+<span class="nt">&lt;h6&gt;</span>Example heading <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-secondary"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;&lt;/h6&gt;</span></code></pre></figure>
+
+<p>徽章可以作为链接或按钮的计数器.</p>
+
+<div class="bd-example">
+<button type="button" class="btn btn-primary">
+  Notifications <span class="badge badge-light">4</span>
+</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+  Notifications <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-light"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<p>根据使用方式，徽章可能会让屏幕阅读器及相关辅助技术的用户感到困惑，虽然徽章的样式提供了一个视觉提示，但这些用户只会将只会显示徽章的内容。这些徽章会看起来像在句子、链接、按钮中的后方随机加入的词或数字.</p>
+
+<p>除非内文是清楚的 ( 与“通知”示例一样，在理解“4”是通知的数量的情况下 )，请考虑将附加的文字内容在视觉上隐藏。</p>
+
+<div class="bd-example">
+<button type="button" class="btn btn-primary">
+  Profile <span class="badge badge-light">9</span>
+  <span class="sr-only">unread messages</span>
+</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+  Profile <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-light"</span><span class="nt">&gt;</span>9<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>unread messages<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<h2 id="contextual-variations">情境变化</h2>
+
+<p>加入以下的 Class 来修改徽章的外观。</p>
+
+<div class="bd-example">
+
+<span class="badge badge-primary">Primary</span>
+<span class="badge badge-secondary">Secondary</span>
+<span class="badge badge-success">Success</span>
+<span class="badge badge-danger">Danger</span>
+<span class="badge badge-warning">Warning</span>
+<span class="badge badge-info">Info</span>
+<span class="badge badge-light">Light</span>
+<span class="badge badge-dark">Dark</span>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-primary"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-secondary"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-success"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-danger"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-warning"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-info"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-light"</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-dark"</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="conveying-meaning-to-assistive-technologies">对于使用辅助技术的用户而言</h5>
+
+<p>尽管上面的这些类可以对信息进行着色以提供视觉指示，但是这些指示不会传达给辅助技术的用户 - 例如屏幕阅读器。 因此如果某些内容很重要，请直接加入正文中，或者通过其他方式引用，例如使用 <code class="highlighter-rouge">.sr-only</code> 类隐藏这些必要的内容。</p>
+</div>
+
+<h2 id="pill-badges">胶囊徽章</h2>
+
+<p>使用 <code class="highlighter-rouge">.badge-pill</code> 可以使徽章更圆润(具有较大的 <code class="highlighter-rouge">border-radius</code> 和 附加的水平 <code class="highlighter-rouge">padding</code>)。</p>
+
+<div class="bd-example">
+
+<span class="badge badge-pill badge-primary">Primary</span>
+<span class="badge badge-pill badge-secondary">Secondary</span>
+<span class="badge badge-pill badge-success">Success</span>
+<span class="badge badge-pill badge-danger">Danger</span>
+<span class="badge badge-pill badge-warning">Warning</span>
+<span class="badge badge-pill badge-info">Info</span>
+<span class="badge badge-pill badge-light">Light</span>
+<span class="badge badge-pill badge-dark">Dark</span>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-pill badge-primary"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-pill badge-secondary"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-pill badge-success"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-pill badge-danger"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-pill badge-warning"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-pill badge-info"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-pill badge-light"</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"badge badge-pill badge-dark"</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/span&gt;</span></code></pre></figure>
+
+<h2 id="links">链接</h2>
+
+<p>使用 <code class="highlighter-rouge">.badge-*</code> 可在 <code class="highlighter-rouge">&lt;a&gt;</code> 元素上调整 hover 和 focus 的效果。</p>
+
+<div class="bd-example">
+
+<a href="#" class="badge badge-primary">Primary</a>
+<a href="#" class="badge badge-secondary">Secondary</a>
+<a href="#" class="badge badge-success">Success</a>
+<a href="#" class="badge badge-danger">Danger</a>
+<a href="#" class="badge badge-warning">Warning</a>
+<a href="#" class="badge badge-info">Info</a>
+<a href="#" class="badge badge-light">Light</a>
+<a href="#" class="badge badge-dark">Dark</a>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"badge badge-primary"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"badge badge-secondary"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"badge badge-success"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"badge badge-danger"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"badge badge-warning"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"badge badge-info"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"badge badge-light"</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"badge badge-dark"</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/a&gt;</span></code></pre></figure>
+</div>

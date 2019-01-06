@@ -1,0 +1,90 @@
+<div class="bd-content">
+    <h1 class="bd-title" id="content">下载</h1>
+    <p class="bd-lead">下载 Bootstrap 以获取已编译的 CSS 和 JavaScript ，源代码，或将其包含在你最喜欢的包管理器中，如 npm ， RubyGems 等。</p>
+    <h2 id="compiled-css-and-js">已编译的 CSS 和 JS</h2>
+
+    <p>下载已编译的 <strong>Bootstrap v4.2.1</strong> , 包含:</p>
+
+    <ul>
+        <li>已编译并且压缩好的 CSS </li>
+        <li>已编译并且压缩好的 JavaScript 组件</li>
+    </ul>
+
+    <p>这不包括文档，源文件或任何可选的JavaScript依赖项（jQuery和Popper.js）。</p>
+
+    <p><a href="https://github.com/twbs/bootstrap/releases/download/v4.2.1/bootstrap-4.2.1-dist.zip" class="btn btn-bd-primary">下载</a></p>
+
+    <h2 id="source-files">源代码</h2>
+
+    <p>通过下载我们的源文件，你可以自己编译Bootstrap。 需要一些额外的工具:</p>
+
+    <ul>
+        <li>Sass 编译器</li>
+        <li><a href="https://github.com/postcss/autoprefixer">Autoprefixer</a></li>
+    </ul>
+
+    <p><a href="https://github.com/twbs/bootstrap/archive/v4.2.1.zip" class="btn btn-bd-primary">下载源代码</a></p>
+
+    <h2 id="bootstrapcdn">BootstrapCDN</h2>
+
+    <p>直接使用 <a href="https://www.bootstrapcdn.com/">BootstrapCDN</a> 提供的在线 JS 和 CSS 快速构建你的项目，不需要下载和部署。</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+    <p>如果你正在使用我们编译的 JavaScript ，请不要忘记在它之前包含 jQuery 和 Popper.js 的CDN版本。</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-3.3.1.slim.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+    <h2 id="package-managers">包管理器</h2>
+
+    <p>将 Bootstrap 的源文件引入几乎所有最受欢迎的包管理器的项目中。 无论使用何种包管理器，Bootstrap 都需要一个Sass编译器和 Autoprefixer 来进行与我们官方编译版本相匹配的设置。</p>
+
+    <h3 id="npm">npm</h3>
+
+    <p>使用 npg 来安装 <a href="https://www.npmjs.com/package/bootstrap">Bootstrap</a>:</p>
+
+    <figure class="highlight"><pre><code class="language-sh" data-lang="sh">npm <span class="nb">install </span>bootstrap</code></pre></figure>
+
+    <p><code class="highlighter-rouge">require('bootstrap')</code> 将所有 Bootstrap 的 jQuery 插件加载到 jQuery 对象上。 引导程序模块本身不会导出任何内容。 你可以通过在程序包的顶级目录下加载 <code class="highlighter-rouge">/js/*.js</code> 文件来单独手动加载Bootstrap的jQuery插件。</p>
+
+    <p>Bootstrap 的 <code class="highlighter-rouge">package.json</code> 包含了一些额外的信息:</p>
+
+    <ul>
+        <li><code class="highlighter-rouge">sass</code> -  Bootstrap 的 <a href="https://sass-lang.com/">Sass</a> 源代码路径</li>
+        <li><code class="highlighter-rouge">style</code> - Bootstrap 的 CSS（已编译版本，未压缩）</li>
+    </ul>
+
+    <h3 id="yarn">yarn</h3>
+
+    <p>使用 <a href="https://yarnpkg.com/lang/zh-hans/"> yarn（中文） </a> 来快速安装 bootstrap :</p>
+
+    <figure class="highlight"><pre><code class="language-sh" data-lang="sh">yarn add bootstrap</code></pre></figure>
+
+    <h3 id="rubygems">RubyGems</h3>
+
+    <p>使用 Bundler（推荐）和 RubyGems 在你的Ruby应用程序中安装 Bootstrap ，方法是在 Gemfile 中添加以下行:</p>
+
+    <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">'bootstrap'</span><span class="p">,</span> <span class="s1">'~&gt; 4.2.1'</span></code></pre></figure>
+
+    <p>或者，如果你不使用Bundler，则可以通过运行此命令来安装gem:</p>
+
+    <figure class="highlight"><pre><code class="language-sh" data-lang="sh">gem <span class="nb">install </span>bootstrap <span class="nt">-v</span> 4.2.1</code></pre></figure>
+
+    <p><a href="https://github.com/twbs/bootstrap-rubygem/blob/master/README.md">查看 gem 的 README</a> 了解更多细节.</p>
+
+    <h3 id="composer">Composer</h3>
+
+    <p>你还可以使用 Composer 安装和管理 Bootstrap 的 Sass 和 JavaScript :</p>
+
+    <figure class="highlight"><pre><code class="language-sh" data-lang="sh">composer require twbs/bootstrap:4.2.1</code></pre></figure>
+
+    <h3 id="nuget">NuGet</h3>
+
+    <p>如果你使用 .NET 开发，你还可以使用NuGet安装和管理 Bootstrap 的 CSS 或 Sass 和 JavaScript:</p>
+
+    <figure class="highlight"><pre><code class="language-powershell" data-lang="powershell">Install-Package bootstrap</code></pre></figure>
+
+    <figure class="highlight"><pre><code class="language-powershell" data-lang="powershell">Install-Package bootstrap.sass</code></pre></figure>
+</div>

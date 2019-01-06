@@ -1,0 +1,18 @@
+<div class="bd-content">
+    <h1 class="bd-title" id="content">内容溢出</h1>
+    <p class="bd-lead">使用本工具来处理内容溢出</p>
+    <p><code class="highlighter-rouge">overflow</code> 工具提供了两个值用于处理内容溢出，这不是基于响应式设计的。</p>
+
+    <div class="bd-example d-md-flex">
+        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-width: 260px; max-height: 100px;">
+            这是在具有设置宽度和高度尺寸的元素上使用 <code>.overflow-auto</code> 的示例。 此内容将垂直滚动。
+        </div>
+        <div class="overflow-hidden p-3 bg-light" style="max-width: 260px; max-height: 100px;">
+            这是在具有设置宽度和高度尺寸的元素上使用 <code>.overflow-hidden</code> 的示例。
+        </div>
+    </div>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"overflow-auto"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"overflow-hidden"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+    <p>使用Sass变量，您可以通过更改  <code class="highlighter-rouge">_variables.scss</code> 中的 <code class="highlighter-rouge">$overflows</code>  变量来自定义内容溢出工具。</p>
+</div>

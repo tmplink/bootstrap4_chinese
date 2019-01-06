@@ -1,0 +1,74 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">构建工具</h1>
+          <p class="bd-lead">了解如何使用 Bootstrap 包含的 npm 脚本来构建我们的文档，编译源代码，运行测试等。</p>
+
+          <h2 id="tooling-setup">工具配置</h2>
+
+<p>Bootstrap 使用NPM脚本为其构建系统。 package.json 包含了使用框架的便捷方法，包括编译代码，运行测试等。</p>
+
+<p>按照下面的步骤搭建编译环境:</p>
+
+<ol>
+  <li><a href="https://nodejs.org/en/download/">下载并安装 Node.js</a>, 我们需要用它来处理依赖关系。</li>
+  <li>进入 <code class="highlighter-rouge">/bootstrap</code> 目录，运行 <code class="highlighter-rouge">npm install</code> 安装依赖文件，这些依赖关系会在 <a href="https://github.com/twbs/bootstrap/blob/v4.2.1/package.json">package.json</a> 列出。</li>
+  <li><a href="https://www.ruby-lang.org/en/documentation/installation/">安装 Ruby</a>, 安装 <a href="https://bundler.io/">Bundler</a> ，运行这个命令 <code class="highlighter-rouge">gem install bundler</code>, 最后运行这个命令 <code class="highlighter-rouge">bundle install</code>. 这将安装所有 Ruby 依赖项，例如 Jekyll 和 plugins。
+    <ul>
+      <li><strong>Windows 玩家:</strong> 阅读 <a href="https://jekyllrb.com/docs/windows/">这个文档</a> 来让 Jekyll 无障碍地在windows系统下运行。</li>
+    </ul>
+  </li>
+</ol>
+
+<p>完成后，你将能够运行命令行提供的各种命令。</p>
+
+<h2 id="using-npm-scripts">使用 NPM scripts</h2>
+
+<p>我们的 <a href="https://github.com/twbs/bootstrap/blob/v4.2.1/package.json">package.json</a> 提供以下功能:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>操作</th>
+      <th>简单说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">npm run dist</code></td>
+      <td><code class="highlighter-rouge">npm run dist</code> 会在 <code class="highlighter-rouge">/dist</code> 目录创建已编译的文件。 <strong>使用 <a href="https://sass-lang.com/">Sass</a>, <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>, and <a href="https://github.com/mishoo/UglifyJS2">UglifyJS</a>.</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">npm test</code></td>
+      <td>与 <code class="highlighter-rouge">npm run dist</code> 一样，不过产出的文件会放在测试目录（另外配置的目录）。</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">npm run docs</code></td>
+      <td>创建css和js的文档. 你可以创建本地文档，通过这个命令 <code class="highlighter-rouge">npm run docs-serve</code>。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>运行 <code class="highlighter-rouge">npm run</code> 查看所有的 npm scripts.</p>
+
+<h2 id="autoprefixer">Autoprefixer</h2>
+
+<p>Bootstrap 使用 Autoprefixer（包含在我们的构建过程中）在构建时自动将 vendor 前缀添加到某些CSS属性。 这样做可以节省我们的时间和代码，允许我们一次编写CSS的关键部分，同时不需要像v3中那样的混合vendor。</p>
+
+<p>我们通过GitHub存储库中的单独文件维护通过 Autoprefixer 支持的浏览器列表。 有关详细信息，请参阅 <a href="https://github.com/twbs/bootstrap/blob/v4.2.1/package.json">/package.json</a> 。</p>
+
+<h2 id="local-documentation">本地文档</h2>
+
+<p>提示：本地文档肯定是没有汉化的了。英文原版。</p>
+<p>在本地运行我们的文档需要使用 Jekyll ，这是一个非常灵活的静态站点生成器，它为我们提供：基本包含，基于Markdown的文件，模板等。 下面是教程:</p>
+
+<ol>
+  <li>运行上面的工具设置，通过 bundle install 安装 Jekyll（站点构建器）和其他 Ruby 依赖项。</li>
+  <li>进入 <code class="highlighter-rouge">/bootstrap</code> 目录， 运行 <code class="highlighter-rouge">npm run docs-serve</code> 。</li>
+  <li>在浏览器打开 <code class="highlighter-rouge">http://localhost:9001</code> 。</li>
+</ol>
+
+<p>通过阅读它来了解有关使用Jekyll的更多信息 (<a href="https://jekyllrb.com/docs/home/"> Jekyll文档 </a>)</p>
+
+<h2 id="troubleshooting">故障排除</h2>
+
+<p>如果你在安装依赖项时遇到问题，请卸载所有以前的依赖项版本（全局和本地）。 然后执行 <code class="highlighter-rouge">npm install</code>。</p>
+</div>

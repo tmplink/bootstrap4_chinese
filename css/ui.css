@@ -1,0 +1,34 @@
+html,body{
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 200;
+    letter-spacing: 1px;
+    height: 100%;
+}
+/*body::-webkit-scrollbar { width: 3px !important }*/
+
+#container {
+    min-height:100%;
+    height: auto !important;
+    height: 100%; 
+    position: relative;
+}
+
+#header {
+    padding: 30px;
+}
+
+#footer {
+    background-color: white;
+    text-align: left;
+    border-top: 1px solid #eee;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    clear: both;
+}

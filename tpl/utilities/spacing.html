@@ -1,0 +1,82 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">间隔</h1>
+          <p class="bd-lead">Bootstrap 包括各种简写响应式 margin、padding 的通用类别，可用来修改一个元素的外观。</p>
+          <h2 id="how-it-works">如何运作</h2>
+
+<p>赋予一个缩写 class 使 <code class="highlighter-rouge">margin</code> 或 <code class="highlighter-rouge">padding</code> 值在一个元素上或其中一个边缘上 (包含响应式)。包含支援单一个边缘属性或全部边缘、垂直边缘、水平边缘上。 Class 来自于 Sass map，范围从 <code class="highlighter-rouge">.25rem</code> 到 <code class="highlighter-rouge">3rem</code>.</p>
+
+<h2 id="notation">符号</h2>
+
+<p>适用于所有断点的间距工具 <code class="highlighter-rouge">xs</code> 到 <code class="highlighter-rouge">xl</code>,它们没有断点缩写。 这是因为应用了这些类 <code class="highlighter-rouge">min-width: 0</code> 并且因此不受媒体查询的约束。 但是，其余断点确实包含断点缩写。</p>
+
+<p>对于 <code class="highlighter-rouge">xs</code>，使用固定格式<code class="highlighter-rouge">{property}{sides}-{size}</code> 命名这些 Class，对于 <code class="highlighter-rouge">sm</code>, <code class="highlighter-rouge">md</code>, <code class="highlighter-rouge">lg</code>, 和<code class="highlighter-rouge">xl</code>。使用格式<code class="highlighter-rouge">{property}{sides}-{breakpoint}-{size}</code></p>
+
+<p>属性 设定:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">m</code> 这个 class 会设定 <code class="highlighter-rouge">margin</code></li>
+  <li><code class="highlighter-rouge">p</code> 这个 class 会设定  <code class="highlighter-rouge">padding</code></li>
+</ul>
+
+<p>边缘 设定:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">t</code> 这个 class 会设定  <code class="highlighter-rouge">margin-top</code> 或 <code class="highlighter-rouge">padding-top</code></li>
+  <li><code class="highlighter-rouge">b</code> 这个 class 会设定  <code class="highlighter-rouge">margin-bottom</code> 或 <code class="highlighter-rouge">padding-bottom</code></li>
+  <li><code class="highlighter-rouge">l</code> 这个 class 会设定  <code class="highlighter-rouge">margin-left</code> 或 <code class="highlighter-rouge">padding-left</code></li>
+  <li><code class="highlighter-rouge">r</code> 这个 class 会设定  <code class="highlighter-rouge">margin-right</code> 或 <code class="highlighter-rouge">padding-right</code></li>
+  <li><code class="highlighter-rouge">x</code> 这个 class 会设定  both <code class="highlighter-rouge">*-left</code> 和<code class="highlighter-rouge">*-right</code></li>
+  <li><code class="highlighter-rouge">y</code> 这个 class 会设定  both <code class="highlighter-rouge">*-top</code> 和<code class="highlighter-rouge">*-bottom</code></li>
+  <li>空白 - 如果边缘 class 未加入则会设定 <code class="highlighter-rouge">margin</code>或 <code class="highlighter-rouge">padding</code> 在元素的四个边缘。</li>
+</ul>
+
+<p>尺寸 设定：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">0</code> - 这个 class 会设定 <code class="highlighter-rouge">margin</code> 或 <code class="highlighter-rouge">padding</code> 样式值为 <code class="highlighter-rouge">0</code></li>
+  <li><code class="highlighter-rouge">1</code> - (预设时) 这个 class 会设定 <code class="highlighter-rouge">margin</code> 或 <code class="highlighter-rouge">padding</code> 于 <code class="highlighter-rouge">$spacer * .25</code></li>
+  <li><code class="highlighter-rouge">2</code> - (预设时) 这个 class 会设定 <code class="highlighter-rouge">margin</code> 或 <code class="highlighter-rouge">padding</code> 于 <code class="highlighter-rouge">$spacer * .5</code></li>
+  <li><code class="highlighter-rouge">3</code> - (预设时) 这个 class 会设定 <code class="highlighter-rouge">margin</code> 或 <code class="highlighter-rouge">padding</code> 于 <code class="highlighter-rouge">$spacer</code></li>
+  <li><code class="highlighter-rouge">4</code> - (预设时) 这个 class 会设定 <code class="highlighter-rouge">margin</code> 或 <code class="highlighter-rouge">padding</code> 于 <code class="highlighter-rouge">$spacer * 1.5</code></li>
+  <li><code class="highlighter-rouge">5</code> - (预设时) 这个 class 会设定 <code class="highlighter-rouge">margin</code> 或 <code class="highlighter-rouge">padding</code> 于 <code class="highlighter-rouge">$spacer * 3</code></li>
+  <li><code class="highlighter-rouge">auto</code> 这个 class 会设定  the <code class="highlighter-rouge">margin</code> to auto</li>
+</ul>
+
+<p>（你也可以对 <code class="highlighter-rouge">$spacers</code> Sass 图形变量。）</p>
+
+<h2 id="examples">实例</h2>
+
+<p>以下是这些 class 的一些代表性范例：</p>
+
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.mt-0</span> <span class="p">{</span>
+  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">0</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.ml-1</span> <span class="p">{</span>
+  <span class="nl">margin-left</span><span class="p">:</span> <span class="p">(</span><span class="nv">$spacer</span> <span class="o">*</span> <span class="mi">.25</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.px-2</span> <span class="p">{</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="p">(</span><span class="nv">$spacer</span> <span class="o">*</span> <span class="mi">.5</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="p">(</span><span class="nv">$spacer</span> <span class="o">*</span> <span class="mi">.5</span><span class="p">)</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.p-3</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="nv">$spacer</span> <span class="o">!</span><span class="n">important</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="horizontal-centering">水平居中</h3>
+
+<p>此外，Bootstrap 也包括一个 <code class="highlighter-rouge">.mx-auto</code>，用于固定宽度盒模型的水平置中，是具有 <code class="highlighter-rouge">display: block</code> 和 <code class="highlighter-rouge">width</code> 集合的内容，并将水平 margin 设置为 <code class="highlighter-rouge">auto</code>.</p>
+
+<div class="bd-example">
+  <div class="mx-auto" style="width: 200px; background-color: rgba(86,61,124,.15);">
+    Centered element
+  </div>
+</div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mx-auto"</span> <span class="na">style=</span><span class="s">"width: 200px;"</span><span class="nt">&gt;</span>
+  Centered element
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+

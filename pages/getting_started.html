@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>Bootstrap4 - 中文文档 - 让我们开始吧</title>
+        <meta name="description" content="Bootstrap 4 中文文档，开始了解如何使用 bootstrap。" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/domloader.js"></script>
+        <link href="../css/domloader.css" rel="stylesheet"/>
+        <script>
+            domloader.init();
+            domloader.preload('../config/init.html');
+            domloader.preload('../config/pre.html');
+            domloader.html('#tpl_introducation', 'tpl/getting_started/introducation.html');
+            domloader.html('#tpl_accessibility', 'tpl/getting_started/accessibility.html');
+            domloader.html('#tpl_browsers_and_devices', 'tpl/getting_started/browsers_and_devices.html');
+            domloader.html('#tpl_build_tools', 'tpl/getting_started/build_tools.html');
+            domloader.html('#tpl_contents', 'tpl/getting_started/contents.html');
+            domloader.html('#tpl_javascript', 'tpl/getting_started/javascript.html');
+            domloader.html('#tpl_download', 'tpl/getting_started/download.html');
+            domloader.html('#tpl_theming', 'tpl/getting_started/theming.html');
+            domloader.html('#tpl_webpack', 'tpl/getting_started/webpack.html');
+            domloader.onload(function () {
+                $('#nav_getting_started').addClass('active');
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <div class="container">
+                <div id="tpl_header"></div>
+                <div class="row">
+                    <div class="col-12 d-block d-lg-none">
+                        <div class="nav nav-pills d-flex justify-content-center" role="tablist">
+                            <a class="nav-link active show" href="#tab_introducation"  role="tab" data-toggle="pill">概览</a>
+                            <a class="nav-link" href="#tab_download"  role="tab" data-toggle="pill">下载</a>
+                            <a class="nav-link" href="#tab_contents"  role="tab" data-toggle="pill">内容</a>
+                            <a class="nav-link" href="#tab_build_tools"  role="tab" data-toggle="pill">构建工具</a>
+                            <a class="nav-link" href="#tab_browsers_and_devices"  role="tab" data-toggle="pill">兼容性</a>
+                            <a class="nav-link" href="#tab_javascript"  role="tab" data-toggle="pill">Javascript</a>
+                            <a class="nav-link" href="#tab_theming"  role="tab" data-toggle="pill">自定义主题</a>
+                            <a class="nav-link" href="#tab_webpack"  role="tab" data-toggle="pill">Webpack</a>
+                            <a class="nav-link" href="#tab_accessibility"  role="tab" data-toggle="pill">无障碍访问</a>
+                        </div>
+                    </div>
+                    <div class="col-2 d-lg-block d-none">
+                        <div class="nav nav-pills flex-column" role="tablist">
+                            <a class="nav-link active show" href="#tab_introducation"  role="tab" data-toggle="pill">概览</a>
+                            <a class="nav-link" href="#tab_download"  role="tab" data-toggle="pill">下载</a>
+                            <a class="nav-link" href="#tab_contents"  role="tab" data-toggle="pill">内容</a>
+                            <a class="nav-link" href="#tab_build_tools"  role="tab" data-toggle="pill">构建工具</a>
+                            <a class="nav-link" href="#tab_browsers_and_devices"  role="tab" data-toggle="pill">兼容性</a>
+                            <a class="nav-link" href="#tab_javascript"  role="tab" data-toggle="pill">Javascript</a>
+                            <a class="nav-link" href="#tab_theming"  role="tab" data-toggle="pill">自定义主题</a>
+                            <a class="nav-link" href="#tab_webpack"  role="tab" data-toggle="pill">Webpack</a>
+                            <a class="nav-link" href="#tab_accessibility"  role="tab" data-toggle="pill">无障碍访问</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="tab-content" role="tabpanel">
+                            <div role="tabpanel" class="tab-pane  active" id="tab_introducation"><div id="tpl_introducation"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_accessibility"><div id="tpl_accessibility"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_browsers_and_devices"><div id="tpl_browsers_and_devices"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_build_tools"><div id="tpl_build_tools"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_contents"><div id="tpl_contents"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_javascript"><div id="tpl_javascript"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_download"><div id="tpl_download"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_theming"><div id="tpl_theming"></div></div>
+                            <div role="tabpanel" class="tab-pane" id="tab_webpack"><div id="tpl_webpack"></div></div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+            <div id="tpl_footer"></div>
+        </div>
+
+    </body>
+</html>

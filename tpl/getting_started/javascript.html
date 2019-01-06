@@ -1,0 +1,111 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">JavaScript</h1>
+          <p class="bd-lead">Bootstrap 使用基于jQuery构建的可选JavaScript插件，用以实现某些功能。</p>
+
+          <h2 id="individual-or-compiled">定制或已编译版本</h2>
+
+<p>插件可以单独包含  <code class="highlighter-rouge">js/dist/*.js</code>), 也可以使用完整的已编译版本 <code class="highlighter-rouge">bootstrap.js</code> 或压缩版本 <code class="highlighter-rouge">bootstrap.min.js</code> (不要两个同时使用).</p>
+
+<p>如果你使用包管理器 (Webpack, Rollup…), 到这里来查找所需的文件 <code class="highlighter-rouge">/js/dist/*.js</code>。</p>
+
+<h2 id="dependencies">依赖关系</h2>
+
+<p>一些插件和 CSS 组件依赖于其他插件。 如果单独包含插件，请确保在文档中检查这些依赖项。 另请注意，所有插件都依赖 于jQuery（这意味着必须在插件文件之前包含 jQuery）。 请参阅我们的package.json以了解支持哪些版本的jQuery。</p>
+
+<p>下拉菜单，气泡提示，弹窗依赖 <a href="https://popper.js.org/">Popper.js</a>.</p>
+
+<h2 id="data-attributes">Data 属性</h2>
+ 
+<p>几乎所有的 Bootstrap 插件都可以通过 HTML 单独使用 Data 属性（我们使用JavaScript功能的首选方式）来启用和配置。 确保只在一个元素上使用一组 Data 属性（例如，你不能从同一个按钮触发工具提示和模态。）</p>
+
+<p>但是，在某些情况下，可能需要禁用此功能。 要禁用 Data 属性API，请使用<code class="highlighter-rouge">data-api</code>取消绑定DOM的所有事件，如下所示:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'.data-api'</span><span class="p">)</span></code></pre></figure>
+
+<p>或者，要定位特定的插件，只需将插件的名称作为命名空间以及 data-api 命名空间包含在内:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'.alert.data-api'</span><span class="p">)</span></code></pre></figure>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="escaping-selectors">转义选择器</h5>
+<p>如果你使用特殊选择器，例如<code class="highlighter-rouge">collapse:Example</code>，请务必将它们转义，因为它们将通过jQuery传递。</p>
+</div>
+
+<h2 id="events">事件(Events)</h2>
+
+<p>Bootstrap 为大多数插件的独特操作提供自定义事件。</p>
+
+<p>所有不定式事件都提供<code class="highlighter-rouge">preventDefault()</code>功能。 这提供了在动作开始之前停止执行的能力。 从事件处理程序返回false也会自动调用 <code class="highlighter-rouge">preventDefault()</code>。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.bs.modal'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">)</span> <span class="k">return</span> <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span> <span class="c1">// stops modal from being shown</span>
+<span class="p">})</span></code></pre></figure>
+
+<h2 id="programmatic-api">可编程API</h2>
+
+<p>你能够纯粹通过JavaScript API 使用所有 Bootstrap插件。 所有公共API都是单一的，可链接的方法，并返回收集的集合。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.btn.danger'</span><span class="p">).</span><span class="nx">button</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'fat'</span><span class="p">)</span></code></pre></figure>
+
+<p>所有方法都应该接受一个可选的选项对象，一个以特定方法为目标的字符串，或者什么都不接受（它启动一个默认行为的插件）:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">()</span>                      <span class="c1">// initialized with defaults</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">({</span> <span class="na">keyboard</span><span class="p">:</span> <span class="kc">false</span> <span class="p">})</span>   <span class="c1">// initialized with no keyboard</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span>                <span class="c1">// initializes and invokes show immediately</span></code></pre></figure>
+
+<p>每个插件还在 Constructor 属性上公开其原始构造函数: <code class="highlighter-rouge">$.fn.popover.Constructor</code>. 如果你想获得特定的插件实例，请直接从元素中检索它: <code class="highlighter-rouge">$('[rel="popover"]').data('popover')</code>.</p>
+
+<h3 id="asynchronous-functions-and-transitions">异步函数和调用</h3>
+
+<p>所有可编程API方法都是<strong>异步</strong>的，并在调用开始后返回给调用者，但在<strong>结束之前返回</strong>。</p>
+
+<p>为了在调用完成后执行操作，你可以监听相应的事件。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCollapse'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'shown.bs.collapse'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Action to execute once the collapsible area is expanded</span>
+<span class="p">})</span></code></pre></figure>
+
+<p>此外，对<strong>组件的方法调用将被忽略</strong>。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCarousel'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'slid.bs.carousel'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#myCarousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">(</span><span class="s1">'2'</span><span class="p">)</span> <span class="c1">// Will slide to the slide 2 as soon as the transition to slide 1 is finished</span>
+<span class="p">})</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myCarousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">(</span><span class="s1">'1'</span><span class="p">)</span> <span class="c1">// Will start sliding to the slide 1 and returns to the caller</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myCarousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">(</span><span class="s1">'2'</span><span class="p">)</span> <span class="c1">// !! Will be ignored, as the transition to the slide 1 is not finished !!</span></code></pre></figure>
+
+<h3 id="default-settings">默认设置</h3>
+
+<p>你可以通过修改插件的 <code class="highlighter-rouge">Constructor.Default</code> 对象来更改插件的默认设置:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">Constructor</span><span class="p">.</span><span class="nx">Default</span><span class="p">.</span><span class="nx">keyboard</span> <span class="o">=</span> <span class="kc">false</span> <span class="c1">// changes default for the modal plugin's `keyboard` option to false</span></code></pre></figure>
+
+<h2 id="no-conflict">解决冲突</h2>
+
+<p>有时需要将 Bootstrap 插件与其他 UI 框架一起使用。 在这些情况下，偶尔会发生命名空间冲突。 如果发生这种情况，你可以在插件上调用 <code class="highlighter-rouge">.noConflict</code> 以恢复其值。</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">bootstrapButton</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">button</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">()</span> <span class="c1">// return $.fn.button to previously assigned value</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">bootstrapBtn</span> <span class="o">=</span> <span class="nx">bootstrapButton</span>            <span class="c1">// give $().bootstrapBtn the Bootstrap functionality</span></code></pre></figure>
+
+<h2 id="version-numbers">版本号</h2>
+
+<p>可以通过插件构造函数的 <code class="highlighter-rouge">VERSION</code> 属性访问每个Bootstrap的jQuery插件的版本。 例如，对于工具提示插件:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">tooltip</span><span class="p">.</span><span class="nx">Constructor</span><span class="p">.</span><span class="nx">VERSION</span> <span class="c1">// =&gt; "4.2.1"</span></code></pre></figure>
+
+<h2 id="no-special-fallbacks-when-javascript-is-disabled">浏览器禁用 JS 时的用户体验</h2>
+
+<p>没有用户体验可言。禁用 JavaScript 时，Bootstrap 的插件不会特别优雅。 如果你关心这种情况下的用户体验，请使用 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript"><code class="highlighter-rouge">&lt;noscript&gt;</code></a> 向用户解释情况（以及如何重新启用JavaScript），或添加自己的自定义后备方案。</p>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="third-party-libraries">第三方库</h5>
+
+<p>Bootstrap不正式支持Prototype或jQuery UI等第三方JavaScript库。你可能需要自行修复兼容性问题。</p>
+</div>
+
+<h2 id="util">Util.js</h2>
+
+<p>所有 Bootstrap 的 JavaScript 文件都依赖于util.js，它必须与其他 JavaScript 文件一起包含在内。 如果你正在使用编译的（或缩小的）bootstrap.js，则不需要包含它 - 它已经存在。</p>
+
+<p><code class="highlighter-rouge">util.js</code> 包含工具函数和 transitionEnd 事件的基本辅助程序以及CSS转换模拟器。 其他插件使用它来检查CSS调用支持并捕获挂起调用。</p>
+</div>

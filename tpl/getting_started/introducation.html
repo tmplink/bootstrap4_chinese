@@ -1,0 +1,127 @@
+<div class="bd-content">
+    <h1 class="bd-title" id="content">介绍</h1>
+    <p class="bd-lead">开始使用 Bootstrap 吧！ Bootstrap 是一套流行的前端框架，它帮助你轻松构建对移动设备很友好的响应式网站。</p>
+
+    <h2 id="quick-start">开始</h2>
+
+    <p>希望快速添加 Bootstrap 到你的项目？ 使用 BootstrapCDN ，由 StackPath 的人免费提供。 使用包管理器还是需要下载源文件？点击左边导航的“下载”来获取所需信息</p>
+
+    <h3 id="css">CSS</h3>
+
+    <p>复制下面这行代码到 <code class="highlighter-rouge">&lt;head&gt;</code> 标签，以加载 Bootstrap 的样式表。</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span></code></pre></figure>
+
+    <h3 id="js">JS</h3>
+
+    <p>基本上，大多数组件需要依赖Javascript来实现功能。 Bootstrap 需要 <a href="https://jquery.com">jQuery</a>, <a href="https://popper.js.org/">Popper.js</a>, 以及 Bootstrap 自带的JS来实现功能。请将以下代码添加到 <code class="highlighter-rouge">&lt;/body&gt;</code> 标签之前。</p>
+
+    <p>在这里，我们使用 <a href="https://blog.jquery.com/2016/06/09/jquery-3-0-final-released/">jQuery 的精简版本（slim build）</a>，不过完整版本的Jquery也是可以用的。</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-3.3.1.slim.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+
+    <p>好奇哪些组件明确需要jQuery，Bootstrap 自带的JS以及Popper.js？ 单击下面的展示组件的依赖细节。 如果你对一般页面结构一直不确定，请继续阅读示例页面模板。</p>
+
+    <p>你可以在源代码文件夹中找到<code class="highlighter-rouge">bootstrap.bundle.js</code> 和 <code class="highlighter-rouge">bootstrap.bundle.min.js</code> ，这两个文件已经包含了 <a href="https://popper.js.org/">Popper</a>, 但是不包含 <a href="https://jquery.com/">jQuery</a>。 要了解更多信息？请点击左侧的“内容”。</p>
+
+    <details>
+        <summary class="text-primary mb-3">展示组件的依赖细节</summary>
+
+
+        <ul>
+            <li>关闭提示界面的按钮</li>
+            <li>实现按钮的切换状态功能，以及复选框和单选框的某些动态功能</li>
+            <li>所有幻灯片行为，控件和指示器的轮播</li>
+            <li>折叠以切换内容的可见性</li>
+            <li>用于下拉菜单的显示和定位 (此处用到<a href="https://popper.js.org/">Popper.js</a>)</li>
+            <li>用于模态（Modal）的显示，定位和滚动行为</li>
+            <li>在导航条中实现折叠功能以及响应式设计</li>
+            <li>用于气泡提醒（Tooltips）功能的显示和定位 (此处用到 <a href="https://popper.js.org/">Popper.js</a>)</li>
+            <li>滚动条的监控和更新功能</li>
+        </ul>
+
+    </details>
+
+    <h2 id="starter-template">一个简单的 Bootstrap 模板</h2>
+
+    <p>确保你的页面遵循了最新的设计和开发标准。 这意味着使用HTML5 doctype 并包含 viewport 以获得正确的响应行为。 把它们放在一起，你的页面应该是这样的:</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- Required meta tags --&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1, shrink-to-fit=no"</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;title&gt;</span>Hello, world!<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
+
+    <span class="c">&lt;!-- Optional JavaScript --&gt;</span>
+    <span class="c">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-3.3.1.slim.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+    <p>这就是整体页面要求所需的全部内容。 访问顶部导航的“布局”或我们的“模板”，开始布置你网站的内容和组件。</p>
+
+    <h2 id="important-globals">重要的全局设定</h2>
+
+    <p>Bootstrap 使用了一些重要的全局样式和设置，使用它们时需要注意，所有这些样式和设置几乎都有专门针对跨浏览器样式的 <em> 规范 </em>。 让我们深入了解吧。</p>
+
+    <h3 id="html5-doctype">HTML5 doctype</h3>
+
+    <p>Bootstrap 需要使用 HTML5 doctype。 没有它，你会看到奇怪的效果，这可不是预期中的表现。</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+    <h3 id="responsive-meta-tag">响应式 meta 标签</h3>
+
+    <p>Bootstrap 是基于 <em>移动设备优先</em> 的原则设计的， 因此，我们需要针对移动设备做一些处理，使用 Bootstrap 的媒体查询扩展组件就可以做到这些事情。 为确保所有设备的正确渲染和触摸缩放, <strong>请添加 viewport meta 标签</strong> 到 <code class="highlighter-rouge">&lt;head&gt;</code> 里面。</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1, shrink-to-fit=no"</span><span class="nt">&gt;</span></code></pre></figure>
+
+    <p>这段代码包含在上面提到的一个模板简单的 Bootstrap 模板里。</p>
+
+    <h3 id="box-sizing">Box-sizing</h3>
+
+    <p>为了在CSS中更直接地调整大小，我们将全局box-sizing值从content-box切换到border-box。 这可以确保填充不会影响元素的最终计算宽度，但它可能会导致某些第三方软件（例如Google Maps和Google Custom Search Engine）出现问题。</p>
+
+    <p>在极少数情况下，你需要覆盖它，使用类似下面的代码:</p>
+
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.selector-for-some-widget</span> <span class="p">{</span>
+  <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+    <p>使用上面的代码片段，子元素（包括通过:: before和:: after-生成的内容）将继承该.selector-for-some-widget的指定box-sizing。</p>
+
+    <p>在 <a href="https://css-tricks.com/box-sizing/">CSS Tricks</a> 中了解有关盒子模型和大小调整的更多信息。</p>
+
+    <h3 id="reboot">重置(reboot)</h3>
+
+    <p>为了改进跨浏览器呈现，我们使用重置(reboot)来纠正浏览器和设备之间的不一致，同时为常见的HTML元素提供稍微更有意义的重置。</p>
+
+    <h2 id="community">社区</h2>
+
+    <p>及时了解 Bootstrap 的开发情况，并通过这些有用的资源与社区联系。</p>
+
+    <ul>
+        <li>关注推特 <a href="https://twitter.com/getbootstrap">@getbootstrap</a>。</li>
+        <li>在我们的官方博客阅读或订阅内容 <a href="https://blog.getbootstrap.com">The Official Bootstrap Blog</a>。</li>
+        <li>加入 Bootstrap 在  <a href="https://bootstrap-slack.herokuapp.com">slack讨论组</a>。</li>
+        <li>在IRC中与其他 Bootstrap 用户聊天。地址： irc.freenode.net ，## bootstrap channel。</li>
+        <li>在 Stack Overflow 获取帮助 (记得将问题标记为 <a href="https://stackoverflow.com/questions/tagged/bootstrap-4"><code class="highlighter-rouge">bootstrap-4</code></a>)。</li>
+        <li>及时回来看看文档有没有更新。</li>
+    </ul>
+</div>

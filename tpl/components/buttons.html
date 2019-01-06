@@ -1,0 +1,232 @@
+<div class="bd-content">
+<h1 class="bd-title" id="content">按钮</h1>
+          <p class="bd-lead">使用 Bootstrap 自定义按钮样式到表单、对话框等操作，并支持多种按钮大小、状态等。</p>
+
+          <h2 id="examples">实例</h2>
+
+<p>Bootstrap 包括多个预先定义的按钮样式，每个都有自己的语义目的及更多的控制</p>
+
+<div class="bd-example">
+
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-success"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-warning"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-info"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-light"</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-dark"</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-link"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="conveying-meaning-to-assistive-technologies">对于使用辅助技术的用户而言</h5>
+
+<p>尽管上面的这些类可以对信息进行着色以提供视觉指示，但是这些指示不会传达给辅助技术的用户 - 例如屏幕阅读器。 因此如果某些内容很重要，请直接加入正文中，或者通过其他方式引用，例如使用 <code class="highlighter-rouge">.sr-only</code> 类隐藏这些必要的内容。</p>
+</div>
+
+<h2 id="button-tags">按钮标签</h2>
+<p><code class="highlighter-rouge">.btn</code> 是设计为了于 <code class="highlighter-rouge">&lt;button&gt;</code> 元素一起使用。 但是，你也可以在 <code class="highlighter-rouge">&lt;a&gt;</code> 或 <code class="highlighter-rouge">&lt;input&gt;</code> 元素上使用这些 Class（尽管有些浏览器可能会使用稍微不同的渲染）。</p>
+
+<p>当在用于触发页面内功能（例如折叠内容）的 <code class="highlighter-rouge">&lt;a&gt;</code> 元素上使用按钮类，而不是链接到新页面或当前页面中的部分时，这些 <code class="highlighter-rouge">&lt;a&gt;</code> 元素应该再加上 <code class="highlighter-rouge">role="button"</code> 以优化用户使用屏幕阅读器等辅助性技术时的体验。</p>
+
+<div class="bd-example">
+<a class="btn btn-primary" href="#" role="button">Link</a>
+<button class="btn btn-primary" type="submit">Button</button>
+<input class="btn btn-primary" type="button" value="Input" />
+<input class="btn btn-primary" type="submit" value="Submit" />
+<input class="btn btn-primary" type="reset" value="Reset" />
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"Input"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Submit"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"reset"</span> <span class="na">value=</span><span class="s">"Reset"</span><span class="nt">&gt;</span></code></pre></figure>
+
+<h2 id="outline-buttons">外框按钮</h2>
+<p>需要一个按钮，但不是用填满的背景颜色？用 <code class="highlighter-rouge">.btn-outline-*</code> 替换默认修饰用的 Class，以移除任何按钮上的所有背景色及背景图。</p>
+<div class="bd-example">
+
+<button type="button" class="btn btn-outline-primary">Primary</button>
+<button type="button" class="btn btn-outline-secondary">Secondary</button>
+<button type="button" class="btn btn-outline-success">Success</button>
+<button type="button" class="btn btn-outline-danger">Danger</button>
+<button type="button" class="btn btn-outline-warning">Warning</button>
+<button type="button" class="btn btn-outline-info">Info</button>
+<button type="button" class="btn btn-outline-light">Light</button>
+<button type="button" class="btn btn-outline-dark">Dark</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-primary"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-success"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-danger"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-warning"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-info"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-light"</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-dark"</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<h2 id="sizes">大小</h2>
+
+<p>想要较大或较小的按钮？加入  <code class="highlighter-rouge">.btn-lg</code> 或 <code class="highlighter-rouge">.btn-sm</code>  来应用尺寸。</p>
+
+<div class="bd-example">
+<button type="button" class="btn btn-primary btn-lg">Large button</button>
+<button type="button" class="btn btn-secondary btn-lg">Large button</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg"</span><span class="nt">&gt;</span>Large button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary btn-lg"</span><span class="nt">&gt;</span>Large button<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<div class="bd-example">
+<button type="button" class="btn btn-primary btn-sm">Small button</button>
+<button type="button" class="btn btn-secondary btn-sm">Small button</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-sm"</span><span class="nt">&gt;</span>Small button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary btn-sm"</span><span class="nt">&gt;</span>Small button<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<p>增加 <code class="highlighter-rouge">.btn-block</code>.创建块级别的按钮（等同于外元素的宽）。</p>
+
+<div class="bd-example">
+<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span><span class="nt">&gt;</span>Block level button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary btn-lg btn-block"</span><span class="nt">&gt;</span>Block level button<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<h2 id="active-state">启用状态</h2>
+
+<p>当启用时，按钮将出现按压（背景较暗、边框较暗、内阴影）。 <strong>沒有必要在 <code class="highlighter-rouge">&lt;button&gt;</code>添加一个 Class，因为它们使用伪类。</strong>但是，如果你需要以动态方式改变状态，则可以使用 <code class="highlighter-rouge">.active</code> (并包括 <code>aria-pressed="true"</code> 属性) 应用相同的启用外观。</p>
+
+<div class="bd-example">
+<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
+<a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg active"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-pressed=</span><span class="s">"true"</span><span class="nt">&gt;</span>Primary link<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-secondary btn-lg active"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-pressed=</span><span class="s">"true"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span></code></pre></figure>
+
+<h2 id="disabled-state">停用状态</h2>
+
+<p>通过将 <code class="highlighter-rouge">disabled</code> 布林属性添加到任何  <code class="highlighter-rouge">&lt;button&gt;</code> 元素，使按钮看起来处于停用状态。</p>
+
+<div class="bd-example">
+<button type="button" class="btn btn-lg btn-primary" disabled="">Primary button</button>
+<button type="button" class="btn btn-secondary btn-lg" disabled="">Button</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-lg btn-primary"</span> <span class="na">disabled</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary btn-lg"</span> <span class="na">disabled</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<p>使用 <code class="highlighter-rouge">&lt;a&gt;</code> 元素的停用略有不同：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">&lt;a&gt;</code>不支持 <code class="highlighter-rouge">disabled</code> 属性，所以你必须添加 <code class="highlighter-rouge">.disabled</code> 使它在视觉上看起来被禁用。</li>
+  <li>包括友善的样式行为设计，以禁用<code class="highlighter-rouge">&lt;a&gt;</code>按钮上的所有<code class="highlighter-rouge">pointer-events</code> 在支持该属性的浏览器中，会看不到禁用的图标。</li>
+  <li>禁用按钮应包含 <code class="highlighter-rouge">aria-disabled="true"</code> 属性来向辅助性技术指示元素的状态。</li>
+</ul>
+
+<div class="bd-example">
+<a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
+<a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg disabled"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"true"</span><span class="nt">&gt;</span>Primary link<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-secondary btn-lg disabled"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-disabled=</span><span class="s">"true"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span></code></pre></figure>
+
+<div class="bd-callout bd-callout-warning">
+<h5 id="link-functionality-caveat">链接功能警告</h5>
+
+<p>The <code class="highlighter-rouge">.disabled</code> 使用 <code class="highlighter-rouge">pointer-events: none</code> 来禁用 <code class="highlighter-rouge">&lt;a&gt;</code>的链接功能，但该 CSS 属性尚未标准化。此外，即使在支持 <code class="highlighter-rouge">pointer-events: none</code> 的浏览器中，键盘导览仍然不受影响，这意味著键盘使用者和辅助性技术的使用者仍然可以启动这些链接。为了安全起见，在这些链接上添加一个 <code class="highlighter-rouge">tabindex="-1"</code> 属性防止他们应用 focus，并使用自定义的 JavaScript 来禁用它们的功能。</p>
+</div>
+
+<h2 id="button-plugin">按钮插件</h2>
+
+<p>让按钮可以做更多，控制按钮状态或群组按钮等相关的元件。</p>
+
+<h3 id="toggle-states">切换状态</h3>
+
+<p>增加 <code class="highlighter-rouge">data-toggle="button"</code> 来切换按钮 <code class="highlighter-rouge">active</code> 状态。 如果你预先需要切换按钮，则必须手动将 <code class="highlighter-rouge">.active</code> class <strong>和</strong> <code class="highlighter-rouge">aria-pressed="true"</code> 添加到 <code class="highlighter-rouge">&lt;button&gt;</code> 中。</p>
+
+<div class="bd-example">
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+  Single toggle
+</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"button"</span> <span class="na">aria-pressed=</span><span class="s">"false"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span>
+  Single toggle
+<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+
+<h3 id="checkbox-and-radio-buttons">复选框和选项按钮</h3>
+
+<p>Bootstrap’s <code class="highlighter-rouge">.button</code> 样式可以应用于其他元素，例如 <code class="highlighter-rouge">&lt;label&gt;</code>以提供复选框或选项按钮样式进行按钮切换。 将 <code class="highlighter-rouge">data-toggle="buttons"</code> 加到包含这些按钮的 <code class="highlighter-rouge">.btn-group</code> 中，并通过 JavaScript 来启用它们的切换行为，并增加  <code class="highlighter-rouge">.btn-group-toggle</code> 来设置 <code class="highlighter-rouge">&lt;input&gt;</code>按钮。 <strong> 请注意，你可以创建单个，或是群组的这些。</strong></p>
+
+<p>这些按钮的检查状态 <strong>只能通过按钮上的 <code class="highlighter-rouge">click</code> 事件</strong> 进行更新。如果你使用其他方法来更新输入 - 例如，使用 <code class="highlighter-rouge">&lt;input type="reset"&gt;</code> 或手动应用输入的 <code class="highlighter-rouge">checked</code> 属性，你需要手动在 <code class="highlighter-rouge">.active</code> 上切换 <code class="highlighter-rouge">&lt;label&gt;</code>。</p>
+
+<p>请注意，预先检查的按钮需要你手动添加 <code class="highlighter-rouge">.active</code> 类到输入的<code class="highlighter-rouge">&lt;label&gt;</code>.</p>
+
+<div class="bd-example">
+<div class="btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="checkbox" checked="" autocomplete="off" /> Checked
+  </label>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group-toggle"</span> <span class="na">data-toggle=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-secondary active"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">checked</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span> Checked
+  <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<div class="bd-example">
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked="" /> Active
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off" /> Radio
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off" /> Radio
+  </label>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group btn-group-toggle"</span> <span class="na">data-toggle=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-secondary active"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"options"</span> <span class="na">id=</span><span class="s">"option1"</span> <span class="na">autocomplete=</span><span class="s">"off"</span> <span class="na">checked</span><span class="nt">&gt;</span> Active
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"options"</span> <span class="na">id=</span><span class="s">"option2"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span> Radio
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"options"</span> <span class="na">id=</span><span class="s">"option3"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span> Radio
+  <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h3 id="methods">方法</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">$().button('toggle')</code></td>
+      <td>切换状态，给予按钮已经启用的外观。</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">$().button('dispose')</code></td>
+      <td>销毁一个元素的按钮。</td>
+    </tr>
+  </tbody>
+</table>
+</div>

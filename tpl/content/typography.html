@@ -1,0 +1,386 @@
+<div class="bd-content">
+    <h1 class="bd-title" id="content">排版</h1>
+    <p class="bd-lead">Bootstrap 排版功能，包括全局设置，标题，正文，列表等。</p>
+    <h2 id="global-settings">全局设定</h2>
+
+    <p>Bootstrap 设置基本的全局显示，排版和链接样式。 当需要更多控制时，请查看文本工具。</p>
+
+    <ul>
+        <li>使用本机字体为每个操作系统和设备选择最佳字体系列。</li>
+        <li>更具包容性和可访问的缩放设置，我们假设浏览器默认根字体大小（通常为16px），以便访问者可以根据需要自定义其浏览器默认值。</li>
+        <li>使用<code class="highlighter-rouge">$font-family-base</code>，<code class="highlighter-rouge">$font-size-base</code>和$<code class="highlighter-rouge">$line-height-base</code>属性作为应用于<code class="highlighter-rouge">&lt;body&gt;</code>的排版基础。</li>
+        <li>通过 <code class="highlighter-rouge">$link-color</code> 设置全局链接颜色，并仅在 <code class="highlighter-rouge">:hover</code> 上应用链接下划线。</li>
+        <li>使用<code class="highlighter-rouge">$body-bg</code>在 <code class="highlighter-rouge">background-color</code> 上设置背景颜色（默认情况下为#fff）。</li>
+    </ul>
+    <p>这些样式可以在 <code class="highlighter-rouge">_reboot.scss</code> 中找到，全局变量在 <code class="highlighter-rouge">_variables.scss</code> 中定义。 确保在 <code class="highlighter-rouge">$font-size-base</code> 中设置 <code class="highlighter-rouge">rem</code>。</p>
+
+    <h2 id="headings">标题</h2>
+    <p>所有HTML标题<code class="highlighter-rouge">&lt;h1&gt;</code>到<code class="highlighter-rouge">&lt;h6&gt;</code>都可用。</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Heading</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h1&gt;&lt;/h1&gt;</code></p>
+                </td>
+                <td><span class="h1">h1. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h2&gt;&lt;/h2&gt;</code></p>
+
+                </td>
+                <td><span class="h2">h2. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h3&gt;&lt;/h3&gt;</code></p>
+
+                </td>
+                <td><span class="h3">h3. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h4&gt;&lt;/h4&gt;</code></p>
+
+                </td>
+                <td><span class="h4">h4. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h5&gt;&lt;/h5&gt;</code></p>
+
+                </td>
+                <td><span class="h5">h5. Bootstrap heading</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <p><code class="highlighter-rouge">&lt;h6&gt;&lt;/h6&gt;</code></p>
+
+                </td>
+                <td><span class="h6">h6. Bootstrap heading</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>h1. Bootstrap heading<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>h2. Bootstrap heading<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>h3. Bootstrap heading<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>h4. Bootstrap heading<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>h5. Bootstrap heading<span class="nt">&lt;/h5&gt;</span>
+<span class="nt">&lt;h6&gt;</span>h6. Bootstrap heading<span class="nt">&lt;/h6&gt;</span></code></pre></figure>
+
+    <p>同时提供 .h1 到 .h6 的 Class，因为当你想匹配某一标题的字体样式，但不能直接使用 HTML 元素时。</p>
+
+    <div class="bd-example">
+        <p class="h1">h1. Bootstrap heading</p>
+        <p class="h2">h2. Bootstrap heading</p>
+        <p class="h3">h3. Bootstrap heading</p>
+        <p class="h4">h4. Bootstrap heading</p>
+        <p class="h5">h5. Bootstrap heading</p>
+        <p class="h6">h6. Bootstrap heading</p>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"h1"</span><span class="nt">&gt;</span>h1. Bootstrap heading<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"h2"</span><span class="nt">&gt;</span>h2. Bootstrap heading<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"h3"</span><span class="nt">&gt;</span>h3. Bootstrap heading<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"h4"</span><span class="nt">&gt;</span>h4. Bootstrap heading<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"h5"</span><span class="nt">&gt;</span>h5. Bootstrap heading<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"h6"</span><span class="nt">&gt;</span>h6. Bootstrap heading<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+    <h3 id="customizing-headings">定制标题样式</h3>
+
+    <p>使用包含的工具类创建 Bootstrap 3 的小辅助标题文本。</p>
+
+    <div class="bd-example">
+        <span class="h3">
+            Fancy display heading
+            <small class="text-muted">With faded secondary text</small>
+        </span>
+    </div>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h3&gt;</span>
+  Fancy display heading
+  <span class="nt">&lt;small</span> <span class="na">class=</span><span class="s">"text-muted"</span><span class="nt">&gt;</span>With faded secondary text<span class="nt">&lt;/small&gt;</span>
+<span class="nt">&lt;/h3&gt;</span></code></pre></figure>
+
+    <h2 id="display-headings">超大标题</h2>
+
+    <p>传统的标题元素旨在最好地处理页面内容。 当你需要更突出标题时，请考虑使用超大标题 - 更大，更醒目。</p>
+
+    <div class="bd-example bd-example-type">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td><span class="display-1">Display 1</span></td>
+                </tr>
+                <tr>
+                    <td><span class="display-2">Display 2</span></td>
+                </tr>
+                <tr>
+                    <td><span class="display-3">Display 3</span></td>
+                </tr>
+                <tr>
+                    <td><span class="display-4">Display 4</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-1"</span><span class="nt">&gt;</span>Display 1<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-2"</span><span class="nt">&gt;</span>Display 2<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-3"</span><span class="nt">&gt;</span>Display 3<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-4"</span><span class="nt">&gt;</span>Display 4<span class="nt">&lt;/h1&gt;</span></code></pre></figure>
+
+    <h2 id="lead">引言</h2>
+
+    <p>可以使用 <code class="highlighter-rouge">.lead</code> 来添加引言内容（字体比标题小一些）。</p>
+
+    <div class="bd-example">
+        <p class="lead">
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+        </p>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lead"</span><span class="nt">&gt;</span>
+  Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+    <h2 id="inline-text-elements">内联文本元素</h2>
+
+    <p>针对常见内联HTML5元素的样式。</p>
+
+    <div class="bd-example">
+        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+        <p><del>This line of text is meant to be treated as deleted text.</del></p>
+        <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+        <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+        <p><u>This line of text will render as underlined</u></p>
+        <p><small>This line of text is meant to be treated as fine print.</small></p>
+        <p><strong>This line rendered as bold text.</strong></p>
+        <p><em>This line rendered as italicized text.</em></p>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>You can use the mark tag to <span class="nt">&lt;mark&gt;</span>highlight<span class="nt">&lt;/mark&gt;</span> text.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;del&gt;</span>This line of text is meant to be treated as deleted text.<span class="nt">&lt;/del&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;s&gt;</span>This line of text is meant to be treated as no longer accurate.<span class="nt">&lt;/s&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;ins&gt;</span>This line of text is meant to be treated as an addition to the document.<span class="nt">&lt;/ins&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;u&gt;</span>This line of text will render as underlined<span class="nt">&lt;/u&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;small&gt;</span>This line of text is meant to be treated as fine print.<span class="nt">&lt;/small&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;strong&gt;</span>This line rendered as bold text.<span class="nt">&lt;/strong&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;em&gt;</span>This line rendered as italicized text.<span class="nt">&lt;/em&gt;&lt;/p&gt;</span></code></pre></figure>
+    
+<p><code class="highlighter-rouge">.mark</code>和<code class="highlighter-rouge">.small</code>类也可用于应用与<code class="highlighter-rouge">&lt;mark&gt;</code>和<code class="highlighter-rouge">&lt;small&gt;</code>相同的样式，同时避免标记带来的任何不必要的语义含义。</p>
+<p>虽然上面没有展示，但可以在HTML5中使用<code class="highlighter-rouge">&lt;b&gt;</code>和 <code class="highlighter-rouge">&lt;i&gt;</code> 。 <code class="highlighter-rouge">&lt;b&gt;</code>旨在突出显示单词或短语而不会传达额外的重要性，而 <code class="highlighter-rouge">&lt;i&gt;</code> 主要用于声音，技术术语等。</p>
+
+    <h2 id="text-utilities">文本工具</h2>
+
+    <p>使用文本工具和颜色工具更改文本对齐，转换，样式，重量和颜色。</p>
+
+    <h2 id="abbreviations">缩写</h2>
+    <p>用于缩写和首字母缩略词的HTML的 <code class="highlighter-rouge">&lt;abbr&gt;</code> 元素的程式化实现，以显示悬停时的扩展版本。 缩写具有默认下划线并获得帮助光标以提供有关悬停和辅助技术用户的其他上下文。</p>
+    <p>将<code class="highlighter-rouge">.initialism</code>添加到缩写中以获得略小的字体大小。</p>
+
+    <div class="bd-example">
+        <p><abbr title="attribute">attr</abbr></p>
+        <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;&lt;abbr</span> <span class="na">title=</span><span class="s">"attribute"</span><span class="nt">&gt;</span>attr<span class="nt">&lt;/abbr&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;&lt;abbr</span> <span class="na">title=</span><span class="s">"HyperText Markup Language"</span> <span class="na">class=</span><span class="s">"initialism"</span><span class="nt">&gt;</span>HTML<span class="nt">&lt;/abbr&gt;&lt;/p&gt;</span></code></pre></figure>
+
+    <h2 id="blockquotes">引用</h2>
+    <p>用于引用文档中其他来源的内容块。 将任何HTML包含在<code class="highlighter-rouge">&lt;blockquote class="blockquote"&gt;</code>里作为引用。</p>
+
+    <div class="bd-example">
+        <blockquote class="blockquote">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </blockquote>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;blockquote</span> <span class="na">class=</span><span class="s">"blockquote"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/blockquote&gt;</span></code></pre></figure>
+
+    <h3 id="naming-a-source">署名</h3>
+    <p>在 <code class="highlighter-rouge">&lt;footer class="blockquote-footer"&gt;</code> 里添加需要署名的内容。 并在 <code class="highlighter-rouge">&lt;cite&gt;</code> 里添加作者。</p>
+
+    <div class="bd-example">
+        <blockquote class="blockquote">
+            <p class="mb-0">我们中国的最伟大最永久，而且最普遍的“艺术”是男人扮女人。</p>
+            <footer class="blockquote-footer">来自 <cite title="Source Title">鲁迅</cite></footer>
+        </blockquote>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;blockquote</span> <span class="na">class=</span><span class="s">"blockquote"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>我们中国的最伟大最永久，而且最普遍的“艺术”是男人扮女人。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"blockquote-footer"</span><span class="nt">&gt;</span>来自 <span class="nt">&lt;cite</span> <span class="na">title=</span><span class="s">"Source Title"</span><span class="nt">&gt;</span>鲁迅<span class="nt">&lt;/cite&gt;&lt;/footer&gt;</span>
+<span class="nt">&lt;/blockquote&gt;</span></code></pre></figure>
+
+    <h3 id="alignment">对齐</h3>
+
+    <p>根据需要使用文本工具来更改 blockquote 的对齐方式。</p>
+
+    <div class="bd-example">
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;blockquote</span> <span class="na">class=</span><span class="s">"blockquote text-center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"blockquote-footer"</span><span class="nt">&gt;</span>Someone famous in <span class="nt">&lt;cite</span> <span class="na">title=</span><span class="s">"Source Title"</span><span class="nt">&gt;</span>Source Title<span class="nt">&lt;/cite&gt;&lt;/footer&gt;</span>
+<span class="nt">&lt;/blockquote&gt;</span></code></pre></figure>
+
+    <div class="bd-example">
+        <blockquote class="blockquote text-right">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;blockquote</span> <span class="na">class=</span><span class="s">"blockquote text-right"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-0"</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"blockquote-footer"</span><span class="nt">&gt;</span>Someone famous in <span class="nt">&lt;cite</span> <span class="na">title=</span><span class="s">"Source Title"</span><span class="nt">&gt;</span>Source Title<span class="nt">&lt;/cite&gt;&lt;/footer&gt;</span>
+<span class="nt">&lt;/blockquote&gt;</span></code></pre></figure>
+
+    <h2 id="lists">列表</h2>
+
+    <h3 id="unstyled">无特效列表</h3>
+
+    <p>删除列表项上的默认列表样式和左边距（仅限直接子项）。 仅适用于直接子列表项，这意味着你还需要为任何嵌套列表添加类。</p>
+
+    <div class="bd-example">
+        <ul class="list-unstyled">
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+            <li>Nulla volutpat aliquam velit
+                <ul>
+                    <li>Phasellus iaculis neque</li>
+                    <li>Purus sodales ultricies</li>
+                    <li>Vestibulum laoreet porttitor sem</li>
+                    <li>Ac tristique libero volutpat at</li>
+                </ul>
+            </li>
+            <li>Faucibus porta lacus fringilla vel</li>
+            <li>Aenean sit amet erat nunc</li>
+            <li>Eget porttitor lorem</li>
+        </ul>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-unstyled"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Lorem ipsum dolor sit amet<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Consectetur adipiscing elit<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Integer molestie lorem at massa<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Facilisis in pretium nisl aliquet<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Nulla volutpat aliquam velit
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Phasellus iaculis neque<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Purus sodales ultricies<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Vestibulum laoreet porttitor sem<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Ac tristique libero volutpat at<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Faucibus porta lacus fringilla vel<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Aenean sit amet erat nunc<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Eget porttitor lorem<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+    <h3 id="inline">行内列表</h3>
+    <p>删除列表的项目符号并使用两个类的组合应用一些微小的边距，使用 <code class="highlighter-rouge">.list-inline</code>和<code class="highlighter-rouge">.list-inline-item</code> 来实现。</p>
+
+    <div class="bd-example">
+        <ul class="list-inline">
+            <li class="list-inline-item">Lorem ipsum</li>
+            <li class="list-inline-item">Phasellus iaculis</li>
+            <li class="list-inline-item">Nulla volutpat</li>
+        </ul>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-inline-item"</span><span class="nt">&gt;</span>Lorem ipsum<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-inline-item"</span><span class="nt">&gt;</span>Phasellus iaculis<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-inline-item"</span><span class="nt">&gt;</span>Nulla volutpat<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+    <h3 id="description-list-alignment">描述内容的对齐</h3>
+    
+    <p>使用栅格系统的预定义类来对内容进行水平对齐。 对于较长的内容，你可以选择添加 <code class="highlighter-rouge">.text-truncate</code> 类来省略过长的内容。</p>
+
+    <div class="bd-example">
+        <dl class="row">
+            <dt class="col-sm-3">Description lists</dt>
+            <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+
+            <dt class="col-sm-3">Euismod</dt>
+            <dd class="col-sm-9">
+                <p>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</p>
+                <p>Donec id elit non mi porta gravida at eget metus.</p>
+            </dd>
+
+            <dt class="col-sm-3">Malesuada porta</dt>
+            <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
+
+            <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+            <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+
+            <dt class="col-sm-3">Nesting</dt>
+            <dd class="col-sm-9">
+                <dl class="row">
+                    <dt class="col-sm-4">Nested definition list</dt>
+                    <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
+                </dl>
+            </dd>
+        </dl>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;dl</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>Description lists<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"col-sm-9"</span><span class="nt">&gt;</span>A description list is perfect for defining terms.<span class="nt">&lt;/dd&gt;</span>
+
+  <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>Euismod<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"col-sm-9"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Donec id elit non mi porta gravida at eget metus.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/dd&gt;</span>
+
+  <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>Malesuada porta<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"col-sm-9"</span><span class="nt">&gt;</span>Etiam porta sem malesuada magna mollis euismod.<span class="nt">&lt;/dd&gt;</span>
+
+  <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"col-sm-3 text-truncate"</span><span class="nt">&gt;</span>Truncated term is truncated<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"col-sm-9"</span><span class="nt">&gt;</span>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.<span class="nt">&lt;/dd&gt;</span>
+
+  <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>Nesting<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"col-sm-9"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dl</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;dt</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>Nested definition list<span class="nt">&lt;/dt&gt;</span>
+      <span class="nt">&lt;dd</span> <span class="na">class=</span><span class="s">"col-sm-8"</span><span class="nt">&gt;</span>Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.<span class="nt">&lt;/dd&gt;</span>
+    <span class="nt">&lt;/dl&gt;</span>
+  <span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;/dl&gt;</span></code></pre></figure>
+
+    <h2 id="responsive-typography">响应式排版设计</h2>
+    
+    <p>响应式排版是指通过简单地在一系列媒体查询中调整根元素的 <code class="highlighter-rouge">font-size</code> 来缩放文本和组件。 Bootstrap 不会为你执行此操作，但如果你需要，它可以很容易地添加。</p>
+
+    <p>这是一个例子。 根据你希望的任何字体大小和媒体查询进行调整。</p>
+
+    <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nt">html</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nt">html</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="mi">.2rem</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">md</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nt">html</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="mi">.4rem</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">lg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nt">html</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="mi">.6rem</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+</div>

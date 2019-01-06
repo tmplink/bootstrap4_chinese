@@ -1,0 +1,24 @@
+<div class="bd-content">
+    <h1 class="bd-title" id="content">图像替换</h1>
+    <p class="bd-lead">使用图像替换类交换背景图像的文本。</p>         
+    <div class="bd-callout bd-callout-warning">
+        <h5 id="warning">警告</h5>
+        <p> <code class="highlighter-rouge">text-hide()</code> 自v4.1起，class和mixin已被弃用。 它将在v5中完全删除。</p>
+    </div>
+
+    <p>利用<code class="highlighter-rouge">.text-hide</code>class或mixin以帮助用背景图像替换元素的文本内容。</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"text-hide"</span><span class="nt">&gt;</span>Custom heading<span class="nt">&lt;/h1&gt;</span></code></pre></figure>
+
+    <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Usage as a mixin</span>
+<span class="nc">.heading</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">text-hide</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+    <p>使用 <code class="highlighter-rouge">.text-hide</code> 类来保持标题标签的可访问性和SEO优势，但是想要利用 <code class="highlighter-rouge">background-image</code> 而不是文字。</p>
+
+    <div class="bd-example">
+        <h1 class="text-hide" style="background-image: url('http://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg'); width: 50px; height: 50px;">Bootstrap</h1>
+    </div>
+    <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"text-hide"</span> <span class="na">style=</span><span class="s">"background-image: url('http://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg'); width: 50px; height: 50px;"</span><span class="nt">&gt;</span>Bootstrap<span class="nt">&lt;/h1&gt;</span></code></pre></figure>
+</div>
