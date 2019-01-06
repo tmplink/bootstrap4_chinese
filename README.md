@@ -3,7 +3,8 @@
 不过现在有了😄。   
 你可以随时通过查阅线上文档   
 
-[由vx.link提供的在线服务](http://bs4.vx.link)   
+[(全球) 由 vx.link 提供的在线文档](http://bs4.vx.link)   
+[(中国) 由 ntp.org.cn 提供的在线文档](http://bs4.ntp.org.cn/)   
 
 由于应用了Domloader动态加载技术以及浏览器跨域的限制，你无法在本地直接打开这个项目，至少需要架设一个HTTP服务才能让它跑起来！
 
