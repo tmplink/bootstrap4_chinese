@@ -1,6 +1,6 @@
 /*!
  * domloader.css
- * v2.0
+ * v2.2
  * https://github.com/tmplink/domloader/
  * 
  * Licensed GPLv3 © TMPLINK STUDIO
@@ -29,6 +29,7 @@ body{
     bottom: 0; 
     margin: auto;
     display:none;
+    text-align: center;
 }
 .domloader_progress {
     width: 180px;
