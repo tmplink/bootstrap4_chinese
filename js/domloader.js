@@ -1,6 +1,6 @@
 /*!
  * domloader.js
- * v2.3
+ * v3.2
  * https://github.com/tmplink/domloader/
  * 
  * Licensed GPLv3 © TMPLINK STUDIO
@@ -8,7 +8,9 @@
 
 var domloader = {
     queue: [],
-    queue_async:[],
+    queue_count: 0,
+    queue_total: 0,
+    queue_cache: [],
     queue_after: [],
     queue_preload: [],
     loading_page: false,
@@ -24,9 +26,9 @@ var domloader = {
     animation_stime: 0,
 
     preload: function (path) {
-        domloader.id++;
-        domloader.log('Preload::' + path);
-        domloader.queue_preload.push(
+        this.id++;
+        this.log('Preload::' + path);
+        this.queue_preload.push(
                 function () {
                     $.get(domloader.root + path, {v: Date.now()}, function (response) {
                         $('head').append(response);
@@ -37,47 +39,63 @@ var domloader = {
     },
 
     css: function (path) {
-        domloader.log('Include::CSS::' + path);
-        domloader.queue.push(
-                function () {
-                    domloader.id++;
-                    $('head').append("<link async id=\"domloader_" + domloader.id + "\" rel=\"stylesheet\" href=\"" + domloader.root + path + '?version=' + domloader.version + "\" >\n");
-                    $('#domloader_' + domloader.id).ready(function () {
-                        domloader.load(path);
-                    });
-                }
-        );
+        this.queue_count++;
+        this.queue_total++;
+        this.log('Include::CSS::' + path);
+        this.queue.push([
+            function () {
+                $.get(domloader.root + path, {v: domloader.version}, function () {
+                    domloader.async();
+                });
+            },
+            function () {
+                $('head').append("<link rel=\"stylesheet\" href=\"" + domloader.root + path + '?version=' + domloader.version + "\" >\n");
+                domloader.sync();
+            }
+        ]);
     },
-    
+
     html: function (dom, path) {
-        domloader.id++;
-        domloader.log('Include::HTML::' + path);
-        domloader.queue_async.push(
-                function () {
-                    domloader.load(path);
-                    $.get(domloader.root + path, {v: domloader.version}, function (response) {
-                        $(dom).replaceWith(response);
-                    }, 'text');
-                }
-        );
+        this.queue_count++;
+        this.queue_total++;
+        this.log('Include::HTML::' + path);
+        this.queue.push([
+            function () {
+                $.get(domloader.root + path, {v: domloader.version}, function () {
+                    domloader.async();
+                });
+            },
+            function () {
+                $.get(domloader.root + path, {v: domloader.version}, function (response) {
+                    $(dom).replaceWith(response);
+                    domloader.sync();
+                }, 'text');
+            }
+        ]);
     },
 
     js: function (path) {
-        domloader.log('Include::JS::' + path);
-        domloader.queue.push(
-                function () {
-                    $.get(domloader.root + path, {v: domloader.version}, function (response) {
-                        domloader.id++;
-                        $('body').append("<script id=\"domloader_" + domloader.id + "\" type=\"text/javascript\">\n" + response + "</script>\n");
-                        domloader.load(path);
-                    }, 'text');
-                }
-        );
+        this.queue_count++;
+        this.queue_total++;
+        this.log('Include::JS::' + path);
+        this.queue.push([
+            function () {
+                $.get(domloader.root + path, {v: domloader.version}, function () {
+                    domloader.async();
+                });
+            },
+            function () {
+                $.get(domloader.root + path, {v: domloader.version}, function (response) {
+                    $('body').append("<script type=\"text/javascript\">\n" + response + "</script>\n");
+                    domloader.sync();
+                }, 'text');
+            }
+        ]);
     },
 
-    load: function (src) {
-        if (domloader.queue_preload.length !== 0) {
-            var fn = domloader.queue_preload.shift();
+    load: function () {
+        if (this.queue_preload.length !== 0) {
+            var fn = this.queue_preload.shift();
             if (typeof (fn) === 'function') {
                 fn();
             }
@@ -85,56 +103,71 @@ var domloader = {
         } else {
             this.init_loading_page();
         }
-        if (domloader.queue.length === 0 && domloader.queue_async.length === 0) {
-            if (domloader.queue_after.length !== 0) {
+        if (this.queue.length === 0) {
+            if (this.queue_after.length !== 0) {
                 var cb = null;
-                for (cb in domloader.queue_after) {
-                    domloader.queue_after[cb]();
+                for (cb in this.queue_after) {
+                    this.queue_after[cb]();
                 }
             }
 
-            if (domloader.progressbar === false) {
+            if (this.progressbar === false) {
                 this.autofix();
             }
-            
+
         } else {
-            if (domloader.progressbar) {
-                domloader.total = domloader.queue.length;
-                domloader.progressbar = false;
+            if (this.progressbar) {
+                this.progressbar = false;
                 $('#domloader_loading_bg').show();
                 $('#domloader_loading_show').show();
             }
         }
-        if (typeof (src) !== 'undefined') {
-            var percent = Math.ceil((this.total - (this.queue.length+this.queue_async.length)) / this.total * 100);
-            if (domloader.animation) {
-                $('.domloader_curRate').animate({'width': percent + '%'}, this.animation_stime, function () {
-                    if (percent === 100) {
-                        $('#domloader_loading_show').fadeOut(300);
-                        $('#domloader_loading_bg').fadeOut(300);
-                        $('body').css('overflow', '');
-                    }
-                });
-            } else {
+        //
+        if (this.queue.length !== 0) {
+            var cb = null;
+            for (cb in this.queue) {
+                this.queue[cb][0]();
+            }
+        }
+    },
+
+    async: function () {
+        this.queue_count--;
+        if (this.queue_count === 0) {
+            domloader.log('Sync...');
+            this.sync();
+        } else {
+            this.draw();
+        }
+    },
+
+    sync: function () {
+        if (this.queue.length !== 0) {
+            var fn = this.queue.shift();
+            fn[1]();
+            return false;
+        } else {
+            this.draw();
+            this.load();
+        }
+    },
+
+    draw: function () {
+        var percent = Math.ceil((this.queue_total - this.queue_count) / this.queue_total * 100);
+        if (this.animation) {
+            $('.domloader_curRate').animate({'width': percent + '%'}, this.animation_stime, function () {
                 if (percent === 100) {
                     $('#domloader_loading_show').fadeOut(300);
                     $('#domloader_loading_bg').fadeOut(300);
                     $('body').css('overflow', '');
                 }
+            });
+        } else {
+            if (percent === 100) {
+                $('#domloader_loading_show').fadeOut(300);
+                $('#domloader_loading_bg').fadeOut(300);
+                $('body').css('overflow', '');
             }
-
-            domloader.log("Loaded::" + src);
-        }
-        if (domloader.queue_async.length !== 0) {
-            var fn = domloader.queue_async.shift();
-            if (typeof (fn) === 'function') {
-                fn();
-            }
-            return true;
-        }
-        var fn = domloader.queue.shift();
-        if (typeof (fn) === 'function') {
-            fn();
         }
     },
 
@@ -162,23 +195,21 @@ var domloader = {
     },
 
     init: function () {
-        $('body').ready(function () {
+        $(function () {
             $('body').css('overflow', 'hidden');
             $('body').append('<div id="domloader_loading_bg"></div>');
-        });
-        window.onload = function () {
             domloader.log('Page ready.Domloader start.');
             domloader.load();
-        };
+        });
     },
 
     animation_slice: function () {
-        if ((this.queue.length+this.queue_async.length) > 1) {
-            this.animation_stime = Math.ceil(this.animation_time / (this.queue.length+this.queue_async.length));
+        if (this.queue.length > 1) {
+            this.animation_stime = Math.ceil(this.animation_time / this.queue.length);
         } else {
             this.animation_stime = this.animation_time;
         }
-        console.log('Animation slice time: ' + this.animation_stime + ' ,total: ' + this.animation_time);
+        domloader.log('Animation slice time: ' + this.animation_stime + ' ,total: ' + this.animation_time);
     },
 
     init_loading_page: function () {
