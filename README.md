@@ -1,8 +1,6 @@
 # Bootstrap4 中文文档
-更新日期：2019.1.14    
-我们发现自 bootstrap4 稳定版本发布以来，竟然没有完善对应的中文文档！   
-不过现在有了😄。   
-你可以随时通过查阅线上文档   
+更新日期：2019.4.13  
+Bootstrap4 v4.3.1
 
 [(全球) 由 vx.link 提供的在线文档](http://bs4.vx.link)   
 [(中国) 由 ntp.org.cn 提供的在线文档](http://bs4.ntp.org.cn/)   
